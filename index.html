@@ -40,10 +40,8 @@ const A = {
   linhas_azul:    'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Linhas_Azul.png',
 };
 // Inject all as CSS vars so we can use them in background-image
-document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
   Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('${v}')`));
-});
 </script>
 
 <style>
@@ -68,8 +66,8 @@ html{scroll-behavior:smooth}
 body{font-family:'League Spartan',sans-serif;background:var(--navy3);color:var(--cream);overflow-x:hidden;cursor:none}
 
 /* ── CURSOR ─────────────────────────────── */
-#cur{position:fixed;width:9px;height:9px;background:var(--golden);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen}
-#cur2{position:fixed;width:34px;height:34px;border:1.5px solid rgba(197,112,64,.55);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .22s var(--ease)}
+#cur{position:fixed;top:0;left:0;width:9px;height:9px;background:var(--golden);border-radius:50%;pointer-events:none;z-index:9999;margin-left:-4.5px;margin-top:-4.5px;mix-blend-mode:screen;will-change:transform}
+#cur2{position:fixed;top:0;left:0;width:34px;height:34px;border:1.5px solid rgba(197,112,64,.55);border-radius:50%;pointer-events:none;z-index:9998;margin-left:-17px;margin-top:-17px;transition:width .2s,height .2s;will-change:transform}
 
 /* ── NAV ────────────────────────────────── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:28px 64px;display:flex;justify-content:space-between;align-items:center;transition:background .5s,padding .4s,border-color .5s}
@@ -215,8 +213,7 @@ h1.hero-title{font-size:clamp(52px,6.5vw,94px);font-weight:900;line-height:.94;l
 
 /* ── DELIVERABLES ───────────────────────── */
 .deliverables{background:var(--cream);color:var(--navy);padding:130px 0;position:relative;overflow:hidden}
-/* Luas Branca watermark */
-.deliverables::after{content:'';position:absolute;bottom:-40px;left:-60px;width:380px;height:380px;background-image:var(--img-luas_branca);background-size:contain;background-repeat:no-repeat;opacity:.07;pointer-events:none}
+/* Luas Branca watermark - REMOVED */
 .deliverables .sec-label{color:var(--orange)}.deliverables .sec-label::before{background:var(--orange)}
 .del-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:72px;gap:40px}
 .del-h{font-size:clamp(36px,4vw,52px);font-weight:900;line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;color:var(--navy);max-width:380px}
@@ -396,6 +393,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
   
   footer{flex-direction:column;gap:32px;padding:60px 24px 40px;text-align:center}
   .foot-bottom{flex-direction:column;align-items:center;gap:24px;text-align:center}
+  .foot-links{justify-content:center}
   
   /* Section Padding Adjustments */
   .problem, .transform, .portfolio, .deliverables, .process, .testimonials { padding: 80px 0; }
@@ -470,7 +468,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
   <div class="hero-r">
     <div class="hero-r-bg"></div>
     <div class="hero-r-pattern"></div>
-    <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/ChatGPT-Image-Feb-27-2026-05_12_39-AM-1.png" class="hero-main-img" alt="Hero Background">
+    <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/ChatGPT-Image-Feb-27-2026-05_12_39-AM-1.png" class="hero-main-img" alt="Hero Background" width="1920" height="1080" fetchpriority="high">
 
     <div class="hero-accent"></div>
   </div>
@@ -484,12 +482,12 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
     <div class="prob-grid">
       <div>
         <div class="sec-label reveal">O Diagnóstico</div>
-        <h2 class="prob-h reveal d1">Seu negócio evoluiu.<br><em>Sua marca ainda parece de começo?</em></h2>
-        <p class="prob-body reveal d2">À medida que você cresce, a comunicação deixa de ser "um logo" e vira um sistema. Quando cada peça sai de um jeito, a marca perde força e você perde percepção, confiança e preço.<br><br>Sinais comuns de uma marca que ficou para trás:</p>
+        <h2 class="prob-h reveal d1">Seu negócio evoluiu<br><em>Sua marca ainda parece de iniciante?</em></h2>
+        <p class="prob-body reveal d2">À medida que você cresce, a comunicação deixa de ser "uma logo" e vira um sistema. Quando cada peça sai de um jeito, a marca perde força e você perde percepção, confiança e preço.<br><br>Sinais comuns de uma marca que ficou para trás.</p>
       </div>
       <div class="pain-grid reveal d2">
         <div class="pain"><svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="4" y1="4" x2="20" y2="20"/></svg><div class="pain-title">Desorganização Visual</div><p class="pain-txt">Peças sem hierarquia e sem lógica visual ➝ sua comunicação parece amadora, mesmo com um bom produto.</p></div>
-        <div class="pain"><svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><div class="pain-title">Sem Padrão Definido</div><p class="pain-txt">Cada pessoa cria de um jeito ➝ a marca fica confusa e você não constrói memória no público.</p></div>
+        <div class="pain"><svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><div class="pain-title">Sem Padrão Definido</div><p class="pain-txt">Cada material é criado de um jeito ➝ a marca fica confusa e você não constrói memória no público.</p></div>
         <div class="pain"><svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 2v2"/><path d="M12 22v-2"/><path d="M12 8v4l3 3"/></svg><div class="pain-title">Imagem Ultrapassada</div><p class="pain-txt">O visual não reflete sua maturidade atual ➝ você cresce por dentro, mas parece pequena por fora.</p></div>
         <div class="pain"><svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M12 17v4"/><path d="M8 21h8"/><line x1="8" y1="13" x2="8" y2="7"/><line x1="12" y1="13" x2="12" y2="10"/><line x1="16" y1="13" x2="16" y2="5"/></svg><div class="pain-title">Baixa Percepção de Valor</div><p class="pain-txt">Quando a marca não sustenta o posicionamento, o cliente questiona e pechincha.</p></div>
       </div>
@@ -507,21 +505,21 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
   <div class="port-slider reveal d1">
     <div class="port-item">
       <div class="port-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/SITE-KABYTE-06-759x1024.png" class="port-img" alt="Kabyte">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/SITE-KABYTE-06-759x1024.png" class="port-img" alt="Kabyte" width="759" height="1024" loading="lazy">
         <div class="port-overlay-text">Kabyte</div>
       </div>
       <div class="port-cat">Tecnologia &amp; Internet</div>
     </div>
     <div class="port-item">
       <div class="port-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Site-OrlaFarma-07-807x1024.png" class="port-img" alt="Orla Farma">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Site-OrlaFarma-07-807x1024.png" class="port-img" alt="Orla Farma" width="807" height="1024" loading="lazy">
         <div class="port-overlay-text">Orla Farma</div>
       </div>
       <div class="port-cat">Saúde &amp; Bem-estar</div>
     </div>
     <div class="port-item">
       <div class="port-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Site-Sympa-06-759x1024.png" class="port-img" alt="Sympa">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Site-Sympa-06-759x1024.png" class="port-img" alt="Sympa" width="759" height="1024" loading="lazy">
         <div class="port-overlay-text">Sympa</div>
       </div>
       <div class="port-cat">Cafeteria</div>
@@ -529,7 +527,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
 
     <div class="port-item">
       <div class="port-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/SITE-TABOA-07-718x1024.png" class="port-img" alt="Taboa">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/SITE-TABOA-07-718x1024.png" class="port-img" alt="Taboa" width="718" height="1024" loading="lazy">
         <div class="port-overlay-text">Taboa</div>
       </div>
       <div class="port-cat">Gastronomia</div>
@@ -550,11 +548,11 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
       <div class="reveal d2">
         <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--golden);margin-bottom:24px">Quando sua marca funciona adequadamente:</h3>
         <ul class="benefits">
-          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Clareza imediata</strong><p class="btxt" style="font-size:14px">Em segundos, a pessoa entende o que você faz e por que isso importa.</p></div></li>
+          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Clareza imediata</strong><p class="btxt" style="font-size:14px">Em segundos, a pessoa entende o que você faz e por que isso importa</p></div></li>
           <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Menos negociação de preço</strong><p class="btxt" style="font-size:14px">A conversa muda de "quanto custa?" para "como começamos?"</p></div></li>
           <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Reconhecimento que gera indicação</strong><p class="btxt" style="font-size:14px">As pessoas lembram e indicam seu negócio corretamente</p></div></li>
           <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Materiais profissionais sem travar</strong><p class="btxt" style="font-size:14px">Do Instagram à proposta, você tem base pronta para comunicar com segurança</p></div></li>
-          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Autoridade visual (sem parecer "genérico")</strong><p class="btxt" style="font-size:14px">Você entra na disputa com marcas maiores no mesmo nível de presença.</p></div></li>
+          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Autoridade visual (sem parecer "genérico")</strong><p class="btxt" style="font-size:14px">Você entra na disputa com marcas maiores no mesmo nível de presença</p></div></li>
         </ul>
       </div>
     </div>
@@ -581,7 +579,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
         <div class="sec-label reveal">O Que Você Recebe</div>
         <h2 class="del-h reveal d1">Todo projeto ÉLOW<em>inclui:</em></h2>
       </div>
-      <p class="del-note reveal d2">Não é só um logo — é um sistema completo de identidade construído para durar e comunicar com consistência.</p>
+      <p class="del-note reveal d2">Não é só uma logo — é um sistema completo de identidade construído para durar e comunicar com consistência.</p>
     </div>
     <div class="del-grid">
       <div class="del-card reveal"><div class="del-num">01</div><svg class="del-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 12l10 10 10-10L12 2z"/><path d="M12 8L8 12l4 4 4-4-4-4z"/></svg><div class="del-title">Identidade Visual</div><ul class="del-list"><li>Sistema completo de logo</li><li>Paleta de cores</li><li>Tipografia</li><li>Elementos visuais</li></ul></div>
@@ -604,8 +602,8 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
     </div>
     <div class="about-content">
       <div class="sec-label reveal" style="color:var(--golden)">Quem Somos</div>
-      <h2 class="about-h reveal d1">Mais de 15 anos elevando marcas<em>que importam.</em></h2>
-      <p class="about-body reveal d2">A ÉLOW nasceu da convicção de que toda empresa merece uma identidade visual à altura do trabalho que realiza. Com mais de 15 anos atendendo mercados brasileiro e internacional, transformamos negócios consolidados que ainda comunicam como se fossem de começo.<br><br>Nossa abordagem combina rigor estratégico com execução impecável — porque uma marca forte não é luxo, é a fundação de tudo que vem depois.</p>
+      <h2 class="about-h reveal d1">Mais de 15 anos elevando marcas<em>que importam</em></h2>
+      <p class="about-body reveal d2">A ÉLOW nasceu da convicção de que toda empresa merece uma identidade visual à altura do trabalho que realiza. Com mais de 15 anos atendendo os mercados brasileiro e internacional, transformamos negócios consolidados que ainda comunicam como se fossem iniciantes.<br><br>Nossa abordagem combina rigor estratégico com execução impecável — porque uma marca forte não é luxo, é a fundação de tudo que vem depois.</p>
       <div class="badges reveal d3">
         <span class="badge">Estratégia de Marca</span>
         <span class="badge">Design de Alto Nível</span>
@@ -645,7 +643,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
         <div class="snake-marker">2</div>
         <div class="snake-text">
           <h3 class="snake-title">Definição do sistema visual</h3>
-          <p class="snake-desc">Estabelecendo a fundação: cores, tipografia, linguagem visual.</p>
+          <p class="snake-desc">Estabelecendo a fundação: cores, tipografia, linguagem visual</p>
         </div>
       </div>
 
@@ -659,7 +657,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
         <div class="snake-marker">3</div>
         <div class="snake-text">
           <h3 class="snake-title">Desenvolvimento e refinamento do design</h3>
-          <p class="snake-desc">Criando sua identidade completa com feedback iterativo.</p>
+          <p class="snake-desc">Criando sua identidade completa com feedback iterativo</p>
         </div>
       </div>
 
@@ -673,7 +671,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
         <div class="snake-marker">4</div>
         <div class="snake-text">
           <h3 class="snake-title">Entrega e suporte de implementação</h3>
-          <p class="snake-desc">Fornecendo todos os arquivos e orientação para uso confiante.</p>
+          <p class="snake-desc">Fornecendo todos os arquivos e orientação para uso confiante</p>
         </div>
       </div>
     </div>
@@ -686,9 +684,9 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
     <div class="sec-label reveal">Histórias Reais</div>
     <h2 class="test-h reveal d1">Histórias de quem<em>elevou sua marca</em></h2>
     <div class="test-grid">
-      <div class="test-card reveal"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Simplesmente incrível, a sensibilidade em entender o propósito da marca e traduzir um sentimento em imagem, elas foram muito competentes em todos os quesitos Só agradecer por ter conhecido vocês."</p><div class="test-author"><img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/23fc226e-3397-4845-899a-34ad42c16105.jpeg" class="avatar" alt="Zuza Visagista"><div><div class="a-name">Zuza Visagista</div></div></div></div>
-      <div class="test-card reveal d1"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"O trabalho delas é incrível. Conseguem captar de forma única a essência da marca, criando algo original e impactante. Um investimento essencial que traz um retorno muito maior do que o investido."</p><div class="test-author"><img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Screenshot-2026-01-13-at-17.31.48.png" class="avatar" alt="José Maurício Neto"><div><div class="a-name">José Maurício Neto</div></div></div></div>
-      <div class="test-card reveal d2"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Atendimento acessível é realmente estudam o cliente e entregam um resultado de alta qualidade. Trabalho feito de forma artesanal"</p><div class="test-author"><img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/3c9a6776-fdb3-4821-9a09-77bb9ebef57c-e1768317734907.jpeg" class="avatar" alt="Ilan Leibel Swartzman"><div><div class="a-name">Ilan Leibel Swartzman</div></div></div></div>
+      <div class="test-card reveal"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Simplesmente incrível, a sensibilidade em entender o propósito da marca e traduzir um sentimento em imagem, elas foram muito competentes em todos os quesitos. Só agradecer por ter conhecido vocês."</p><div class="test-author"><img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/23fc226e-3397-4845-899a-34ad42c16105.jpeg" class="avatar" alt="Zuza Visagista" width="42" height="42" loading="lazy"><div><div class="a-name">Zuza Visagista</div></div></div></div>
+      <div class="test-card reveal d1"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"O trabalho delas é incrível. Conseguem captar de forma única a essência da marca, criando algo original e impactante. Um investimento essencial que traz um retorno muito maior do que o investido."</p><div class="test-author"><img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Screenshot-2026-01-13-at-17.31.48.png" class="avatar" alt="José Maurício Neto" width="42" height="42" loading="lazy"><div><div class="a-name">José Maurício Neto</div></div></div></div>
+      <div class="test-card reveal d2"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Atendimento acessível. Elas realmente estudam o cliente e entregam um resultado de alta qualidade. Trabalho feito de forma artesanal."</p><div class="test-author"><img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/3c9a6776-fdb3-4821-9a09-77bb9ebef57c-e1768317734907.jpeg" class="avatar" alt="Ilan Leibel Swartzman" width="42" height="42" loading="lazy"><div><div class="a-name">Ilan Leibel Swartzman</div></div></div></div>
     </div>
   </div>
 </section>
@@ -699,7 +697,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
     <div class="cta-inner">
       <div>
         <h2 class="cta-h">Pronto para organizar sua marca e subir o nível da percepção?</h2>
-        <p class="cta-body">Envie uma mensagem e em breve um de nossos especialistas entrará em contato para entender seu projeto e dar os próximos passos.</p>
+        <p class="cta-body">Envie uma mensagem e em breve uma de nossas especialistas entrará em contato para entender seu projeto e dar os próximos passos.</p>
       </div>
       <div class="cta-right">
         <a href="https://wa.me/5521395083620" class="btn-cta">Quero profissionalizar minha marca →</a>
@@ -712,7 +710,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
 <footer>
   <div class="wrap">
     <div class="foot-content">
-      <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img">
+      <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy">
       
       <div class="foot-links">
         <a href="#">Política de Privacidade</a>
@@ -736,8 +734,13 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
 /* CURSOR */
 const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
 let mx=0,my=0,fx=0,fy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-(function tick(){fx+=(mx-fx)*.13;fy+=(my-fy)*.13;cur2.style.left=fx+'px';cur2.style.top=fy+'px';requestAnimationFrame(tick);})();
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function tick(){
+  fx+=(mx-fx)*.13;fy+=(my-fy)*.13;
+  cur.style.transform=`translate3d(${mx}px,${my}px,0)`;
+  cur2.style.transform=`translate3d(${fx}px,${fy}px,0)`;
+  requestAnimationFrame(tick);
+})();
 
 /* NAV */
 const nav=document.getElementById('nav');
@@ -760,14 +763,17 @@ function countTo(el,end,suffix='',duration=1400){
   };
   run();
 }
-setTimeout(()=>{
-  // Hero stats removed
-  // Stats bar animation
-  countTo(document.getElementById('sb1'),15,'<sup>+</sup>');
-  countTo(document.getElementById('sb2'),350,'<sup>+</sup>');
-  countTo(document.getElementById('sb3'),11);
-  countTo(document.getElementById('sb4'),40,'<sup>+</sup>');
-},1100);
+
+const statsObserver = new IntersectionObserver((entries) => {
+  if(entries[0].isIntersecting) {
+    countTo(document.getElementById('sb1'),15,'<sup>+</sup>');
+    countTo(document.getElementById('sb2'),350,'<sup>+</sup>');
+    countTo(document.getElementById('sb3'),11);
+    countTo(document.getElementById('sb4'),40,'<sup>+</sup>');
+    statsObserver.disconnect();
+  }
+}, {threshold: 0.5});
+statsObserver.observe(document.querySelector('.stats-bar'));
 </script>
 </body>
 </html>
