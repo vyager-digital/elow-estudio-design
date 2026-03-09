@@ -417,7 +417,18 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
   .hero-stats { flex-wrap: wrap; justify-content: center; gap: 24px 12px; }
   .hs-item { width: calc(50% - 12px); align-items: center; text-align: center; }
 }
+button{font-family:inherit;cursor:pointer;border:none}
+/* ===== HubSpot Modal ===== */
+#hs-modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,24,30,.88);z-index:10000;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(6px)}
+#hs-modal-overlay.open{display:flex}
+#hs-modal{background:var(--navy);position:relative;width:100%;max-width:560px;padding:52px 48px 48px;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 24px,100% 100%,24px 100%,0 calc(100% - 24px))}
+#hs-modal-close{position:absolute;top:18px;right:18px;background:none;border:none;color:var(--cream);opacity:.45;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px;transition:opacity .2s}
+#hs-modal-close:hover{opacity:1}
+#hs-modal-title{font-size:clamp(18px,2.5vw,26px);font-weight:900;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream);margin-bottom:8px}
+#hs-modal-sub{font-size:13px;color:rgba(248,235,206,.5);margin-bottom:32px;line-height:1.5}
+@media(max-width:480px){#hs-modal{padding:44px 24px 32px;clip-path:none}}
 </style>
+<script src="https://js-eu1.hsforms.net/forms/embed/147712865.js" defer></script>
 </head>
 <body>
 
@@ -429,7 +440,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
   <a href="#" class="nav-logo">
     <img id="nav-logo-img" src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
   </a>
-  <a href="https://wa.me/5521992247324" class="nav-cta">Quero minha identidade</a>
+  <button onclick="openHsModal()" class="nav-cta">Quero minha identidade</button>
 </nav>
 
 <!-- HERO -->
@@ -444,10 +455,10 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
     <p style="font-size:24px;font-weight:700;color:var(--cream);margin-top:24px;line-height:1.2;text-transform:none;max-width:500px">Para pequenas empresas prontas para crescer</p>
     <p class="hero-body" style="margin-top:16px;line-height:1.78;margin-bottom:46px">Conquiste a presença e a autoridade que o mercado exige através de design e direção criativa.</p>
     <div class="hero-btns">
-      <a href="https://wa.me/5521992247324" class="btn-primary">
+      <button onclick="openHsModal()" class="btn-primary">
         <span>Quero profissionalizar minha marca</span>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+      </button>
 
     </div>
     <div class="hero-stats">
@@ -704,7 +715,7 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
         <p class="cta-body">Envie uma mensagem e em breve uma de nossas especialistas entrará em contato para entender seu projeto e dar os próximos passos.</p>
       </div>
       <div class="cta-right">
-        <a href="https://wa.me/5521992247324" class="btn-cta">Quero profissionalizar minha marca →</a>
+        <button onclick="openHsModal()" class="btn-cta">Quero profissionalizar minha marca →</button>
       </div>
     </div>
   </div>
@@ -778,6 +789,25 @@ const statsObserver = new IntersectionObserver((entries) => {
   }
 }, {threshold: 0.5});
 statsObserver.observe(document.querySelector('.stats-bar'));
+</script>
+
+<!-- HubSpot Modal -->
+<div id="hs-modal-overlay" role="dialog" aria-modal="true" aria-label="Formulário de contato">
+  <div id="hs-modal">
+    <button id="hs-modal-close" aria-label="Fechar">&times;</button>
+    <p id="hs-modal-title">Vamos profissionalizar<br>sua marca</p>
+    <p id="hs-modal-sub">Preencha o formulário e entraremos em contacto.</p>
+    <div class="hs-form-frame" data-region="eu1" data-form-id="456f7d72-ee38-4af5-a878-e9b666a4d925" data-portal-id="147712865"></div>
+  </div>
+</div>
+
+<script>
+  const hsOverlay = document.getElementById('hs-modal-overlay');
+  function openHsModal(){ hsOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeHsModal(){ hsOverlay.classList.remove('open'); document.body.style.overflow=''; }
+  document.getElementById('hs-modal-close').addEventListener('click', closeHsModal);
+  hsOverlay.addEventListener('click', function(e){ if(e.target === hsOverlay) closeHsModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeHsModal(); });
 </script>
 </body>
 </html>
