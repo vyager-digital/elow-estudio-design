@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.googleapis.com)",
+      "WebFetch(domain:pagespeed.web.dev)",
+      "WebFetch(domain:elowestudiodesign.com.br)",
+      "Bash(cwebp:*)",
+      "Bash(sips:*)",
+      "Bash(du:*)",
+      "Bash(ls:*)",
+      "Bash(convert:*)",
+      "Bash(python3:*)"
+    ]
+  }
+}
