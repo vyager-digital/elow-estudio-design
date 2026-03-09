@@ -427,6 +427,22 @@ button{font-family:inherit;cursor:pointer;border:none}
 #hs-modal-close:hover{opacity:1}
 #hs-modal-title{font-size:clamp(18px,2.5vw,26px);font-weight:900;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream);margin-bottom:8px}
 #hs-modal-sub{font-size:13px;color:rgba(248,235,206,.5);margin-bottom:32px;line-height:1.5}
+/* Force HubSpot form to work on dark background */
+#hs-modal .hs-form-frame{color-scheme:dark}
+#hs-modal label{color:rgba(248,235,206,.75) !important;font-size:12px !important;font-weight:600 !important;letter-spacing:.06em !important;text-transform:uppercase !important;margin-bottom:6px !important;display:block !important}
+#hs-modal input[type=text],#hs-modal input[type=email],#hs-modal input[type=tel],#hs-modal input[type=number],#hs-modal select,#hs-modal textarea{background:rgba(255,255,255,.07) !important;border:1px solid rgba(248,235,206,.18) !important;color:var(--cream) !important;padding:12px 14px !important;font-family:inherit !important;font-size:14px !important;width:100% !important;box-sizing:border-box !important;border-radius:0 !important;outline:none !important}
+#hs-modal input::placeholder,#hs-modal textarea::placeholder{color:rgba(248,235,206,.3) !important}
+#hs-modal input:focus,#hs-modal select:focus,#hs-modal textarea:focus{border-color:var(--orange) !important}
+#hs-modal select option{background:var(--navy) !important;color:var(--cream) !important}
+#hs-modal .hs-form-field{margin-bottom:18px !important}
+#hs-modal .hs-error-msgs{list-style:none !important;padding:0 !important;margin:4px 0 0 !important}
+#hs-modal .hs-error-msgs li label{color:var(--orange) !important;font-size:11px !important;text-transform:none !important;letter-spacing:0 !important}
+#hs-modal .hs-button{background:var(--orange) !important;color:var(--cream) !important;border:none !important;padding:16px 40px !important;font-family:inherit !important;font-size:12px !important;font-weight:700 !important;letter-spacing:.12em !important;text-transform:uppercase !important;cursor:pointer !important;width:100% !important;margin-top:8px !important}
+#hs-modal .hs-button:hover{background:var(--golden) !important}
+#hs-modal .legal-consent-container{color:rgba(248,235,206,.45) !important;font-size:11px !important}
+#hs-modal .legal-consent-container a{color:var(--golden) !important}
+#hs-modal .inputs-list{list-style:none !important;padding:0 !important}
+#hs-modal .inputs-list label{text-transform:none !important;letter-spacing:0 !important;font-size:13px !important}
 @media(max-width:480px){#hs-modal{padding:44px 24px 32px}}
 </style>
 <script src="https://js-eu1.hsforms.net/forms/embed/147712865.js" defer></script>
