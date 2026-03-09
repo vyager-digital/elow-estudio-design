@@ -420,14 +420,14 @@ footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197
 }
 button{font-family:inherit;cursor:pointer;border:none}
 /* ===== HubSpot Modal ===== */
-#hs-modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,24,30,.88);z-index:10000;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(6px)}
+#hs-modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,24,30,.88);z-index:10000;align-items:flex-start;justify-content:center;padding:40px 24px;backdrop-filter:blur(6px);overflow-y:auto}
 #hs-modal-overlay.open{display:flex}
-#hs-modal{background:var(--navy);position:relative;width:100%;max-width:560px;padding:52px 48px 48px;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 24px,100% 100%,24px 100%,0 calc(100% - 24px))}
+#hs-modal{background:var(--navy);position:relative;width:100%;max-width:560px;padding:52px 48px 48px;flex-shrink:0;border:1px solid rgba(197,112,64,.2)}
 #hs-modal-close{position:absolute;top:18px;right:18px;background:none;border:none;color:var(--cream);opacity:.45;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px;transition:opacity .2s}
 #hs-modal-close:hover{opacity:1}
 #hs-modal-title{font-size:clamp(18px,2.5vw,26px);font-weight:900;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream);margin-bottom:8px}
 #hs-modal-sub{font-size:13px;color:rgba(248,235,206,.5);margin-bottom:32px;line-height:1.5}
-@media(max-width:480px){#hs-modal{padding:44px 24px 32px;clip-path:none}}
+@media(max-width:480px){#hs-modal{padding:44px 24px 32px}}
 </style>
 <script src="https://js-eu1.hsforms.net/forms/embed/147712865.js" defer></script>
 </head>
@@ -483,7 +483,6 @@ button{font-family:inherit;cursor:pointer;border:none}
   </div>
   <div class="hero-r">
     <div class="hero-r-bg"></div>
-    <div class="hero-r-pattern"></div>
     <img src="assets/images/ChatGPT-Image-Feb-27-2026-05_12_39-AM-1.png" class="hero-main-img" alt="Hero Background" width="1920" height="1080" fetchpriority="high">
 
     <div class="hero-accent"></div>
