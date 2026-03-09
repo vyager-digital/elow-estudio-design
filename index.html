@@ -67,8 +67,8 @@ html{scroll-behavior:smooth}
 body{font-family:'League Spartan',sans-serif;background:var(--navy3);color:var(--cream);overflow-x:hidden;cursor:none}
 
 /* ── CURSOR ─────────────────────────────── */
-#cur{position:fixed;top:0;left:0;width:9px;height:9px;background:var(--golden);border-radius:50%;pointer-events:none;z-index:9999;margin-left:-4.5px;margin-top:-4.5px;mix-blend-mode:screen;will-change:transform}
-#cur2{position:fixed;top:0;left:0;width:34px;height:34px;border:1.5px solid rgba(197,112,64,.55);border-radius:50%;pointer-events:none;z-index:9998;margin-left:-17px;margin-top:-17px;transition:width .2s,height .2s;will-change:transform}
+#cur{position:fixed;top:0;left:0;width:9px;height:9px;background:var(--golden);border-radius:50%;pointer-events:none;z-index:10002;margin-left:-4.5px;margin-top:-4.5px;mix-blend-mode:screen;will-change:transform}
+#cur2{position:fixed;top:0;left:0;width:34px;height:34px;border:1.5px solid rgba(197,112,64,.55);border-radius:50%;pointer-events:none;z-index:10001;margin-left:-17px;margin-top:-17px;transition:width .2s,height .2s;will-change:transform}
 
 /* ── NAV ────────────────────────────────── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:28px 64px;display:flex;justify-content:space-between;align-items:center;transition:background .5s,padding .4s,border-color .5s}
@@ -423,7 +423,7 @@ button{font-family:inherit;cursor:pointer;border:none}
 #hs-modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,24,30,.88);z-index:10000;align-items:flex-start;justify-content:center;padding:40px 24px;backdrop-filter:blur(6px);overflow-y:auto}
 #hs-modal-overlay.open{display:flex}
 #hs-modal{background:var(--navy);position:relative;width:100%;max-width:560px;padding:52px 48px 48px;flex-shrink:0;border:1px solid rgba(197,112,64,.2)}
-#hs-modal-close{position:absolute;top:18px;right:18px;background:none;border:none;color:var(--cream);opacity:.45;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px;transition:opacity .2s}
+#hs-modal-close{position:absolute;top:18px;right:18px;background:none;border:none;color:var(--cream);opacity:.45;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px;transition:opacity .2s;z-index:10}
 #hs-modal-close:hover{opacity:1}
 #hs-modal-title{font-size:clamp(18px,2.5vw,26px);font-weight:900;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream);margin-bottom:8px}
 #hs-modal-sub{font-size:13px;color:rgba(248,235,206,.5);margin-bottom:32px;line-height:1.5}
