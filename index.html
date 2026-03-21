@@ -490,7 +490,16 @@ function setLang(lang){
   }
   var match=document.cookie.match(/googtrans=\/pt\/([a-z]+)/);
   var active=match?match[1]:'pt';
-  function hl(){var b=document.querySelector('#elow-wrapper [data-lang="'+active+'"]');if(b)b.classList.add('active')}
+  var manualEN={line1:'Strategic',line2:'Visual',line3:'Identity'};
+  var manualES={line1:'Identidad',line2:'Visual',line3:'Estratégica'};
+  function hl(){
+    var b=document.querySelector('#elow-wrapper [data-lang="'+active+'"]');if(b)b.classList.add('active');
+    var t=active==='en'?manualEN:active==='es'?manualES:null;
+    if(t){
+      var l1=document.getElementById('ht-line1');var l2=document.getElementById('ht-line2');var l3=document.getElementById('ht-line3');
+      if(l1)l1.textContent=t.line1;if(l2)l2.textContent=t.line2;if(l3)l3.textContent=t.line3;
+    }
+  }
   document.readyState==='loading'?document.addEventListener('DOMContentLoaded',hl):hl();
 })();
 </script>
@@ -517,10 +526,10 @@ function setLang(lang){
 <section class="hero">
   <div class="hero-l">
     <div class="hero-eyebrow">MAIS DE 15 ANOS DE EXCELÊNCIA</div>
-    <h1 class="hero-title">
-      Identidade
-      <span class="accent">Visual</span>
-      <span class="sub">Estratégica</span>
+    <h1 class="hero-title" translate="no" id="hero-title">
+      <span id="ht-line1">Identidade</span>
+      <span class="accent" id="ht-line2">Visual</span>
+      <span class="sub" id="ht-line3">Estratégica</span>
     </h1>
     <p style="font-size:24px;font-weight:700;color:var(--cream);margin-top:24px;line-height:1.2;text-transform:none;max-width:500px">Para pequenas empresas prontas para crescer</p>
     <p class="hero-body" style="margin-top:16px;line-height:1.78;margin-bottom:46px">Conquiste a presença e a autoridade que o mercado exige através de design e direção criativa.</p>
