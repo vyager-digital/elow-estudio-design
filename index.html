@@ -452,8 +452,10 @@ body {cursor:auto}
 
 
 /* ── LANG SWITCHER ── */
-.goog-te-banner-frame,.skiptranslate{display:none!important}
-body{top:0!important}
+.goog-te-banner-frame,.skiptranslate{display:none!important;height:0!important}
+body{top:0!important;margin-top:0!important}
+body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
+#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
 #elow-wrapper .lang-switcher{display:flex;align-items:center;gap:4px}
 #elow-wrapper .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.5);font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:.08em;padding:4px 9px;border-radius:2px;cursor:pointer;transition:all .15s;min-height:32px}
 #elow-wrapper .lang-btn:hover{border-color:var(--orange);color:var(--orange)}
