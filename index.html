@@ -470,8 +470,9 @@ function googleTranslateElementInit(){new google.translate.TranslateElement({pag
 function setLang(lang){
   document.querySelectorAll('#elow-wrapper .lang-btn').forEach(b=>b.classList.remove('active'));
   document.querySelector('#elow-wrapper [data-lang="'+lang+'"]').classList.add('active');
+  if(lang==='pt'){location.href=location.pathname+location.search;return}
   var s=document.querySelector('.goog-te-combo');
-  if(s){s.value=lang==='pt'?'':lang;s.dispatchEvent(new Event('change'))}
+  if(s){s.value=lang;s.dispatchEvent(new Event('change'))}
 }
 window.addEventListener('DOMContentLoaded',function(){
   var hash=window.location.hash;
