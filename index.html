@@ -457,7 +457,7 @@ body{top:0!important;margin-top:0!important}
 body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
 #goog-gt-tt,.goog-te-balloon-frame{display:none!important}
 #elow-wrapper .lang-switcher{display:flex;align-items:center;gap:4px}
-#elow-wrapper .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.5);font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:.08em;padding:4px 9px;border-radius:2px;cursor:pointer;transition:all .15s;min-height:32px}
+#elow-wrapper .lang-btn{background:transparent;border:none;color:rgba(255,255,255,0.3);font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.65rem;letter-spacing:.1em;padding:2px 5px;border-radius:2px;cursor:pointer;transition:all .15s;min-height:0}
 #elow-wrapper .lang-btn:hover{border-color:var(--orange);color:var(--orange)}
 #elow-wrapper .lang-btn.active{border-color:var(--orange);color:var(--orange);background:rgba(197,112,64,.1)}
 
@@ -514,12 +514,14 @@ function setLang(lang){
   <a href="#" class="nav-logo">
     <img id="nav-logo-img" src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
   </a>
-  <div class="lang-switcher">
-    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
-    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+  <div style="display:flex;align-items:center;gap:16px;margin-left:auto">
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+    </div>
+    <a href="#" onclick="openHsModal();return false;" class="nav-cta">Quero minha identidade</a>
   </div>
-  <a href="#" onclick="openHsModal();return false;" class="nav-cta">Quero minha identidade</a>
 </nav>
 
 <!-- HERO -->
