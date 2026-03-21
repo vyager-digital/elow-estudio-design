@@ -450,12 +450,38 @@ body {cursor:auto}
 @media(max-width:480px){#elow-wrapper #hs-modal{padding:44px 24px 32px}}
 
 
+
+/* ── LANG SWITCHER ── */
+.goog-te-banner-frame,.skiptranslate{display:none!important}
+body{top:0!important}
+#elow-wrapper .lang-switcher{display:flex;align-items:center;gap:4px}
+#elow-wrapper .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.5);font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:.08em;padding:4px 9px;border-radius:2px;cursor:pointer;transition:all .15s;min-height:32px}
+#elow-wrapper .lang-btn:hover{border-color:var(--orange);color:var(--orange)}
+#elow-wrapper .lang-btn.active{border-color:var(--orange);color:var(--orange);background:rgba(197,112,64,.1)}
+
 </style>
 
 <!-- 4. HTML CONTENT -->
 
 <div id="elow-wrapper">
 <script src="https://js-eu1.hsforms.net/forms/embed/147712865.js" defer></script>
+<script>
+function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'pt',autoDisplay:false},'gt-hidden-elow')}
+function setLang(lang){
+  document.querySelectorAll('#elow-wrapper .lang-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('#elow-wrapper [data-lang="'+lang+'"]').classList.add('active');
+  var s=document.querySelector('.goog-te-combo');
+  if(s){s.value=lang==='pt'?'':lang;s.dispatchEvent(new Event('change'))}
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var hash=window.location.hash;
+  var initLang=hash.includes('googtrans(pt|en)')?'en':hash.includes('googtrans(pt|es)')?'es':'pt';
+  document.querySelector('#elow-wrapper [data-lang="'+initLang+'"]').classList.add('active');
+  if(initLang!=='pt'){setTimeout(function(){var s=document.querySelector('.goog-te-combo');if(s){s.value=initLang;s.dispatchEvent(new Event('change'))}},1500)}
+});
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<div id="gt-hidden-elow" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;"></div>
 
 <div id="cur"></div>
 <div id="cur2"></div>
@@ -465,6 +491,11 @@ body {cursor:auto}
   <a href="#" class="nav-logo">
     <img id="nav-logo-img" src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
   </a>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+  </div>
   <a href="#" onclick="openHsModal();return false;" class="nav-cta">Quero minha identidade</a>
 </nav>
 
