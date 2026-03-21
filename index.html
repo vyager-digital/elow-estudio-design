@@ -470,18 +470,29 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
 <script>
 function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'pt',autoDisplay:false},'gt-hidden-elow')}
 function setLang(lang){
-  document.querySelectorAll('#elow-wrapper .lang-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector('#elow-wrapper [data-lang="'+lang+'"]').classList.add('active');
-  if(lang==='pt'){location.href=location.pathname+location.search;return}
-  var s=document.querySelector('.goog-te-combo');
-  if(s){s.value=lang;s.dispatchEvent(new Event('change'))}
+  var d=location.hostname;
+  if(lang==='pt'){
+    document.cookie='googtrans=;expires=Thu,01 Jan 1970 00:00:00 UTC;path=/;';
+    document.cookie='googtrans=;expires=Thu,01 Jan 1970 00:00:00 UTC;path=/;domain='+d;
+  } else {
+    document.cookie='googtrans=/pt/'+lang+';path=/';
+    document.cookie='googtrans=/pt/'+lang+';path=/;domain='+d;
+  }
+  location.href=location.pathname+location.search;
 }
-window.addEventListener('DOMContentLoaded',function(){
-  var hash=window.location.hash;
-  var initLang=hash.includes('googtrans(pt|en)')?'en':hash.includes('googtrans(pt|es)')?'es':'pt';
-  document.querySelector('#elow-wrapper [data-lang="'+initLang+'"]').classList.add('active');
-  if(initLang!=='pt'){var _a=0,_i=setInterval(function(){var s=document.querySelector('.goog-te-combo');if(s){s.value=initLang;s.dispatchEvent(new Event('change'));clearInterval(_i)}if(++_a>30)clearInterval(_i)},100)}
-});
+(function(){
+  var hash=location.hash;
+  if(hash.includes('googtrans(pt|')){
+    var lang=hash.includes('|en)')?'en':'es';
+    document.cookie='googtrans=/pt/'+lang+';path=/';
+    document.cookie='googtrans=/pt/'+lang+';path=/;domain='+location.hostname;
+    history.replaceState(null,'',location.pathname+location.search);
+  }
+  var match=document.cookie.match(/googtrans=\/pt\/([a-z]+)/);
+  var active=match?match[1]:'pt';
+  function hl(){var b=document.querySelector('#elow-wrapper [data-lang="'+active+'"]');if(b)b.classList.add('active')}
+  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',hl):hl();
+})();
 </script>
 <div id="gt-hidden-elow" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;"></div>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
