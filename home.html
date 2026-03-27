@@ -226,33 +226,27 @@ Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('
 #elow-wrapper .proc-h {font-size:clamp(34px,4vw,50px);font-weight:900 !important;line-height:1.02 !important;letter-spacing:-.025em !important;text-transform:uppercase !important;color:var(--cream)}
 #elow-wrapper .proc-h em {font-weight:300 !important;color:var(--golden);display:block;text-transform:none;font-size:.82em !important}
 
-#elow-wrapper .elow-container {max-width:900px;margin:0 auto;position:relative}
+#elow-wrapper .elow-container {max-width:680px;margin:0 auto;position:relative}
 #elow-wrapper .elow-svg-wrap {position:absolute;inset:0;pointer-events:none;z-index:1;overflow:visible}
 #elow-wrapper .elow-rows {position:relative;z-index:2}
-#elow-wrapper .elow-row {display:flex;align-items:center;gap:48px;min-height:180px}
-#elow-wrapper .elow-row.elow-right {flex-direction:row-reverse;text-align:right}
+#elow-wrapper .elow-row {display:flex;align-items:flex-start;gap:28px;padding-bottom:80px}
+#elow-wrapper .elow-row:last-child {padding-bottom:0}
+#elow-wrapper .elow-row.elow-right {flex-direction:row-reverse}
 #elow-wrapper .elow-marker {width:72px;height:72px;min-width:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900 !important;color:var(--cream);flex-shrink:0;position:relative;z-index:5;letter-spacing:0 !important}
-#elow-wrapper .elow-marker.dark {background:var(--navy);border:2.5px solid var(--orange);box-shadow:0 0 0 7px var(--navy2)}
-#elow-wrapper .elow-marker.lit {background:var(--orange);box-shadow:0 0 0 7px var(--navy2)}
-#elow-wrapper .elow-text {flex:1;padding:20px 0}
-#elow-wrapper .elow-row.elow-right .elow-text {display:flex;flex-direction:column;align-items:flex-end}
-#elow-wrapper .elow-step-name {font-size:22px;font-weight:800 !important;color:var(--cream);text-transform:uppercase;letter-spacing:.03em !important;margin-bottom:4px !important}
-#elow-wrapper .elow-step-pt {font-size:13px;font-weight:500 !important;color:var(--golden);letter-spacing:.06em !important;margin-bottom:14px !important;display:block}
-#elow-wrapper .elow-step-desc {font-size:15px;color:rgba(248,235,206,.62);line-height:1.65 !important;max-width:380px}
-#elow-wrapper .elow-row.elow-right .elow-step-desc {text-align:right}
+#elow-wrapper .elow-marker.dark {background:var(--navy);border:2.5px solid var(--orange)}
+#elow-wrapper .elow-marker.lit {background:var(--orange)}
+#elow-wrapper .elow-text {flex:1;padding-top:8px}
+#elow-wrapper .elow-step-name {font-size:20px;font-weight:800 !important;color:var(--cream);text-transform:uppercase;letter-spacing:.03em !important;margin-bottom:4px !important}
+#elow-wrapper .elow-step-pt {font-size:13px;font-weight:500 !important;color:var(--golden);letter-spacing:.06em !important;margin-bottom:12px !important;display:block}
+#elow-wrapper .elow-step-desc {font-size:15px;color:rgba(248,235,206,.62);line-height:1.65 !important}
 
 /* Mobile E.L.O.W. */
 @media(max-width:768px){
   #elow-wrapper .elow-svg-wrap {display:none}
-  #elow-wrapper .elow-container {padding-left:76px}
-  #elow-wrapper .elow-rows {position:relative}
-  #elow-wrapper .elow-rows::before {content:'';position:absolute;top:36px;bottom:36px;left:-44px;width:3px;background:rgba(197,112,64,.2);border-radius:2px}
-  #elow-wrapper .elow-row, #elow-wrapper .elow-row.elow-right {flex-direction:row;text-align:left;gap:20px;min-height:auto;padding:28px 0;border-bottom:1px solid rgba(248,235,206,.05)}
-  #elow-wrapper .elow-row:last-child {border-bottom:none}
-  #elow-wrapper .elow-row.elow-right .elow-text {align-items:flex-start}
-  #elow-wrapper .elow-row.elow-right .elow-step-desc {text-align:left}
-  #elow-wrapper .elow-marker {position:absolute;left:-60px;width:52px;height:52px;min-width:52px;font-size:20px !important;box-shadow:0 0 0 4px var(--navy2)}
-  #elow-wrapper .elow-rows {position:relative}
+  #elow-wrapper .elow-container {padding-left:72px}
+  #elow-wrapper .elow-rows::before {content:'';position:absolute;top:36px;bottom:36px;left:-40px;width:2px;background:rgba(197,112,64,.25);border-radius:2px}
+  #elow-wrapper .elow-row, #elow-wrapper .elow-row.elow-right {flex-direction:row;gap:20px;padding-bottom:40px}
+  #elow-wrapper .elow-marker {position:absolute;left:-58px;width:48px;height:48px;min-width:48px;font-size:18px !important}
 }
 
 /* ── TESTIMONIALS ───────────────────────── */
