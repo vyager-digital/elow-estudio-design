@@ -227,8 +227,7 @@ Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('
 #elow-wrapper .proc-h em {font-weight:300 !important;color:var(--golden);display:block;text-transform:none;font-size:.82em !important}
 
 #elow-wrapper .elow-container {max-width:900px;margin:0 auto;position:relative}
-#elow-wrapper .elow-svg-wrap {position:absolute;inset:0;pointer-events:none;z-index:1}
-#elow-wrapper .elow-svg-wrap svg {width:100%;height:100%}
+#elow-wrapper .elow-svg-wrap {position:absolute;inset:0;pointer-events:none;z-index:1;overflow:visible}
 #elow-wrapper .elow-rows {position:relative;z-index:2}
 #elow-wrapper .elow-row {display:flex;align-items:center;gap:48px;min-height:180px}
 #elow-wrapper .elow-row.elow-right {flex-direction:row-reverse;text-align:right}
@@ -620,14 +619,13 @@ function setLang(lang){
     <div class="elow-container">
       <!-- Animated SVG curved path -->
       <div class="elow-svg-wrap" aria-hidden="true">
-        <svg id="elow-svg" viewBox="0 0 900 720" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg id="elow-svg" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible">
           <path id="elow-curve"
-            d="M 36 90 C 36 180, 864 180, 864 270 C 864 360, 36 360, 36 450 C 36 540, 864 540, 864 630"
             stroke="#C57040"
-            stroke-width="2.5"
-            stroke-dasharray="10 8"
+            stroke-width="2"
+            stroke-dasharray="8 7"
             stroke-linecap="round"
-            opacity="0.55"/>
+            opacity="0.6"/>
         </svg>
       </div>
 
@@ -771,38 +769,88 @@ const statsObs=new IntersectionObserver(entries=>{
 },{threshold:0.5});
 statsObs.observe(document.querySelector('.stats-bar'));
 
-/* E.L.O.W. CURVE ANIMATION */
+/* E.L.O.W. SCROLL-DRIVEN CURVE ANIMATION */
 (function(){
-  const curve = document.getElementById('elow-curve');
-  const rows = ['elow-e','elow-l','elow-o','elow-w'].map(id=>document.getElementById(id));
-  if(!curve || rows.some(r=>!r)) return;
-
-  // Set initial state — path hidden, rows invisible
-  const len = curve.getTotalLength();
-  curve.style.strokeDasharray = len;
-  curve.style.strokeDashoffset = len;
-  rows.forEach(r=>{r.style.opacity='0';r.style.transform='translateY(18px)';r.style.transition='opacity 0.55s ease, transform 0.55s ease';});
-
   const container = document.querySelector('.elow-container');
-  const elowObs = new IntersectionObserver(entries=>{
-    if(!entries[0].isIntersecting) return;
-    elowObs.disconnect();
+  const svgEl    = document.getElementById('elow-svg');
+  const curve    = document.getElementById('elow-curve');
+  const markers  = Array.from(document.querySelectorAll('.elow-marker'));
+  const rows     = ['elow-e','elow-l','elow-o','elow-w'].map(id=>document.getElementById(id));
 
-    // Draw the curve over 2.2s
-    curve.style.transition = 'stroke-dashoffset 2.2s cubic-bezier(0.4,0,0.2,1)';
-    curve.style.strokeDashoffset = '0';
+  if(!container || !svgEl || !curve || markers.length < 4 || rows.some(r=>!r)) return;
 
-    // Stagger each step: E at 0ms, L at 550ms, O at 1100ms, W at 1650ms
-    const delays = [0, 550, 1100, 1650];
+  // Hide rows initially
+  rows.forEach(r=>{
+    r.style.opacity='0';
+    r.style.transform='translateY(16px)';
+    r.style.transition='opacity 0.5s ease, transform 0.5s ease';
+  });
+
+  let pathLen = 0;
+
+  function buildPath(){
+    const cRect = container.getBoundingClientRect();
+    const W = cRect.width;
+    const H = cRect.height;
+
+    // Update SVG viewBox to match container pixel size
+    svgEl.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+    // Get each marker's center relative to the container top-left
+    const pts = markers.map(m=>{
+      const r = m.getBoundingClientRect();
+      return {
+        x: r.left + r.width/2  - cRect.left,
+        y: r.top  + r.height/2 - cRect.top
+      };
+    });
+
+    // Build smooth S-curve: control points at the same x as each anchor, midpoint y
+    let d = `M ${pts[0].x} ${pts[0].y}`;
+    for(let i=0; i<pts.length-1; i++){
+      const a=pts[i], b=pts[i+1];
+      const midY=(a.y+b.y)/2;
+      d += ` C ${a.x} ${midY} ${b.x} ${midY} ${b.x} ${b.y}`;
+    }
+    curve.setAttribute('d', d);
+    pathLen = curve.getTotalLength();
+    curve.style.strokeDasharray = pathLen;
+  }
+
+  function update(){
+    if(!pathLen) return;
+    const cRect = container.getBoundingClientRect();
+    const vH    = window.innerHeight;
+    const cH    = cRect.height;
+
+    // Progress 0→1: starts when container top hits viewport bottom, ends when container bottom exits top
+    const progress = Math.max(0, Math.min(1,
+      (vH - cRect.top) / (cH + vH * 0.5)
+    ));
+
+    curve.style.strokeDashoffset = pathLen * (1 - progress);
+
+    // Reveal each step as the line reaches it
+    const thresholds = [0.04, 0.32, 0.58, 0.82];
     rows.forEach((r,i)=>{
-      setTimeout(()=>{
+      if(progress >= thresholds[i]){
         r.style.opacity='1';
         r.style.transform='none';
-      }, delays[i]);
+      }
     });
-  },{threshold:0.2});
+  }
 
-  elowObs.observe(container);
+  function init(){
+    buildPath();
+    update();
+  }
+
+  // Build after layout is stable
+  if(document.readyState==='complete') init();
+  else window.addEventListener('load', init);
+
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', ()=>{ buildPath(); update(); });
 })();
 </script>
 
