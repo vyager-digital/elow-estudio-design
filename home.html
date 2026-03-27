@@ -773,12 +773,18 @@ statsObs.observe(document.querySelector('.stats-bar'));
 
   if(!container || !svgEl || !curve || markers.length < 4 || rows.some(r=>!r)) return;
 
-  // Hide rows initially
+  // Reveal all rows at once when section enters viewport
   rows.forEach(r=>{
     r.style.opacity='0';
     r.style.transform='translateY(16px)';
-    r.style.transition='opacity 0.5s ease, transform 0.5s ease';
+    r.style.transition='opacity 0.6s ease, transform 0.6s ease';
   });
+  const textObs = new IntersectionObserver(entries=>{
+    if(!entries[0].isIntersecting) return;
+    rows.forEach(r=>{ r.style.opacity='1'; r.style.transform='none'; });
+    textObs.disconnect();
+  },{threshold:0.15});
+  textObs.observe(container);
 
   let pathLen = 0;
 
@@ -786,11 +792,7 @@ statsObs.observe(document.querySelector('.stats-bar'));
     const cRect = container.getBoundingClientRect();
     const W = cRect.width;
     const H = cRect.height;
-
-    // Update SVG viewBox to match container pixel size
     svgEl.setAttribute('viewBox', `0 0 ${W} ${H}`);
-
-    // Get each marker's center relative to the container top-left
     const pts = markers.map(m=>{
       const r = m.getBoundingClientRect();
       return {
@@ -798,8 +800,6 @@ statsObs.observe(document.querySelector('.stats-bar'));
         y: r.top  + r.height/2 - cRect.top
       };
     });
-
-    // Build smooth S-curve: control points at the same x as each anchor, midpoint y
     let d = `M ${pts[0].x} ${pts[0].y}`;
     for(let i=0; i<pts.length-1; i++){
       const a=pts[i], b=pts[i+1];
@@ -816,30 +816,14 @@ statsObs.observe(document.querySelector('.stats-bar'));
     const cRect = container.getBoundingClientRect();
     const vH    = window.innerHeight;
     const cH    = cRect.height;
-
-    // Progress 0→1: starts when container top hits viewport bottom, ends when container bottom exits top
     const progress = Math.max(0, Math.min(1,
       (vH - cRect.top) / (cH + vH * 0.5)
     ));
-
     curve.style.strokeDashoffset = pathLen * (1 - progress);
-
-    // Reveal each step as the line reaches it
-    const thresholds = [0.04, 0.32, 0.58, 0.82];
-    rows.forEach((r,i)=>{
-      if(progress >= thresholds[i]){
-        r.style.opacity='1';
-        r.style.transform='none';
-      }
-    });
   }
 
-  function init(){
-    buildPath();
-    update();
-  }
+  function init(){ buildPath(); update(); }
 
-  // Build after layout is stable
   if(document.readyState==='complete') init();
   else window.addEventListener('load', init);
 
