@@ -77,7 +77,7 @@ Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('
 
 /* FILTER BAR */
 #elow-wrapper .port-filters{background:var(--navy2);border-bottom:1px solid rgba(197,112,64,.12);position:sticky;top:0;z-index:100;transition:top .4s}
-#elow-wrapper .filter-inner{max-width:1240px;margin:0 auto;padding:0 64px;display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+#elow-wrapper .filter-inner{max-width:1240px;margin:0 auto;padding:0 64px;display:flex;align-items:center;justify-content:center;gap:4px;overflow-x:auto;scrollbar-width:none}
 #elow-wrapper .filter-inner::-webkit-scrollbar{display:none}
 #elow-wrapper .filter-btn{font-size:10px;font-weight:700 !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:rgba(248,235,206,.45);background:transparent;border:none;padding:20px 20px;cursor:pointer;white-space:nowrap;transition:color .2s;position:relative;font-family:'League Spartan',sans-serif}
 #elow-wrapper .filter-btn::after{content:'';position:absolute;bottom:0;left:20px;right:20px;height:2px;background:var(--orange);transform:scaleX(0);transition:transform .25s var(--ease)}
@@ -254,10 +254,10 @@ function setLang(lang){
 <!-- FILTER BAR -->
 <div class="port-filters" id="port-filters">
   <div class="filter-inner">
-    <button class="filter-btn active" data-filter="all">Todos <span class="filter-count" id="count-all">0</span></button>
-    <button class="filter-btn" data-filter="identidade-visual">Identidade Visual <span class="filter-count" id="count-identidade-visual">0</span></button>
-    <button class="filter-btn" data-filter="naming">Naming <span class="filter-count" id="count-naming">0</span></button>
-    <button class="filter-btn" data-filter="redesign-de-marca">Redesign de Marca <span class="filter-count" id="count-redesign-de-marca">0</span></button>
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="identidade-visual">Identidade Visual</button>
+    <button class="filter-btn" data-filter="naming">Naming</button>
+    <button class="filter-btn" data-filter="redesign-de-marca">Redesign de Marca</button>
   </div>
 </div>
 
