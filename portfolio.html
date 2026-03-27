@@ -88,20 +88,18 @@ Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('
 
 /* GRID */
 #elow-wrapper .port-grid-section{background:var(--navy3);padding:80px 0 130px}
-#elow-wrapper .port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-#elow-wrapper .port-card{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--navy2);display:block;text-decoration:none}
+#elow-wrapper .port-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px}
+#elow-wrapper .port-card{display:block;text-decoration:none;background:transparent}
 #elow-wrapper .port-card.hidden{display:none}
-#elow-wrapper .port-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease),filter .5s}
-#elow-wrapper .port-card:hover img{transform:scale(1.06);filter:brightness(.55)}
-#elow-wrapper .port-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,24,30,.92) 0%,rgba(15,24,30,.4) 50%,transparent 100%);opacity:0;transition:opacity .4s var(--ease)}
-#elow-wrapper .port-card:hover .port-card-overlay{opacity:1}
-#elow-wrapper .port-card-info{position:absolute;bottom:0;left:0;right:0;padding:32px 28px;transform:translateY(12px);transition:transform .4s var(--ease);opacity:0}
-#elow-wrapper .port-card:hover .port-card-info{transform:translateY(0);opacity:1}
-#elow-wrapper .port-card-cat{font-size:9px;font-weight:700 !important;letter-spacing:.22em !important;text-transform:uppercase !important;color:var(--golden);margin-bottom:8px !important;display:block}
-#elow-wrapper .port-card-title{font-size:clamp(16px,1.6vw,22px);font-weight:900 !important;letter-spacing:-.02em !important;color:var(--cream);line-height:1.1 !important}
-#elow-wrapper .port-card-arrow{position:absolute;top:24px;right:24px;width:36px;height:36px;border:1px solid rgba(197,112,64,.5);display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.8);transition:opacity .3s .1s,transform .3s .1s var(--ease)}
+#elow-wrapper .port-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--navy2)}
+#elow-wrapper .port-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease),filter .5s;filter:brightness(.75)}
+#elow-wrapper .port-card:hover img{transform:scale(1.04);filter:brightness(.45)}
+#elow-wrapper .port-title-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(22px,2.8vw,42px);font-weight:900 !important;color:var(--cream);text-align:center;width:90%;z-index:2;letter-spacing:-.03em !important;text-transform:uppercase !important;line-height:1 !important;transition:opacity .3s}
+#elow-wrapper .port-card-arrow{position:absolute;top:24px;right:24px;width:36px;height:36px;border:1px solid rgba(197,112,64,.5);display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.8);transition:opacity .3s .1s,transform .3s .1s var(--ease);z-index:3}
 #elow-wrapper .port-card:hover .port-card-arrow{opacity:1;transform:scale(1)}
 #elow-wrapper .port-card-arrow svg{width:14px;height:14px;stroke:var(--golden);stroke-width:2;fill:none}
+#elow-wrapper .port-card-below{padding:20px 0 36px}
+#elow-wrapper .port-card-cat{font-size:9px;font-weight:700 !important;letter-spacing:.22em !important;text-transform:uppercase !important;color:var(--golden);display:block}
 
 /* LOADING STATE */
 #elow-wrapper .port-loading{text-align:center;padding:120px 0;color:rgba(248,235,206,.3)}
@@ -180,7 +178,7 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
   #elow-wrapper .wrap{padding:0 24px}
   #elow-wrapper .port-hero{padding:140px 0 80px}
   #elow-wrapper .filter-inner{padding:0 24px}
-  #elow-wrapper .port-grid{grid-template-columns:repeat(2,1fr)}
+  #elow-wrapper .port-grid{grid-template-columns:1fr}
   #elow-wrapper .port-grid-section{padding:60px 0 100px}
   #elow-wrapper .cta-section{padding:0 24px 100px}
   #elow-wrapper .cta-inner{grid-template-columns:1fr;gap:40px}
@@ -402,14 +400,15 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
     a.rel='noopener';
     a.dataset.cat=catSlug;
     a.innerHTML=`
-      ${img?`<img src="${img}" alt="${title}" loading="lazy">`:''}
-      <div class="port-card-overlay"></div>
-      <div class="port-card-arrow">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      <div class="port-img-wrap">
+        ${img?`<img src="${img}" alt="${title}" loading="lazy">`:''}
+        <div class="port-title-overlay">${title}</div>
+        <div class="port-card-arrow">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
       </div>
-      <div class="port-card-info">
+      <div class="port-card-below">
         ${catLabel?`<span class="port-card-cat">${catLabel}</span>`:''}
-        <div class="port-card-title">${title}</div>
       </div>
     `;
     return a;
