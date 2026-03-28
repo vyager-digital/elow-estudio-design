@@ -177,10 +177,9 @@ html,body{margin:0;padding:0;background:#0f181e}
 #elow-wrapper .port-item {min-width:300px;width:300px;position:relative;transition:transform .4s var(--ease)}
 #elow-wrapper .port-item:hover {transform:translateY(-5px)}
 #elow-wrapper .port-img-wrap {position:relative;width:100%;aspect-ratio:1;overflow:hidden;background:#000}
-#elow-wrapper .port-img {width:100%;height:100% !important;object-fit:cover;transition:transform .6s var(--ease),filter .5s}
-#elow-wrapper .port-item:hover .port-img {transform:scale(1.05);filter:brightness(0.45)}
-#elow-wrapper .port-overlay-text {position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700 !important;color:var(--cream);text-align:center;width:100%;z-index:2;letter-spacing:-.03em !important;text-transform:uppercase !important;opacity:0;transform:translateY(10px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
-#elow-wrapper .port-item:hover .port-overlay-text {opacity:1;transform:translateY(0)}
+#elow-wrapper .port-img {width:100%;height:100% !important;object-fit:cover;transition:transform .6s var(--ease),filter .4s;filter:brightness(0.8)}
+#elow-wrapper .port-item:hover .port-img {transform:scale(1.05);filter:brightness(0.6)}
+#elow-wrapper .port-overlay-text {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:36px;font-weight:700 !important;color:#fff;text-align:center;width:100%;z-index:2;letter-spacing:-.03em !important;text-transform:uppercase !important}
 #elow-wrapper .port-cat {margin-top:16px;font-size:15px;color:rgba(248,235,206,.7);font-weight:400 !important;text-align:left}
 
 /* ── STATS ──────────────────────────────── */
