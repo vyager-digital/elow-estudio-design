@@ -199,7 +199,7 @@ html,body{margin:0;padding:0;background:#0f181e}
 #elow-wrapper .del-h {font-size:clamp(36px,4vw,52px);font-weight:900 !important;line-height:1.02 !important;letter-spacing:-.025em !important;text-transform:uppercase !important;color:var(--navy);max-width:380px}
 #elow-wrapper .del-h em {font-weight:300 !important;color:var(--orange);display:block;text-transform:none !important}
 #elow-wrapper .del-note {font-size:14px;line-height:1.7 !important;color:rgba(28,44,54,.55);max-width:300px;text-align:right}
-#elow-wrapper .del-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:rgba(28,44,54,.1)}
+#elow-wrapper .del-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:rgba(28,44,54,.1)}
 #elow-wrapper .del-card {background:var(--cream);padding:48px 30px;position:relative;overflow:hidden;transition:transform .4s var(--ease)}
 #elow-wrapper .del-card::after {content:'';position:absolute;inset:0;background:var(--navy);transform:translateY(102%);transition:transform .44s var(--ease);z-index:0}
 #elow-wrapper .del-card:hover {transform:translateY(-4px)}
@@ -212,7 +212,7 @@ html,body{margin:0;padding:0;background:#0f181e}
 #elow-wrapper .del-list {list-style:none;display:flex;flex-direction:column;gap:9px}
 #elow-wrapper .del-list li {font-size:13px;font-weight:400 !important;color:rgba(28,44,54,.6);padding-left:14px;position:relative;line-height:1.4 !important;transition:color .4s}
 #elow-wrapper .del-list li::before {content:'—';position:absolute;left:0;color:var(--orange);font-size:9px !important;top:3px}
-#elow-wrapper .del-card:hover .del-list li {color:rgba(248,235,206,.55)}
+#elow-wrapper .del-card:hover .del-list li, #elow-wrapper .del-card:hover .del-list {color:rgba(248,235,206,.55) !important}
 
 /* ── ABOUT ──────────────────────────────── */
 #elow-wrapper .about {background:var(--navy3);padding:0;position:relative;overflow:hidden}
@@ -319,7 +319,7 @@ html,body{margin:0;padding:0;background:#0f181e}
 #elow-wrapper .prob-grid, #elow-wrapper .trans-grid, #elow-wrapper .cta-inner {grid-template-columns:1fr;gap:40px}
 #elow-wrapper .about-grid {grid-template-columns:1fr}
 #elow-wrapper .about-content {padding:60px 24px}
-#elow-wrapper .del-grid {grid-template-columns:1fr 1fr}
+#elow-wrapper .del-grid {grid-template-columns:1fr}
 #elow-wrapper .test-grid {grid-template-columns:1fr}
 #elow-wrapper .stats-grid {grid-template-columns:1fr 1fr}
 #elow-wrapper .stat-i {border:none;padding:20px 0;border-bottom:1px solid rgba(248,235,206,.14)}
@@ -546,7 +546,7 @@ function setLang(lang){
       </div>
       <p class="del-note reveal d2">Cada projeto é único — desenvolvido com estratégia, cuidado artesanal e foco no que a sua marca precisa comunicar.</p>
     </div>
-    <div class="del-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="del-grid">
       <div class="del-card reveal"><div class="del-num">01</div><svg class="del-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 12l10 10 10-10L12 2z"/><path d="M12 8L8 12l4 4 4-4-4-4z"/></svg><div class="del-title">Identidade Visual</div><p class="del-list" style="list-style:none;padding:0;font-size:13px;color:rgba(28,44,54,.6);line-height:1.7">Sistema completo de marca — logo, paleta, tipografia e elementos visuais criados com propósito e coerência.</p></div>
       <div class="del-card reveal d1"><div class="del-num">02</div><svg class="del-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg><div class="del-title">Manual da Marca</div><p class="del-list" style="list-style:none;padding:0;font-size:13px;color:rgba(28,44,54,.6);line-height:1.7">Diretrizes completas de uso da identidade — para manter sua marca consistente em qualquer canal ou formato.</p></div>
       <div class="del-card reveal d2"><div class="del-num">03</div><svg class="del-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg><div class="del-title">Suporte ao Lançamento</div><p class="del-list" style="list-style:none;padding:0;font-size:13px;color:rgba(28,44,54,.6);line-height:1.7">Acompanhamento estratégico para colocar sua nova marca no mundo com confiança e alinhamento total.</p></div>
