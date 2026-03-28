@@ -374,6 +374,37 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
     'redesign-de-marca':'Redesign de Marca'
   };
 
+  const SETOR={
+    'cubo-engenharia':        'Engenharia',
+    'ane-jeans':              'Moda',
+    'bittale-travel-boutique':'Turismo',
+    'babi-supermercados':     'Supermercado',
+    'kabyte-solucoes-em-ti':  'Tecnologia',
+    'art-salon':              'Beleza',
+    'ceci-bolos':             'Confeitaria',
+    'santo-dia-assessoria':   'Assessoria',
+    'matilha-dogs-artesanais':'Petshop',
+    'bio-stick':              'Cosméticos',
+    'coffeely':               'Café',
+    'montenegro-alfaiataria': 'Moda',
+    'crocco':                 'Restaurante',
+    'sympa-bakery':           'Padaria',
+    'taboa-restaurante':      'Restaurante',
+    'restaurante-trama':      'Restaurante',
+    'produtos-nordeli':       'Alimentação',
+    'instituto-aluze':        '',
+    'orla-farma':             'Farmácia',
+    'noon-clinic':            'Saúde',
+    'realsky':                'Aviação',
+    'noc-clinic':             'Saúde',
+    'artfarma':               'Farmácia',
+    'ura-advocacia':          'Advocacia',
+    'vic-falcao':             'Moda',
+    'snackinhos':             'Alimentação',
+    'molib':                  '',
+    'vinna':                  'Moda',
+  };
+
   let allCards=[];
 
   function getCatSlug(post){
@@ -406,7 +437,7 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
         </div>
       </div>
       <div class="port-card-below">
-        ${catLabel?`<span class="port-card-cat">${catLabel}</span>`:''}
+        ${SETOR[post.slug]?`<span class="port-card-cat">${SETOR[post.slug]}</span>`:''}
       </div>
     `;
     return a;
