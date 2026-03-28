@@ -56,12 +56,6 @@ Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('
 #elow-wrapper nav.scrolled .nav-logo img{height:85px;width:auto;max-width:none !important}
 #elow-wrapper .nav-cta{font-size:11px;font-weight:700 !important;letter-spacing:.14em !important;text-transform:uppercase !important;background:var(--orange);color:var(--cream);padding:13px 28px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:background .3s,transform .3s;display:inline-block;flex-shrink:0;white-space:nowrap}
 #elow-wrapper .nav-cta:hover{background:var(--golden);transform:translateY(-2px)}
-#elow-wrapper .nav-link{font-size:11px;font-weight:700 !important;letter-spacing:.14em !important;text-transform:uppercase !important;color:rgba(248,235,206,.55);text-decoration:none;padding:6px 12px;transition:color .2s;position:relative}
-#elow-wrapper .nav-link::after{content:'';position:absolute;bottom:-2px;left:12px;right:12px;height:1px;background:var(--orange);transform:scaleX(0);transition:transform .25s var(--ease)}
-#elow-wrapper .nav-link:hover{color:var(--cream)}
-#elow-wrapper .nav-link:hover::after{transform:scaleX(1)}
-#elow-wrapper .nav-link.active{color:var(--cream)}
-#elow-wrapper .nav-link.active::after{transform:scaleX(1)}
 
 /* SHARED */
 #elow-wrapper .wrap{max-width:1240px;margin:0 auto;padding:0 64px}
@@ -229,6 +223,12 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
   #elow-wrapper .nav-menu{display:none}
   #elow-wrapper .hamburger{display:flex}
 }
+#elow-wrapper .nav-link{font-size:11px;font-weight:700 !important;letter-spacing:.14em !important;text-transform:uppercase !important;color:rgba(248,235,206,.55);text-decoration:none;padding:6px 12px;transition:color .2s;position:relative}
+#elow-wrapper .nav-link::after{content:'';position:absolute;bottom:-2px;left:12px;right:12px;height:1px;background:var(--orange);transform:scaleX(0);transition:transform .25s var(--ease)}
+#elow-wrapper .nav-link:hover{color:var(--cream)}
+#elow-wrapper .nav-link:hover::after{transform:scaleX(1)}
+#elow-wrapper .nav-link.active{color:var(--cream)}
+#elow-wrapper .nav-link.active::after{transform:scaleX(1)}
 </style>
 
 <!-- 4. HTML -->
