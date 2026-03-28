@@ -1,0 +1,551 @@
+<!-- 1. GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://elowestudiodesign.com.br">
+
+<!-- 2. ASSET MAP -->
+<script>
+const A = {
+  logo_azul:      'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png',
+  selo:           'https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png',
+  textura_azul:   'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Azul-scaled.png',
+  textura_laranja:'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Laranja-scaled.png',
+  luas_laranja:   'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Laranja-scaled.png',
+  luas_branca:    'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Branca-scaled.png',
+  linhas_laranja: 'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Linhas_Laranja.png',
+};
+const root = document.documentElement;
+Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('${v}')`));
+</script>
+
+<!-- 3. CSS -->
+<style>
+
+#elow-wrapper h1,#elow-wrapper h2,#elow-wrapper h3,#elow-wrapper h4,#elow-wrapper p,#elow-wrapper a,#elow-wrapper span,#elow-wrapper div,#elow-wrapper li,#elow-wrapper ul{font-family:'League Spartan',sans-serif !important}
+
+#elow-wrapper {
+  --navy:       #1C2C36;
+  --navy2:      #162229;
+  --navy3:      #0f181e;
+  --orange:     #C57040;
+  --golden:     #C9892D;
+  --cream:      #F8EBCE;
+  --gold-light: #D5B26B;
+  --ease:       cubic-bezier(0.23,1,0.32,1);
+}
+
+#elow-wrapper *,#elow-wrapper *::before,#elow-wrapper *::after{margin:0;padding:0;box-sizing:border-box}
+#elow-wrapper{font-family:'League Spartan',sans-serif;background:var(--navy3);color:var(--cream);overflow-x:hidden;cursor:none;width:100vw !important;max-width:100vw !important;margin-left:calc(-50vw + 50%) !important;margin-right:calc(-50vw + 50%) !important}
+
+/* CURSOR */
+#elow-wrapper #cur{position:fixed;top:0;left:0;width:9px;height:9px;background:var(--golden);border-radius:50%;pointer-events:none;z-index:10002;margin-left:-4.5px;margin-top:-4.5px !important;mix-blend-mode:screen;will-change:transform}
+#elow-wrapper #cur2{position:fixed;top:0;left:0;width:34px;height:34px;border:1.5px solid rgba(197,112,64,.55);border-radius:50%;pointer-events:none;z-index:10001;margin-left:-17px;margin-top:-17px !important;transition:width .2s,height .2s;will-change:transform}
+
+/* NAV */
+#elow-wrapper nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:28px 64px;display:flex;justify-content:space-between;align-items:center;transition:background .5s,padding .4s}
+#elow-wrapper nav.scrolled{background:rgba(11,19,24,.96);backdrop-filter:blur(18px);padding:16px 64px;border-bottom:1px solid rgba(197,112,64,.15)}
+#elow-wrapper .nav-logo{flex-shrink:0 !important;display:block}
+#elow-wrapper .nav-logo img{height:100px;width:auto;max-width:none !important;object-fit:contain !important;transition:height .3s}
+#elow-wrapper nav.scrolled .nav-logo img{height:85px;width:auto;max-width:none !important}
+#elow-wrapper .nav-cta{font-size:11px;font-weight:700 !important;letter-spacing:.14em !important;text-transform:uppercase !important;background:var(--orange);color:var(--cream);padding:13px 28px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:background .3s,transform .3s;display:inline-block;flex-shrink:0;white-space:nowrap}
+#elow-wrapper .nav-cta:hover{background:var(--golden);transform:translateY(-2px)}
+
+/* SHARED */
+#elow-wrapper .wrap{max-width:1240px;margin:0 auto;padding:0 64px}
+#elow-wrapper .sec-label{font-size:10px;font-weight:700 !important;letter-spacing:.35em !important;text-transform:uppercase !important;color:var(--golden);display:flex;align-items:center;gap:14px;margin-bottom:20px !important}
+#elow-wrapper .sec-label::before{content:'';width:32px;height:1px;background:var(--golden);display:block}
+#elow-wrapper .reveal{opacity:0;transform:translateY(34px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+#elow-wrapper .reveal.on{opacity:1;transform:none}
+#elow-wrapper .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+#elow-wrapper .btn-primary{display:inline-flex;align-items:center;gap:12px;background:var(--orange);color:var(--cream);font-size:12px;font-weight:700 !important;letter-spacing:.12em !important;text-transform:uppercase !important;padding:18px 36px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));position:relative;overflow:hidden;transition:transform .3s}
+#elow-wrapper .btn-primary::after{content:'';position:absolute;inset:0;background:var(--golden);transform:translateX(-110%);transition:transform .4s var(--ease);z-index:0}
+#elow-wrapper .btn-primary:hover{transform:translateY(-3px)}
+#elow-wrapper .btn-primary:hover::after{transform:translateX(0)}
+#elow-wrapper .btn-primary span{position:relative;z-index:1}
+
+/* HERO */
+#elow-wrapper .svc-hero{background:var(--navy3);padding:200px 0 120px;position:relative;overflow:hidden}
+#elow-wrapper .svc-hero::before{content:'';position:absolute;inset:0;background-image:var(--img-textura_azul);background-size:cover;opacity:.35;pointer-events:none}
+#elow-wrapper .svc-hero::after{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background-image:var(--img-luas_laranja);background-size:contain;background-repeat:no-repeat;opacity:.05;pointer-events:none}
+#elow-wrapper .svc-hero-inner{position:relative;z-index:2;max-width:900px}
+#elow-wrapper .hero-label{font-size:10px;font-weight:700 !important;letter-spacing:.35em !important;text-transform:uppercase !important;color:var(--golden);display:flex;align-items:center;gap:14px;margin-bottom:28px !important;opacity:0;animation:up .9s .1s var(--ease) forwards}
+#elow-wrapper .hero-label::before{content:'';width:32px;height:1px;background:var(--golden);display:block}
+#elow-wrapper .svc-hero h1{font-size:clamp(36px,4.5vw,68px);font-weight:900 !important;line-height:.96 !important;letter-spacing:-.028em !important;text-transform:uppercase !important;color:var(--cream);opacity:0;animation:up .9s .2s var(--ease) forwards}
+#elow-wrapper .svc-hero h1 em{color:var(--orange);font-style:normal}
+#elow-wrapper .svc-hero-sub{font-size:17px;line-height:1.7 !important;color:rgba(248,235,206,.5);max-width:580px;margin-top:28px !important;opacity:0;animation:up .9s .35s var(--ease) forwards}
+
+/* SERVICE NAV */
+#elow-wrapper .svc-nav{background:var(--navy2);border-bottom:1px solid rgba(197,112,64,.12);position:sticky;top:0;z-index:100}
+#elow-wrapper .svc-nav-inner{max-width:1240px;margin:0 auto;padding:0 64px;display:flex;align-items:center;justify-content:center;gap:0;overflow-x:auto;scrollbar-width:none}
+#elow-wrapper .svc-nav-inner::-webkit-scrollbar{display:none}
+#elow-wrapper .svc-tab{font-size:10px;font-weight:700 !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:rgba(248,235,206,.4);background:transparent;border:none;padding:22px 28px;cursor:pointer;white-space:nowrap;transition:color .2s;position:relative;font-family:'League Spartan',sans-serif;text-decoration:none;display:inline-block}
+#elow-wrapper .svc-tab::after{content:'';position:absolute;bottom:0;left:28px;right:28px;height:2px;background:var(--orange);transform:scaleX(0);transition:transform .25s var(--ease)}
+#elow-wrapper .svc-tab:hover{color:rgba(248,235,206,.75)}
+#elow-wrapper .svc-tab.active{color:var(--cream)}
+#elow-wrapper .svc-tab.active::after{transform:scaleX(1)}
+
+/* SERVICE SECTIONS */
+#elow-wrapper .svc-section{padding:120px 0;position:relative;overflow:hidden}
+#elow-wrapper .svc-section.bg-navy3{background:var(--navy3)}
+#elow-wrapper .svc-section.bg-navy2{background:var(--navy2)}
+#elow-wrapper .svc-eyebrow{font-size:10px;font-weight:700 !important;letter-spacing:.3em !important;text-transform:uppercase !important;color:var(--golden);display:flex;align-items:center;gap:12px;margin-bottom:16px !important}
+#elow-wrapper .svc-eyebrow::before{content:'';width:28px;height:1px;background:var(--golden);display:block}
+#elow-wrapper .svc-name{font-size:clamp(38px,4.5vw,66px);font-weight:900 !important;line-height:.95 !important;letter-spacing:-.03em !important;text-transform:uppercase !important;color:var(--cream);margin-bottom:56px !important}
+#elow-wrapper .svc-name em{color:var(--orange);font-style:normal;display:block}
+
+/* 2-COL CONTENT */
+#elow-wrapper .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+#elow-wrapper .svc-desc{font-size:16px;line-height:1.78 !important;color:rgba(248,235,206,.55);margin-bottom:32px !important}
+#elow-wrapper .svc-sub-heading{font-size:13px;font-weight:800 !important;letter-spacing:.1em !important;text-transform:uppercase !important;color:var(--cream);margin-bottom:16px !important}
+#elow-wrapper .svc-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:0 !important}
+#elow-wrapper .svc-bullets li{font-size:15px;line-height:1.5 !important;color:rgba(248,235,206,.55);padding-left:20px;position:relative}
+#elow-wrapper .svc-bullets li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--orange)}
+
+/* DELIVERABLES BOX */
+#elow-wrapper .svc-deliverables{background:rgba(255,255,255,.03);border:1px solid rgba(197,112,64,.15);padding:40px}
+#elow-wrapper .svc-del-heading{font-size:13px;font-weight:800 !important;letter-spacing:.1em !important;text-transform:uppercase !important;color:var(--cream);margin-bottom:24px !important;padding-bottom:20px;border-bottom:1px solid rgba(197,112,64,.15)}
+#elow-wrapper .svc-del-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px !important}
+#elow-wrapper .svc-del-list li{font-size:14px;line-height:1.5 !important;color:rgba(248,235,206,.65);padding-left:22px;position:relative}
+#elow-wrapper .svc-del-list li::before{content:'—';position:absolute;left:0;color:var(--golden);font-size:11px !important;top:1px}
+
+/* IMAGE STRIP */
+#elow-wrapper .svc-imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:64px}
+#elow-wrapper .svc-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3}
+#elow-wrapper .svc-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+#elow-wrapper .svc-img-wrap:hover img{transform:scale(1.04)}
+#elow-wrapper .svc-img-label{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(15,24,30,.85),transparent);font-size:10px;font-weight:700 !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:rgba(248,235,206,.7);opacity:0;transition:opacity .3s}
+#elow-wrapper .svc-img-wrap:hover .svc-img-label{opacity:1}
+
+/* ACCENT LINES */
+#elow-wrapper .svc-section.bg-navy2::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background-image:var(--img-linhas_laranja);background-size:contain;background-repeat:no-repeat;opacity:.04;pointer-events:none}
+
+/* CTA */
+#elow-wrapper .cta-section{background:var(--navy3);padding:80px 64px 130px}
+#elow-wrapper .cta-box{background:var(--orange);position:relative;overflow:hidden;clip-path:polygon(0 0,calc(100% - 48px) 0,100% 48px,100% 100%,48px 100%,0 calc(100% - 48px));padding:88px 80px;max-width:1240px;margin:0 auto}
+#elow-wrapper .cta-box::before{content:'';position:absolute;inset:0;background-image:var(--img-textura_laranja);background-size:cover;opacity:.18;mix-blend-mode:multiply}
+#elow-wrapper .cta-box::after{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background-image:var(--img-luas_branca);background-size:contain;background-repeat:no-repeat;opacity:.08}
+#elow-wrapper .cta-inner{display:grid;grid-template-columns:1fr auto;gap:80px;align-items:center;position:relative;z-index:1}
+#elow-wrapper .cta-h{font-size:clamp(28px,3.5vw,46px);font-weight:900 !important;line-height:1.04 !important;letter-spacing:-.025em !important;text-transform:uppercase !important;color:var(--cream)}
+#elow-wrapper .cta-h em{font-weight:300 !important;display:block;font-size:.82em !important;text-transform:none !important}
+#elow-wrapper .cta-body{font-size:15px;line-height:1.7 !important;color:rgba(248,235,206,.7);margin-top:16px !important;max-width:460px}
+#elow-wrapper .cta-right{display:flex;flex-direction:column;align-items:center;gap:16px}
+#elow-wrapper .btn-cta{display:inline-flex;align-items:center;gap:12px;background:var(--navy);color:var(--cream);font-size:12px;font-weight:700 !important;letter-spacing:.12em !important;text-transform:uppercase !important;padding:20px 44px;text-decoration:none;white-space:nowrap;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:background .3s,transform .3s}
+#elow-wrapper .btn-cta:hover{background:var(--cream);color:var(--navy);transform:translateY(-3px)}
+
+/* FOOTER */
+#elow-wrapper footer{background:var(--navy3);padding:80px 0 40px;border-top:1px solid rgba(197,112,64,.12);font-size:11px !important;color:rgba(248,235,206,.7)}
+#elow-wrapper .foot-logo-img{height:90px;width:auto;margin-bottom:24px !important}
+#elow-wrapper .foot-links{display:flex;gap:12px;align-items:center;margin-bottom:32px !important}
+#elow-wrapper .foot-links a{color:var(--orange);text-decoration:none;transition:color .3s;font-weight:500 !important}
+#elow-wrapper .foot-links a:hover{color:var(--cream)}
+#elow-wrapper .foot-links .sep{color:var(--cream);opacity:.3;height:12px;width:1px;background:currentColor}
+#elow-wrapper .foot-bottom{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;width:100%}
+#elow-wrapper .foot-info{line-height:1.5 !important;opacity:.8}
+#elow-wrapper .foot-credit{opacity:.6}
+#elow-wrapper .foot-credit a{color:inherit;text-decoration:none;transition:color .3s}
+#elow-wrapper .foot-credit a:hover{color:var(--cream)}
+
+/* ANIMATIONS */
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* LANG SWITCHER */
+.goog-te-banner-frame,.skiptranslate{display:none!important;height:0!important}
+body{top:0!important;margin-top:0!important}
+body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
+#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
+#elow-wrapper .lang-switcher{display:flex;align-items:center;gap:4px}
+#elow-wrapper .lang-btn{background:transparent;border:none;color:rgba(255,255,255,.65);font-family:'League Spartan',sans-serif;font-weight:700;font-size:.65rem;letter-spacing:.1em;padding:2px 5px;border-radius:2px;cursor:pointer;transition:all .15s;min-height:0;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+#elow-wrapper .lang-btn:hover{color:var(--orange)}
+#elow-wrapper .lang-btn.active{color:var(--orange);background:rgba(197,112,64,.1)}
+
+/* HUBSPOT MODAL */
+#hs-modal-overlay{opacity:0;visibility:hidden;pointer-events:none;display:flex;position:fixed;inset:0;background:rgba(15,24,30,.88);z-index:10000;align-items:flex-start;justify-content:center;padding:40px 24px;backdrop-filter:blur(6px);overflow-y:auto;transition:opacity .3s ease,visibility .3s ease}
+#hs-modal-overlay.open{opacity:1;visibility:visible;pointer-events:auto}
+#hs-modal{background:var(--navy);position:relative;width:100%;max-width:560px;padding:52px 48px 48px;flex-shrink:0;border:1px solid rgba(197,112,64,.2)}
+#hs-modal-close{position:absolute;top:18px;right:18px;background:none;border:none;color:var(--cream);opacity:.45;font-size:22px;cursor:pointer;line-height:1 !important;padding:4px 8px;transition:opacity .2s;z-index:10}
+#hs-modal-close:hover{opacity:1}
+#hs-modal-title{font-size:clamp(18px,2.5vw,26px);font-weight:900 !important;letter-spacing:-.02em !important;text-transform:uppercase !important;color:var(--cream);margin-bottom:8px !important}
+#hs-modal-sub{font-size:13px;color:rgba(248,235,206,.5);margin-bottom:32px;line-height:1.5 !important}
+#hs-modal label{color:rgba(248,235,206,.75) !important;font-size:12px !important;font-weight:600 !important;letter-spacing:.06em !important;text-transform:uppercase !important;margin-bottom:6px !important;display:block !important}
+#hs-modal input[type=text],#hs-modal input[type=email],#hs-modal input[type=tel],#hs-modal select,#hs-modal textarea{background:rgba(255,255,255,.07) !important;border:1px solid rgba(248,235,206,.18) !important;color:var(--cream) !important;padding:12px 14px !important;font-family:inherit !important;font-size:14px !important;width:100% !important;box-sizing:border-box !important;border-radius:0 !important;outline:none !important}
+#hs-modal input:focus,#hs-modal select:focus,#hs-modal textarea:focus{border-color:var(--orange) !important}
+#hs-modal .hs-button{background:var(--orange) !important;color:var(--cream) !important;border:none !important;padding:16px 40px !important;font-family:inherit !important;font-size:12px !important;font-weight:700 !important;letter-spacing:.12em !important;text-transform:uppercase !important;cursor:pointer !important;width:100% !important;margin-top:8px !important}
+#hs-modal .hs-button:hover{background:var(--golden) !important}
+#hs-modal .legal-consent-container{color:rgba(248,235,206,.45) !important;font-size:11px !important}
+#hs-modal .legal-consent-container a{color:var(--golden) !important}
+#hs-modal .inputs-list{list-style:none !important;padding:0 !important}
+#hs-modal .inputs-list label{text-transform:none !important;letter-spacing:0 !important;font-size:13px !important}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  #elow-wrapper nav,#elow-wrapper nav.scrolled{padding:16px 20px}
+  #elow-wrapper .nav-logo img{height:80px !important}
+  #elow-wrapper nav.scrolled .nav-logo img{height:64px !important}
+  #elow-wrapper .wrap{padding:0 24px}
+  #elow-wrapper .svc-hero{padding:150px 0 80px}
+  #elow-wrapper .svc-nav-inner{padding:0 24px;justify-content:flex-start}
+  #elow-wrapper .svc-tab{padding:18px 16px}
+  #elow-wrapper .svc-tab::after{left:16px;right:16px}
+  #elow-wrapper .svc-section{padding:80px 0}
+  #elow-wrapper .svc-grid{grid-template-columns:1fr;gap:48px}
+  #elow-wrapper .svc-imgs{grid-template-columns:1fr;gap:3px}
+  #elow-wrapper .svc-img-label{opacity:1}
+  #elow-wrapper .cta-section{padding:60px 24px 100px}
+  #elow-wrapper .cta-inner{grid-template-columns:1fr;gap:40px}
+  #elow-wrapper .cta-box{padding:60px 24px;clip-path:none;border-radius:20px}
+  #elow-wrapper .cta-right{align-items:flex-start;width:100%}
+  #elow-wrapper .btn-cta{width:100%;justify-content:center}
+  #elow-wrapper .foot-bottom{flex-direction:column;align-items:center;gap:24px;text-align:center}
+  #elow-wrapper .foot-links{justify-content:center}
+  #elow-wrapper footer{text-align:center;padding:60px 24px 40px}
+}
+@media(max-width:600px){
+  #elow-wrapper .svc-imgs{grid-template-columns:1fr}
+  body{cursor:auto}
+  #elow-wrapper #cur,#elow-wrapper #cur2{display:none}
+}
+
+</style>
+
+<!-- 4. HTML -->
+<div id="elow-wrapper">
+
+<script src="https://js-eu1.hsforms.net/forms/embed/147712865.js" defer></script>
+<script>
+function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'pt',autoDisplay:false},'gt-hidden-elow')}
+function setLang(lang){
+  var d=location.hostname;
+  if(lang==='pt'){document.cookie='googtrans=;expires=Thu,01 Jan 1970 00:00:00 UTC;path=/;';document.cookie='googtrans=;expires=Thu,01 Jan 1970 00:00:00 UTC;path=/;domain='+d;}
+  else{document.cookie='googtrans=/pt/'+lang+';path=/';document.cookie='googtrans=/pt/'+lang+';path=/;domain='+d;}
+  location.href=location.pathname+location.search;
+}
+(function(){
+  var match=document.cookie.match(/googtrans=\/pt\/([a-z]+)/);
+  var active=match?match[1]:'pt';
+  document.readyState==='loading'
+    ?document.addEventListener('DOMContentLoaded',function(){var b=document.querySelector('#elow-wrapper [data-lang="'+active+'"]');if(b)b.classList.add('active');})
+    :(function(){var b=document.querySelector('#elow-wrapper [data-lang="'+active+'"]');if(b)b.classList.add('active');})();
+})();
+</script>
+<div id="gt-hidden-elow" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;"></div>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
+  </a>
+  <div style="display:flex;align-items:center;gap:16px;margin-left:auto">
+    <div class="lang-switcher" translate="no">
+      <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+    </div>
+    <a href="#" onclick="openHsModal();return false;" class="nav-cta">Quero minha identidade</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="svc-hero">
+  <div class="wrap">
+    <div class="svc-hero-inner">
+      <div class="hero-label">O que fazemos</div>
+      <h1>Negócios diferentes precisam de <em>níveis diferentes</em> de trabalho de marca</h1>
+      <p class="svc-hero-sub">Seja construindo uma marca do zero, atualizando uma identidade existente ou criando um nome, estamos aqui para ajudar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE NAV -->
+<div class="svc-nav" id="svc-nav">
+  <div class="svc-nav-inner">
+    <a href="#diagnostico" class="svc-tab active" data-target="diagnostico">Diagnóstico de Marca</a>
+    <a href="#naming" class="svc-tab" data-target="naming">Naming</a>
+    <a href="#identidade" class="svc-tab" data-target="identidade">Identidade Visual</a>
+    <a href="#redesign" class="svc-tab" data-target="redesign">Redesign de Marca</a>
+  </div>
+</div>
+
+<!-- SERVICE 1: DIAGNÓSTICO DE MARCA -->
+<section class="svc-section bg-navy3" id="diagnostico">
+  <div class="wrap">
+    <div class="svc-eyebrow reveal">Não sabe por onde começar?</div>
+    <h2 class="svc-name reveal d1">Diagnóstico<em>de Marca</em></h2>
+    <div class="svc-grid">
+      <div class="reveal d1">
+        <p class="svc-desc">Avaliamos posicionamento, identidade, comunicação, coerência visual e narrativa, além do contexto de mercado e concorrência, para identificar desalinhamentos, oportunidades e pontos de fortalecimento.</p>
+        <p class="svc-desc">O resultado é um direcionamento claro e assertivo, que traz clareza sobre onde a marca está, onde pode chegar e quais decisões estratégicas precisam ser tomadas para evoluir com consistência, propósito e resultado.</p>
+      </div>
+      <div class="svc-deliverables reveal d2">
+        <div class="svc-del-heading">O que você receberá</div>
+        <ul class="svc-del-list">
+          <li>Visão Geral</li>
+          <li>Parecer de viabilidade de INPI</li>
+          <li>Análise Técnica do logotipo (Legibilidade, memorização, flexibilidade, diferenciação e consistência)</li>
+          <li>Análise de Concorrência</li>
+          <li>Diagnóstico Final</li>
+        </ul>
+        <a href="#" onclick="openHsModal();return false;" class="btn-primary"><span>Solicite um orçamento</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 2: NAMING -->
+<section class="svc-section bg-navy2" id="naming">
+  <div class="wrap">
+    <div class="svc-eyebrow reveal">Precisa de um nome para seu negócio?</div>
+    <h2 class="svc-name reveal d1">Naming</h2>
+    <div class="svc-grid">
+      <div class="reveal d1">
+        <p class="svc-desc">Criação estratégica de nomes com análise de viabilidade de registro para novos negócios ou produtos.</p>
+        <div class="svc-sub-heading">Um nome forte</div>
+        <ul class="svc-bullets">
+          <li>É memorável e fácil de pronunciar</li>
+          <li>Dá uma noção do que você faz ou quem você serve</li>
+          <li>Diferencia você dos concorrentes</li>
+          <li>Funciona em diferentes idiomas e culturas (se relevante)</li>
+          <li>Tem domínio e marca registrada disponíveis</li>
+        </ul>
+      </div>
+      <div class="svc-deliverables reveal d2">
+        <div class="svc-del-heading">O que você receberá</div>
+        <ul class="svc-del-list">
+          <li>Consultoria e estratégia de naming</li>
+          <li>3 ou 5 opções finalizadas de nome com justificativa</li>
+          <li>Relatório de disponibilidade de marca registrada para cada nome</li>
+          <li>Disponibilidade de domínio para cada nome</li>
+          <li>Disponibilidade de usuários (@) nas redes sociais</li>
+          <li>Orientação de pronúncia e uso</li>
+        </ul>
+        <a href="#" onclick="openHsModal();return false;" class="btn-primary"><span>Solicite um orçamento</span></a>
+      </div>
+    </div>
+    <div class="svc-imgs reveal d2">
+      <div class="svc-img-wrap">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Apresentacao-Molib_Prancheta-1.png" alt="Molib — Naming" loading="lazy">
+        <div class="svc-img-label">Molib</div>
+      </div>
+      <div class="svc-img-wrap">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Apresentacao-Realsky_Prancheta-1.png" alt="Realsky Aviation — Naming" loading="lazy">
+        <div class="svc-img-label">Realsky Aviation</div>
+      </div>
+      <div class="svc-img-wrap">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2025/12/APRESENTACAO-SITE_Vinna_Prancheta-1.jpg" alt="Vinna — Naming" loading="lazy">
+        <div class="svc-img-label">Vinna</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 3: IDENTIDADE VISUAL -->
+<section class="svc-section bg-navy3" id="identidade">
+  <div class="wrap">
+    <div class="svc-eyebrow reveal">Começando um novo negócio?</div>
+    <h2 class="svc-name reveal d1">Identidade<em>Visual</em></h2>
+    <div class="svc-grid">
+      <div class="reveal d1">
+        <p class="svc-desc">Criação completa de identidade de marca para novos negócios ou aqueles sem identidade profissional.</p>
+        <div class="svc-sub-heading">O que é identidade visual?</div>
+        <p class="svc-desc">Identidade visual é o sistema visual completo que representa seu negócio consistentemente em cada ponto de contato. Vai além do logo: são cores, tipografia, padrões e como tudo funciona junto para tornar sua marca reconhecível.</p>
+        <p class="svc-desc">Uma identidade visual forte ajuda as pessoas a reconhecer e lembrar da sua marca, comunica quem você é antes de você dizer uma palavra e diferencia você dos concorrentes.</p>
+      </div>
+      <div class="svc-deliverables reveal d2">
+        <div class="svc-del-heading">O que você receberá</div>
+        <ul class="svc-del-list">
+          <li>Sistema completo de logo (marca principal, variações, diretrizes de uso)</li>
+          <li>Paleta de cores</li>
+          <li>Sistema tipográfico para todas as aplicações</li>
+          <li>Elementos visuais e padrões</li>
+          <li>Manual completo da marca</li>
+          <li>Todos os formatos de arquivo (PDF, PNG, JPG, SVG, EPS)</li>
+          <li>Exemplos (mockups) de aplicação</li>
+          <li>Suporte de implementação</li>
+        </ul>
+        <a href="#" onclick="openHsModal();return false;" class="btn-primary"><span>Solicite um orçamento</span></a>
+      </div>
+    </div>
+    <div class="svc-imgs reveal d2">
+      <div class="svc-img-wrap">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Apresentacao-Ura_Prancheta-1.png" alt="Ura Advocacia — Identidade Visual" loading="lazy">
+        <div class="svc-img-label">Ura Advocacia</div>
+      </div>
+      <div class="svc-img-wrap">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/SITE-COFFEELY_Prancheta-1.png" alt="Coffeely — Identidade Visual" loading="lazy">
+        <div class="svc-img-label">Coffeely</div>
+      </div>
+      <div class="svc-img-wrap">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Apresentacao-Art-Salon-01.png" alt="Art Salon — Identidade Visual" loading="lazy">
+        <div class="svc-img-label">Art Salon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 4: REDESIGN DE MARCA -->
+<section class="svc-section bg-navy2" id="redesign">
+  <div class="wrap">
+    <div class="svc-eyebrow reveal">Já tem uma marca que precisa de atualização?</div>
+    <h2 class="svc-name reveal d1">Redesign<em>de Marca</em></h2>
+    <div class="svc-grid">
+      <div class="reveal d1">
+        <p class="svc-desc">Atualização ou evolução de marca existente para negócios que cresceram além de sua identidade atual.</p>
+        <div class="svc-sub-heading">Quando redesign faz sentido</div>
+        <ul class="svc-bullets">
+          <li>Sua identidade atual parece desatualizada ou amadora</li>
+          <li>Seu negócio evoluiu além do seu posicionamento original</li>
+          <li>Você está competindo em um nível mais alto e precisa refletir isso</li>
+          <li>Sua marca não funciona bem em canais modernos</li>
+          <li>Você quer cobrar o que vale e precisa de credibilidade</li>
+        </ul>
+      </div>
+      <div class="svc-deliverables reveal d2">
+        <div class="svc-del-heading">O que você receberá</div>
+        <ul class="svc-del-list">
+          <li>Análise da marca atual</li>
+          <li>Direção estratégica para o redesign</li>
+          <li>Identidade visual completa e atualizada</li>
+          <li>Manual da marca</li>
+          <li>Todos os formatos de arquivo</li>
+          <li>Orientação e suporte de transição</li>
+        </ul>
+        <a href="#" onclick="openHsModal();return false;" class="btn-primary"><span>Solicite um orçamento</span></a>
+      </div>
+    </div>
+    <div class="svc-imgs reveal d2">
+      <div class="svc-img-wrap">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/APRESENTACAO-SITE_Cubo-engenharia_Prancheta-1.png" alt="Cubo Engenharia — Redesign de Marca" loading="lazy">
+        <div class="svc-img-label">Cubo Engenharia</div>
+      </div>
+      <div class="svc-img-wrap">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/APRESENTACAO-SITE_Ane-Jeans_Prancheta-1.png" alt="Ane Jeans — Redesign de Marca" loading="lazy">
+        <div class="svc-img-label">Ane Jeans</div>
+      </div>
+      <div class="svc-img-wrap">
+        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/SITE-BIO-STICK_Prancheta-1.png" alt="Bio Stick — Redesign de Marca" loading="lazy">
+        <div class="svc-img-label">Bio Stick</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-box reveal">
+    <div class="cta-inner">
+      <div>
+        <h2 class="cta-h">Pronto para começar?<em>Vamos falar sobre seu projeto.</em></h2>
+        <p class="cta-body">Se sua marca não representa mais a qualidade do seu trabalho, é hora de mudar.</p>
+      </div>
+      <div class="cta-right">
+        <a href="#" onclick="openHsModal();return false;" class="btn-cta">Começar a conversa →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-content">
+      <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
+      <div class="foot-links">
+        <a href="#">Política de Privacidade</a>
+        <div class="sep"></div>
+        <a href="#">Termos de Uso</a>
+      </div>
+      <div class="foot-bottom">
+        <div class="foot-info">CNPJ: 11.779.193/0001-47 – Rua João Eugênio de Lima, 143, Boa Viagem, Recife-PE | CEP: 51030-360 | +55 (21) 99224-7324</div>
+        <div class="foot-credit">Desenvolvido por <a href="https://vyager.com.br/" target="_blank" rel="noopener">Vyager Digital</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- HUBSPOT MODAL -->
+<div id="hs-modal-overlay" onclick="if(event.target===this)closeHsModal()">
+  <div id="hs-modal">
+    <button id="hs-modal-close" onclick="closeHsModal()">✕</button>
+    <div id="hs-modal-title">Vamos criar sua identidade</div>
+    <div id="hs-modal-sub">Preencha o formulário e nossa equipe entra em contato em até 24h.</div>
+    <div id="hs-form-target"></div>
+  </div>
+</div>
+
+<script>
+/* CURSOR */
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function tick(){fx+=(mx-fx)*.13;fy+=(my-fy)*.13;cur.style.transform=`translate3d(${mx}px,${my}px,0)`;cur2.style.transform=`translate3d(${fx}px,${fy}px,0)`;requestAnimationFrame(tick);})();
+
+/* NAV */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+
+/* SERVICE NAV — stick below main nav */
+(function(){
+  const svcNav=document.getElementById('svc-nav');
+  function updateTop(){svcNav.style.top=nav.getBoundingClientRect().height+'px';}
+  updateTop();
+  window.addEventListener('scroll',updateTop,{passive:true});
+  window.addEventListener('resize',updateTop,{passive:true});
+})();
+
+/* ACTIVE TAB ON SCROLL */
+(function(){
+  const tabs=document.querySelectorAll('.svc-tab');
+  const sections=Array.from(tabs).map(t=>document.getElementById(t.dataset.target));
+  const svcNavH=()=>document.getElementById('svc-nav').offsetHeight+nav.offsetHeight+40;
+  function update(){
+    let current=sections[0];
+    sections.forEach(s=>{if(s&&scrollY>=s.offsetTop-svcNavH()) current=s;});
+    tabs.forEach(t=>{
+      t.classList.toggle('active',t.dataset.target===current.id);
+    });
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+
+/* SMOOTH SCROLL FOR TABS */
+document.querySelectorAll('.svc-tab').forEach(tab=>{
+  tab.addEventListener('click',function(e){
+    e.preventDefault();
+    const target=document.getElementById(this.dataset.target);
+    if(!target) return;
+    const offset=nav.offsetHeight+document.getElementById('svc-nav').offsetHeight;
+    window.scrollTo({top:target.offsetTop-offset,behavior:'smooth'});
+  });
+});
+
+/* HUBSPOT MODAL */
+let hsLoaded=false;
+function openHsModal(){
+  document.getElementById('hs-modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  if(!hsLoaded){
+    hsLoaded=true;
+    if(window.hbspt){
+      hbspt.forms.create({region:'eu1',portalId:'147712865',formId:'b12fc0ef-4c55-4e24-b8fa-4b4e7d0d74e3',target:'#hs-form-target'});
+    }
+  }
+}
+function closeHsModal(){
+  document.getElementById('hs-modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeHsModal();});
+
+/* REVEAL */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+
+</div>
