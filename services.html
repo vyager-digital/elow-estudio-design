@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serviços — ÉLOW Estúdio Design</title>
 <!-- 1. GOOGLE FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +41,7 @@ Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('
   --ease:       cubic-bezier(0.23,1,0.32,1);
 }
 
+html,body{margin:0;padding:0;background:#0f181e}
 #elow-wrapper *,#elow-wrapper *::before,#elow-wrapper *::after{margin:0;padding:0;box-sizing:border-box}
 #elow-wrapper{font-family:'League Spartan',sans-serif;background:var(--navy3);color:var(--cream);overflow-x:hidden;cursor:none;width:100vw !important;max-width:100vw !important;margin-left:calc(-50vw + 50%) !important;margin-right:calc(-50vw + 50%) !important}
 
@@ -211,7 +218,8 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
 #elow-wrapper .nav-link.active{color:var(--cream)}
 #elow-wrapper .nav-link.active::after{transform:scaleX(1)}
 </style>
-
+</head>
+<body>
 <!-- 4. HTML -->
 <div id="elow-wrapper">
 
@@ -533,3 +541,5 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 </script>
 
 </div>
+</body>
+</html>
