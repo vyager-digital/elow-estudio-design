@@ -49,6 +49,12 @@ Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('
 #elow-wrapper nav.scrolled .nav-logo img{height:85px;width:auto;max-width:none !important}
 #elow-wrapper .nav-cta{font-size:11px;font-weight:700 !important;letter-spacing:.14em !important;text-transform:uppercase !important;background:var(--orange);color:var(--cream);padding:13px 28px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:background .3s,transform .3s;display:inline-block;flex-shrink:0;white-space:nowrap}
 #elow-wrapper .nav-cta:hover{background:var(--golden);transform:translateY(-2px)}
+#elow-wrapper .nav-link{font-size:11px;font-weight:700 !important;letter-spacing:.14em !important;text-transform:uppercase !important;color:rgba(248,235,206,.55);text-decoration:none;padding:6px 12px;transition:color .2s;position:relative}
+#elow-wrapper .nav-link::after{content:'';position:absolute;bottom:-2px;left:12px;right:12px;height:1px;background:var(--orange);transform:scaleX(0);transition:transform .25s var(--ease)}
+#elow-wrapper .nav-link:hover{color:var(--cream)}
+#elow-wrapper .nav-link:hover::after{transform:scaleX(1)}
+#elow-wrapper .nav-link.active{color:var(--cream)}
+#elow-wrapper .nav-link.active::after{transform:scaleX(1)}
 
 /* SHARED */
 #elow-wrapper .wrap{max-width:1240px;margin:0 auto;padding:0 64px}
@@ -151,6 +157,21 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
   #elow-wrapper #cur,#elow-wrapper #cur2{display:none}
 }
 
+
+/* MOBILE MENU */
+#elow-wrapper .nav-menu{display:flex;align-items:center;gap:4px}
+#elow-wrapper .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+#elow-wrapper .hamburger span{display:block;width:22px;height:2px;background:var(--cream);transition:all .3s var(--ease)}
+#elow-wrapper .mobile-nav{display:none;position:fixed;inset:0;background:var(--navy3);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+#elow-wrapper .mobile-nav.open{display:flex}
+#elow-wrapper .mobile-nav-link{font-size:clamp(28px,6vw,48px);font-weight:900 !important;letter-spacing:-.02em !important;text-transform:uppercase !important;color:rgba(248,235,206,.5);text-decoration:none;transition:color .2s}
+#elow-wrapper .mobile-nav-link:hover,#elow-wrapper .mobile-nav-link.active{color:var(--cream)}
+#elow-wrapper .mobile-nav-close{position:absolute;top:28px;right:24px;background:none;border:none;color:var(--cream);font-size:28px;cursor:pointer;opacity:.5;transition:opacity .2s}
+#elow-wrapper .mobile-nav-close:hover{opacity:1}
+@media(max-width:960px){
+  #elow-wrapper .nav-menu{display:none}
+  #elow-wrapper .hamburger{display:flex}
+}
 </style>
 
 <!-- 4. HTML -->
@@ -183,16 +204,19 @@ function setLang(lang){
   <a href="portfolio.html" class="nav-logo">
     <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
   </a>
-  <div style="display:flex;align-items:center;gap:24px;margin-left:auto">
-    <a href="portfolio.html" class="nav-back">
-      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      Portfólio
-    </a>
+    <div style="display:flex;align-items:center;gap:24px;margin-left:auto">
+    <nav class="nav-menu">
+      <a href="home.html" class="nav-link">Início</a>
+      <a href="about.html" class="nav-link">Sobre</a>
+      <a href="services.html" class="nav-link">Serviços</a>
+      <a href="portfolio.html" class="nav-link">Portfólio</a>
+    </nav>
     <div class="lang-switcher" translate="no">
       <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
       <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="nav-cta">Quero minha identidade</a>
   </div>
 </nav>

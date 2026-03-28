@@ -351,6 +351,21 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
 /* ===== HubSpot Modal ===== */
 @media(max-width:480px){}
 
+
+/* MOBILE MENU */
+#elow-wrapper .nav-menu{display:flex;align-items:center;gap:4px}
+#elow-wrapper .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+#elow-wrapper .hamburger span{display:block;width:22px;height:2px;background:var(--cream);transition:all .3s var(--ease)}
+#elow-wrapper .mobile-nav{display:none;position:fixed;inset:0;background:var(--navy3);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+#elow-wrapper .mobile-nav.open{display:flex}
+#elow-wrapper .mobile-nav-link{font-size:clamp(28px,6vw,48px);font-weight:900 !important;letter-spacing:-.02em !important;text-transform:uppercase !important;color:rgba(248,235,206,.5);text-decoration:none;transition:color .2s}
+#elow-wrapper .mobile-nav-link:hover,#elow-wrapper .mobile-nav-link.active{color:var(--cream)}
+#elow-wrapper .mobile-nav-close{position:absolute;top:28px;right:24px;background:none;border:none;color:var(--cream);font-size:28px;cursor:pointer;opacity:.5;transition:opacity .2s}
+#elow-wrapper .mobile-nav-close:hover{opacity:1}
+@media(max-width:960px){
+  #elow-wrapper .nav-menu{display:none}
+  #elow-wrapper .hamburger{display:flex}
+}
 </style>
 
 <!-- 4. HTML CONTENT -->
@@ -386,15 +401,22 @@ function setLang(lang){
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo">
+  <a href="home.html" class="nav-logo">
     <img id="nav-logo-img" src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
   </a>
-  <div style="display:flex;align-items:center;gap:16px;margin-left:auto">
+    <div style="display:flex;align-items:center;gap:24px;margin-left:auto">
+    <nav class="nav-menu">
+      <a href="home.html" class="nav-link">Início</a>
+      <a href="about.html" class="nav-link">Sobre</a>
+      <a href="services.html" class="nav-link">Serviços</a>
+      <a href="portfolio.html" class="nav-link">Portfólio</a>
+    </nav>
     <div class="lang-switcher" translate="no">
       <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
       <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="nav-cta">Quero minha identidade</a>
   </div>
 </nav>
@@ -698,6 +720,10 @@ function setLang(lang){
 </footer>
 
 <script>
+
+/* NAV ACTIVE */
+document.querySelectorAll('.nav-link').forEach(l=>{if(l.getAttribute('href')==='home.html')l.classList.add('active');});
+
 /* CURSOR */
 const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
 let mx=0,my=0,fx=0,fy=0;
