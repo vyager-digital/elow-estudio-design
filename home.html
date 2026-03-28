@@ -736,6 +736,12 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
 })();
 
 /* NAV */
+#elow-wrapper .nav-link{font-size:11px;font-weight:700 !important;letter-spacing:.14em !important;text-transform:uppercase !important;color:rgba(248,235,206,.6);text-decoration:none;padding:6px 12px;transition:color .2s;position:relative}
+#elow-wrapper .nav-link::after{content:'';position:absolute;bottom:-2px;left:12px;right:12px;height:1px;background:var(--orange);transform:scaleX(0);transition:transform .25s var(--ease)}
+#elow-wrapper .nav-link:hover{color:var(--cream)}
+#elow-wrapper .nav-link:hover::after{transform:scaleX(1)}
+#elow-wrapper .nav-link.active{color:var(--cream)}
+#elow-wrapper .nav-link.active::after{transform:scaleX(1)}
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
 
