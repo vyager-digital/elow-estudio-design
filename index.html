@@ -236,6 +236,9 @@ const A = {
 #elow-wrapper .del-title {font-size:16px;font-weight:800 !important;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);margin-bottom:18px;line-height:1.2 !important;transition:color .4s;height:42px;display:flex;align-items:flex-end}
 #elow-wrapper .del-card:hover .del-title {color:var(--cream)}
 #elow-wrapper .del-list {list-style:none;display:flex;flex-direction:column;gap:9px}
+#elow-wrapper .del-dots {display:none;justify-content:center;gap:8px;margin-top:20px}
+#elow-wrapper .del-dot {width:6px;height:6px;border-radius:50%;background:rgba(28,44,54,.2);transition:background .25s,transform .25s;cursor:pointer}
+#elow-wrapper .del-dot.active {background:var(--orange);transform:scale(1.4)}
 #elow-wrapper .del-list li {font-size:13px;font-weight:400 !important;color:rgba(28,44,54,.6);padding-left:14px;position:relative;line-height:1.4 !important;transition:color .4s}
 #elow-wrapper .del-list li::before {content:'—';position:absolute;left:0;color:var(--orange);font-size:9px !important;top:3px}
 #elow-wrapper .del-card:hover .del-list li {color:rgba(248,235,206,.55)}
@@ -414,7 +417,11 @@ body {cursor:auto}
 }
 
 @media(max-width: 600px) {
-#elow-wrapper .del-grid { grid-template-columns: 1fr; }
+#elow-wrapper .del-grid { display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;gap:3px;padding-left:24px;padding-right:24px;margin:0 -24px; }
+#elow-wrapper .del-grid::-webkit-scrollbar { display:none; }
+#elow-wrapper .del-card { scroll-snap-align:start;min-width:82vw;flex-shrink:0; }
+#elow-wrapper .del-dots { display:flex !important; }
+#elow-wrapper .wrap { overflow-x:hidden; }
 #elow-wrapper .snake-container { padding-left: 60px; }
 #elow-wrapper .snake-marker { left: -45px; width: 40px; height: 40px; font-size: 16px !important; box-shadow: 0 0 0 4px var(--navy2); }
 #elow-wrapper .snake-container::before { left: 35px; }
@@ -681,6 +688,12 @@ function setLang(lang){
       <div class="del-card reveal d2"><div class="del-num">03</div><svg class="del-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3l18 9-18 9V3z"/></svg><div class="del-title">Pacote de Arquivos</div><ul class="del-list"><li>Todos os formatos (PDF, PNG, JPG, SVG, EPS)</li><li>Pastas organizadas</li><li>Prontos para impressão e digital</li></ul></div>
       <div class="del-card reveal d3"><div class="del-num">04</div><svg class="del-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><div class="del-title">Implementação</div><ul class="del-list"><li>Orientação de implementação</li><li>Templates prontos</li><li>Apoio no lançamento</li></ul></div>
     </div>
+    <div class="del-dots" id="del-dots">
+      <div class="del-dot active" data-index="0"></div>
+      <div class="del-dot" data-index="1"></div>
+      <div class="del-dot" data-index="2"></div>
+      <div class="del-dot" data-index="3"></div>
+    </div>
   </div>
 </section>
 
@@ -868,6 +881,31 @@ const statsObserver = new IntersectionObserver((entries) => {
   }
 }, {threshold: 0.5});
 statsObserver.observe(document.querySelector('.stats-bar'));
+
+/* DELIVERABLES CAROUSEL DOTS */
+(function(){
+  const grid = document.querySelector('.del-grid');
+  const dots = document.querySelectorAll('.del-dot');
+  if(!grid || !dots.length) return;
+  function updateDots(){
+    const cards = grid.querySelectorAll('.del-card');
+    const scrollLeft = grid.scrollLeft;
+    let closest = 0, minDist = Infinity;
+    cards.forEach((card, i) => {
+      const dist = Math.abs(card.offsetLeft - scrollLeft);
+      if(dist < minDist){ minDist = dist; closest = i; }
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === closest));
+  }
+  grid.addEventListener('scroll', updateDots, {passive:true});
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.dataset.index);
+      const card = grid.querySelectorAll('.del-card')[idx];
+      if(card) grid.scrollTo({left: card.offsetLeft, behavior:'smooth'});
+    });
+  });
+})();
 </script>
 
 <!-- HubSpot Modal -->
