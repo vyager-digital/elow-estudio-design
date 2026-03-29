@@ -8,18 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://elowestudiodesign.com.br">
 
 <!-- 2. ASSET MAP -->
 <script>
 const A = {
-  logo_azul:      'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png',
-  selo:           'https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png',
-  textura_azul:   'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Azul-scaled.png',
-  textura_laranja:'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Laranja-scaled.png',
-  luas_laranja:   'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Laranja-scaled.png',
-  luas_branca:    'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Branca-scaled.png',
-  linhas_laranja: 'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Linhas_Laranja.png',
+  logo_azul:      '../assets/images/Elow_1_Fundo-Azul.png',
+  selo:           '../assets/images/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png',
+  textura_azul:   '../assets/images/Elow_Textura_Azul-scaled.png',
+  textura_laranja:'../assets/images/Elow_Textura_Laranja-scaled.png',
+  luas_laranja:   '../assets/images/Elow_Luas_Laranja-scaled.png',
+  luas_branca:    '../assets/images/Elow_Luas_Branca-scaled.png',
+  linhas_laranja: '../assets/images/Elow_Linhas_Laranja.png',
 };
 const root = document.documentElement;
 Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('${v}')`));
@@ -248,7 +247,7 @@ function setLang(lang){
 <!-- NAV -->
 <nav id="nav">
   <a href="home.html" class="nav-logo">
-    <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
+    <img src="../assets/images/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
   </a>
     <div style="display:flex;align-items:center;gap:24px;margin-left:auto">
     <div class="nav-menu">
@@ -345,15 +344,15 @@ function setLang(lang){
     </div>
     <div class="svc-imgs reveal d2">
       <div class="svc-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Apresentacao-Molib_Prancheta-1.png" alt="Molib — Naming" loading="lazy">
+        <img src="../assets/images/Apresentacao-Molib_Prancheta-1.png" alt="Molib — Naming" loading="lazy">
         <div class="svc-img-label">Molib</div>
       </div>
       <div class="svc-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Apresentacao-Realsky_Prancheta-1.png" alt="Realsky Aviation — Naming" loading="lazy">
+        <img src="../assets/images/Apresentacao-Realsky_Prancheta-1.png" alt="Realsky Aviation — Naming" loading="lazy">
         <div class="svc-img-label">Realsky Aviation</div>
       </div>
       <div class="svc-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2025/12/APRESENTACAO-SITE_Vinna_Prancheta-1.jpg" alt="Vinna — Naming" loading="lazy">
+        <img src="../assets/images/APRESENTACAO-SITE_Vinna_Prancheta-1.jpg" alt="Vinna — Naming" loading="lazy">
         <div class="svc-img-label">Vinna</div>
       </div>
     </div>
@@ -389,15 +388,15 @@ function setLang(lang){
     </div>
     <div class="svc-imgs reveal d2">
       <div class="svc-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Apresentacao-Ura_Prancheta-1.png" alt="Ura Advocacia — Identidade Visual" loading="lazy">
+        <img src="../assets/images/Apresentacao-Ura_Prancheta-1.png" alt="Ura Advocacia — Identidade Visual" loading="lazy">
         <div class="svc-img-label">Ura Advocacia</div>
       </div>
       <div class="svc-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/SITE-COFFEELY_Prancheta-1.png" alt="Coffeely — Identidade Visual" loading="lazy">
+        <img src="../assets/images/SITE-COFFEELY_Prancheta-1.png" alt="Coffeely — Identidade Visual" loading="lazy">
         <div class="svc-img-label">Coffeely</div>
       </div>
       <div class="svc-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Apresentacao-Art-Salon-01.png" alt="Art Salon — Identidade Visual" loading="lazy">
+        <img src="../assets/images/Apresentacao-Art-Salon-01.png" alt="Art Salon — Identidade Visual" loading="lazy">
         <div class="svc-img-label">Art Salon</div>
       </div>
     </div>
@@ -436,15 +435,15 @@ function setLang(lang){
     </div>
     <div class="svc-imgs reveal d2">
       <div class="svc-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/APRESENTACAO-SITE_Cubo-engenharia_Prancheta-1.png" alt="Cubo Engenharia — Redesign de Marca" loading="lazy">
+        <img src="../assets/images/APRESENTACAO-SITE_Cubo-engenharia_Prancheta-1.png" alt="Cubo Engenharia — Redesign de Marca" loading="lazy">
         <div class="svc-img-label">Cubo Engenharia</div>
       </div>
       <div class="svc-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/APRESENTACAO-SITE_Ane-Jeans_Prancheta-1.png" alt="Ane Jeans — Redesign de Marca" loading="lazy">
+        <img src="../assets/images/APRESENTACAO-SITE_Ane-Jeans_Prancheta-1.png" alt="Ane Jeans — Redesign de Marca" loading="lazy">
         <div class="svc-img-label">Ane Jeans</div>
       </div>
       <div class="svc-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/SITE-BIO-STICK_Prancheta-1.png" alt="Bio Stick — Redesign de Marca" loading="lazy">
+        <img src="../assets/images/SITE-BIO-STICK_Prancheta-1.png" alt="Bio Stick — Redesign de Marca" loading="lazy">
         <div class="svc-img-label">Bio Stick</div>
       </div>
     </div>
@@ -470,7 +469,7 @@ function setLang(lang){
 <footer>
   <div class="wrap">
     <div class="foot-content">
-      <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
+      <img src="../assets/images/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
       <div class="foot-links">
         <a href="#">Política de Privacidade</a>
         <div class="sep"></div>

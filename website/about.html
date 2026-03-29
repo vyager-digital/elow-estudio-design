@@ -8,23 +8,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://elowestudiodesign.com.br">
 
 <!-- 2. ASSET MAP -->
 <script>
 const A = {
-  logo_azul:      'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png',
-  team:           'https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow-Rebecca-Natalia-1-1.png',
-  rebecca:        'https://elowestudiodesign.com.br/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-13-at-22.17.08.jpeg',
-  natalia:        'https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Untitled-design-9.png',
-  textura_azul:   'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Azul-scaled.png',
-  textura_laranja:'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Laranja-scaled.png',
-  estampa_off:    'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_Estampa_Off.png',
-  estampa_laranja:'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_Estampa_Laranja.png',
-  linhas_laranja: 'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Linhas_Laranja.png',
-  luas_laranja:   'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Laranja-scaled.png',
-  luas_branca:    'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Branca-scaled.png',
-  selo:           'https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png',
+  logo_azul:      '../assets/images/Elow_1_Fundo-Azul.png',
+  team:           '../assets/images/Elow-Rebecca-Natalia-1-1.png',
+  rebecca:        '../assets/images/WhatsApp-Image-2026-01-13-at-22.17.08.jpeg',
+  natalia:        '../assets/images/Untitled-design-9.png',
+  textura_azul:   '../assets/images/Elow_Textura_Azul-scaled.png',
+  textura_laranja:'../assets/images/Elow_Textura_Laranja-scaled.png',
+  estampa_off:    '../assets/images/Elow_Estampa_Off.png',
+  estampa_laranja:'../assets/images/Elow_Estampa_Laranja.png',
+  linhas_laranja: '../assets/images/Elow_Linhas_Laranja.png',
+  luas_laranja:   '../assets/images/Elow_Luas_Laranja-scaled.png',
+  luas_branca:    '../assets/images/Elow_Luas_Branca-scaled.png',
+  selo:           '../assets/images/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png',
 };
 const root = document.documentElement;
 Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('${v}')`));
@@ -267,7 +266,7 @@ function setLang(lang){
 <!-- NAV -->
 <nav id="nav">
   <a href="home.html" class="nav-logo">
-    <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
+    <img src="../assets/images/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
   </a>
     <div style="display:flex;align-items:center;gap:24px;margin-left:auto">
     <div class="nav-menu">
@@ -340,7 +339,7 @@ function setLang(lang){
         <p class="commit-body reveal d2">Quando uma mulher cresce, o mercado se transforma. Estamos alinhados ao Objetivo de Desenvolvimento Sustentável 5 da ONU porque acreditamos que igualdade de gênero também se constrói com estrutura, visibilidade e direção.<br><br>Como um estúdio liderado por mulheres, criamos marcas que ajudam outras empreendedoras a crescer com autonomia, presença e clareza de posicionamento. Quando uma mulher empreende com uma identidade sólida, o impacto vai além do negócio: gera oportunidades, movimenta a economia local e inspira novas trajetórias.<br><br>Marcas fortes elevam histórias. E é isso que nos move.</p>
       </div>
       <div class="commit-photo reveal d2">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow-Rebecca-Natalia-1-1.png" alt="Rebecca Menezes e Natália Nery — ÉLOW Estúdio Design" width="1000" height="1399" loading="lazy">
+        <img src="../assets/images/Elow-Rebecca-Natalia-1-1.png" alt="Rebecca Menezes e Natália Nery — ÉLOW Estúdio Design" width="1000" height="1399" loading="lazy">
       </div>
     </div>
   </div>
@@ -357,7 +356,7 @@ function setLang(lang){
     <!-- Rebecca -->
     <div class="member reveal">
       <div class="member-photo">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-13-at-22.17.08.jpeg" alt="Rebecca Menezes — ÉLOW Estúdio Design" width="800" height="1000" loading="lazy">
+        <img src="../assets/images/WhatsApp-Image-2026-01-13-at-22.17.08.jpeg" alt="Rebecca Menezes — ÉLOW Estúdio Design" width="800" height="1000" loading="lazy">
       </div>
       <div class="member-content">
         <h3 class="member-name">Rebecca Menezes</h3>
@@ -369,7 +368,7 @@ function setLang(lang){
     <!-- Natália -->
     <div class="member flip reveal d1">
       <div class="member-photo">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Untitled-design-9.png" alt="Natália Nery — ÉLOW Estúdio Design" width="800" height="1000" loading="lazy">
+        <img src="../assets/images/Untitled-design-9.png" alt="Natália Nery — ÉLOW Estúdio Design" width="800" height="1000" loading="lazy">
       </div>
       <div class="member-content">
         <h3 class="member-name">Natália Nery</h3>
@@ -400,7 +399,7 @@ function setLang(lang){
 <footer>
   <div class="wrap">
     <div class="foot-content">
-      <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
+      <img src="../assets/images/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
       <div class="foot-links">
         <a href="#">Política de Privacidade</a>
         <div class="sep"></div>
