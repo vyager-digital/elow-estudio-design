@@ -500,10 +500,15 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
 
-/* SERVICE NAV — stick below main nav */
+/* SERVICE NAV — fixed below main nav */
 (function(){
   const svcNav=document.getElementById('svc-nav');
-  function updateTop(){svcNav.style.top=nav.getBoundingClientRect().height+'px';}
+  const firstSection=document.getElementById('diagnostico');
+  function updateTop(){
+    const navH=nav.getBoundingClientRect().height;
+    svcNav.style.top=navH+'px';
+    if(firstSection) firstSection.style.paddingTop=(svcNav.getBoundingClientRect().height+80)+'px';
+  }
   updateTop();
   window.addEventListener('scroll',updateTop,{passive:true});
   window.addEventListener('resize',updateTop,{passive:true});
