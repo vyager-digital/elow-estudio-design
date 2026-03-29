@@ -281,7 +281,7 @@ html,body{margin:0;padding:0;background:#0f181e;overflow-x:hidden}
 #elow-wrapper .a-role {font-size:10px !important;color:rgba(28,44,54,.45);margin-top:3px;letter-spacing:.05em !important}
 
 /* ── CTA ────────────────────────────────── */
-#elow-wrapper .cta-section {background:var(--navy3);padding:80px 64px 130px}
+#elow-wrapper .cta-section {background:var(--navy3);padding:80px 64px 130px;overflow:hidden}
 #elow-wrapper .cta-box {background:var(--orange);position:relative;overflow:hidden;clip-path:polygon(0 0,calc(100% - 48px) 0,100% 48px,100% 100%,48px 100%,0 calc(100% - 48px));padding:88px 80px;max-width:1240px;margin:0 auto}
 #elow-wrapper .cta-box::before {content:'';position:absolute;inset:0;background-image:var(--img-textura_laranja);background-size:cover;opacity:.18;mix-blend-mode:multiply}
 #elow-wrapper .cta-box::after {content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background-image:var(--img-luas_branca);background-size:contain;background-repeat:no-repeat;opacity:.08}
@@ -333,7 +333,8 @@ html,body{margin:0;padding:0;background:#0f181e;overflow-x:hidden}
 #elow-wrapper .port-item {width:100%;min-width:0}
 #elow-wrapper .del-head {flex-direction:column;align-items:flex-start;gap:20px}
 #elow-wrapper .del-note {text-align:left;max-width:100%}
-#elow-wrapper .cta-box {padding:60px 24px;clip-path:none;border-radius:20px}
+#elow-wrapper .cta-section {padding:60px 20px 80px}
+#elow-wrapper .cta-box {padding:48px 24px;clip-path:none;border-radius:20px;width:100%;max-width:100%}
 #elow-wrapper .cta-right {align-items:flex-start;width:100%}
 #elow-wrapper .btn-cta {width:100%;justify-content:center;white-space:normal;text-align:center;line-height:1.3 !important;padding:20px}
 #elow-wrapper .hero-accent {left:10%;right:10%;top:0;bottom:auto;width:auto;height:3px;background:linear-gradient(to right,transparent,var(--orange),transparent)}
@@ -402,7 +403,9 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
 #elow-wrapper .mobile-menu .m-lang button{background:transparent;border:1px solid rgba(248,235,206,.2);color:rgba(255,255,255,.5);font-family:'League Spartan',sans-serif;font-weight:600;font-size:11px;letter-spacing:.1em;padding:6px 12px;cursor:pointer;transition:all .2s}
 #elow-wrapper .mobile-menu .m-lang button.active{border-color:var(--orange);color:var(--orange)}
 @media(max-width:768px){
-  #elow-wrapper .nav-desktop{display:none}
+  #elow-wrapper nav{overflow:hidden}
+  #elow-wrapper .nav-desktop{display:none !important}
+  #elow-wrapper .nav-cta{display:none !important}
   #elow-wrapper .hamburger{display:flex}
   #elow-wrapper .hero-btns{flex-wrap:wrap;gap:16px}
   #elow-wrapper .btn-primary{width:100%;justify-content:center}
