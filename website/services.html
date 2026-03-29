@@ -504,10 +504,13 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60)
 (function(){
   const svcNav=document.getElementById('svc-nav');
   const firstSection=document.getElementById('diagnostico');
+  const hero=document.querySelector('.svc-hero');
   function updateTop(){
     const navH=nav.getBoundingClientRect().height;
+    const tabH=svcNav.getBoundingClientRect().height;
     svcNav.style.top=navH+'px';
-    if(firstSection) firstSection.style.paddingTop=(svcNav.getBoundingClientRect().height+80)+'px';
+    if(hero) hero.style.paddingTop=(navH+tabH+40)+'px';
+    if(firstSection) firstSection.style.paddingTop=(tabH+80)+'px';
   }
   updateTop();
   window.addEventListener('scroll',updateTop,{passive:true});
