@@ -429,6 +429,13 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
 
+/* HAMBURGER */
+const hamburger=document.getElementById('hamburger');
+const mobileNav=document.getElementById('mobile-nav');
+hamburger.addEventListener('click',()=>{mobileNav.classList.add('open');document.body.style.overflow='hidden';});
+document.getElementById('mobile-nav-close').addEventListener('click',()=>{mobileNav.classList.remove('open');document.body.style.overflow='';});
+mobileNav.querySelectorAll('.mobile-nav-link').forEach(el=>el.addEventListener('click',()=>{mobileNav.classList.remove('open');document.body.style.overflow='';}));
+
 /* SCROLL REVEAL */
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
@@ -437,6 +444,15 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 
 
+<!-- MOBILE NAV -->
+<div id="mobile-nav" class="mobile-nav">
+  <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Fechar menu">✕</button>
+  <a href="home.html" class="mobile-nav-link">Início</a>
+  <a href="about.html" class="mobile-nav-link active">Sobre nós</a>
+  <a href="services.html" class="mobile-nav-link">Serviços</a>
+  <a href="portfolio.html" class="mobile-nav-link">Portfólio</a>
+  <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="mobile-nav-link" style="color:var(--orange);margin-top:16px">Quero minha identidade</a>
+</div>
 </div><!-- /elow-wrapper -->
 </body>
 </html>
