@@ -73,7 +73,7 @@ html{margin:0;padding:0;background:#0f181e;overflow-x:hidden}body{margin:0;paddi
 #elow-wrapper .btn-primary span{position:relative;z-index:1}
 
 /* HERO */
-#elow-wrapper .svc-hero{background:var(--navy3);padding:200px 0 120px;position:relative;overflow:hidden}
+#elow-wrapper .svc-hero{background:var(--navy3);padding:260px 0 120px;position:relative;overflow:hidden}
 #elow-wrapper .svc-hero::before{content:'';position:absolute;inset:0;background-image:var(--img-textura_azul);background-size:cover;opacity:.35;pointer-events:none}
 #elow-wrapper .svc-hero::after{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background-image:var(--img-luas_laranja);background-size:contain;background-repeat:no-repeat;opacity:.05;pointer-events:none}
 #elow-wrapper .svc-hero-inner{position:relative;z-index:2;max-width:900px}
@@ -174,7 +174,7 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
   #elow-wrapper .nav-logo img{height:80px !important}
   #elow-wrapper nav.scrolled .nav-logo img{height:64px !important}
   #elow-wrapper .wrap{padding:0 24px}
-  #elow-wrapper .svc-hero{padding:150px 0 80px}
+  #elow-wrapper .svc-hero{padding:240px 0 80px}
   #elow-wrapper .svc-nav-inner{padding:0;justify-content:flex-start;flex-wrap:wrap;overflow-x:visible}
   #elow-wrapper .svc-tab{padding:16px 12px;width:50%;text-align:center;font-size:9px !important;border-bottom:1px solid rgba(197,112,64,.1)}
   #elow-wrapper .svc-tab::after{left:12px;right:12px}
@@ -503,15 +503,7 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60)
 /* SERVICE NAV — fixed below main nav */
 (function(){
   const svcNav=document.getElementById('svc-nav');
-  const firstSection=document.getElementById('diagnostico');
-  const hero=document.querySelector('.svc-hero');
-  function updateTop(){
-    const navH=nav.getBoundingClientRect().height;
-    const tabH=svcNav.getBoundingClientRect().height;
-    svcNav.style.top=navH+'px';
-    if(hero) hero.style.paddingTop=(navH+tabH+40)+'px';
-    if(firstSection) firstSection.style.paddingTop=(tabH+80)+'px';
-  }
+  function updateTop(){svcNav.style.top=nav.getBoundingClientRect().height+'px';}
   updateTop();
   window.addEventListener('scroll',updateTop,{passive:true});
   window.addEventListener('resize',updateTop,{passive:true});
