@@ -236,6 +236,7 @@ function setLang(lang){
 </script>
 <div id="gt-hidden-elow" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;"></div>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="../assets/data/portfolio-data.js"></script>
 
 <div id="cur"></div>
 <div id="cur2"></div>
@@ -356,84 +357,29 @@ const ro=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-/* PORTFOLIO — fetch & render */
+/* PORTFOLIO — static local data */
 (function(){
-  const API='https://elowestudiodesign.com.br/wp-json/wp/v2/projeto?per_page=100&_embed&orderby=menu_order&order=asc';
   const grid=document.getElementById('port-grid');
   const loading=document.getElementById('port-loading');
   const empty=document.getElementById('port-empty');
 
-  /* slug → display name map */
-  const CAT_LABELS={
-    'identidade-visual':'Identidade Visual',
-    'naming':'Naming',
-    'redesign-de-marca':'Redesign de Marca'
-  };
-
-  const SETOR={
-    'cubo-engenharia':        'Engenharia',
-    'ane-jeans':              'Moda',
-    'bittale-travel-boutique':'Turismo',
-    'babi-supermercados':     'Supermercado',
-    'kabyte-solucoes-em-ti':  'Tecnologia',
-    'art-salon':              'Beleza',
-    'ceci-bolos':             'Confeitaria',
-    'santo-dia-assessoria':   'Assessoria',
-    'matilha-dogs-artesanais':'Petshop',
-    'bio-stick':              'Cosméticos',
-    'coffeely':               'Café',
-    'montenegro-alfaiataria': 'Moda',
-    'crocco':                 'Restaurante',
-    'sympa-bakery':           'Padaria',
-    'taboa-restaurante':      'Restaurante',
-    'restaurante-trama':      'Restaurante',
-    'produtos-nordeli':       'Alimentação',
-    'instituto-aluze':        '',
-    'orla-farma':             'Farmácia',
-    'noon-clinic':            'Saúde',
-    'realsky':                'Aviação',
-    'noc-clinic':             'Saúde',
-    'artfarma':               'Farmácia',
-    'ura-advocacia':          'Advocacia',
-    'vic-falcao':             'Moda',
-    'snackinhos':             'Restaurante',
-    'molib':                  '',
-    'vinna':                  'Moda',
-  };
-
   let allCards=[];
 
-  function getCatSlug(post){
-    /* pull from class_list which contains categorias-do-projeto-{slug} */
-    const classes=(post.class_list||[]).join(' ');
-    for(const slug of Object.keys(CAT_LABELS)){
-      if(classes.includes('categorias-do-projeto-'+slug)) return slug;
-    }
-    return '';
-  }
-
-  function buildCard(post){
-    const img=post._embedded&&post._embedded['wp:featuredmedia']&&post._embedded['wp:featuredmedia'][0]
-      ?post._embedded['wp:featuredmedia'][0].source_url:'';
-    const title=post.title.rendered;
-    const catSlug=getCatSlug(post);
-    const catLabel=CAT_LABELS[catSlug]||'';
-    const link=post.link;
-
+  function buildCard(p){
     const a=document.createElement('a');
     a.className='port-card reveal';
-    a.href='projeto.html?slug='+post.slug;
-    a.dataset.cat=catSlug;
+    a.href='projeto.html?slug='+p.slug;
+    a.dataset.cat=p.cat;
     a.innerHTML=`
       <div class="port-img-wrap">
-        ${img?`<img src="${img}" alt="${title}" loading="lazy">`:''}
-        <div class="port-title-overlay">${title}</div>
+        ${p.img?`<img src="${p.img}" alt="${p.title}" loading="lazy">`:''}
+        <div class="port-title-overlay">${p.title}</div>
         <div class="port-card-arrow">
           <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
         </div>
       </div>
       <div class="port-card-below">
-        ${SETOR[post.slug]?`<span class="port-card-cat">${SETOR[post.slug]}</span>`:''}
+        ${p.setor?`<span class="port-card-cat">${p.setor}</span>`:''}
       </div>
     `;
     return a;
@@ -459,7 +405,6 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
       if(show) visible++;
     });
     empty.style.display=visible===0?'block':'none';
-    /* re-trigger reveal for newly visible cards */
     allCards.forEach(c=>{
       if(!c.classList.contains('hidden')&&!c.classList.contains('on')) ro.observe(c);
     });
@@ -474,24 +419,16 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
     });
   });
 
-  /* fetch */
-  fetch(API)
-    .then(r=>r.json())
-    .then(posts=>{
-      loading.style.display='none';
-      if(!posts||!posts.length){empty.style.display='block';return;}
-      posts.forEach(post=>{
-        const card=buildCard(post);
-        grid.appendChild(card);
-        allCards.push(card);
-        ro.observe(card);
-      });
-      updateCounts(allCards);
-    })
-    .catch(()=>{
-      loading.style.display='none';
-      empty.style.display='block';
-    });
+  /* render from local data */
+  loading.style.display='none';
+  if(!PORTFOLIO_DATA||!PORTFOLIO_DATA.length){empty.style.display='block';return;}
+  PORTFOLIO_DATA.forEach(p=>{
+    const card=buildCard(p);
+    grid.appendChild(card);
+    allCards.push(card);
+    ro.observe(card);
+  });
+  updateCounts(allCards);
 })();
 </script>
 

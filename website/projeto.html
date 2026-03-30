@@ -8,17 +8,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://elowestudiodesign.com.br">
-
 <!-- 2. ASSET MAP -->
 <script>
 const A = {
-  logo_azul:      'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png',
-  selo:           'https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png',
-  textura_azul:   'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Azul-scaled.png',
-  textura_laranja:'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Laranja-scaled.png',
-  luas_laranja:   'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Laranja-scaled.png',
-  luas_branca:    'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Branca-scaled.png',
+  logo_azul:      '../assets/images/Elow_1_Fundo-Azul.png',
+  selo:           '../assets/images/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png',
+  textura_azul:   '../assets/images/Elow_Textura_Azul-scaled.png',
+  textura_laranja:'../assets/images/Elow_Textura_Laranja-scaled.png',
+  luas_laranja:   '../assets/images/Elow_Luas_Laranja-scaled.png',
+  luas_branca:    '../assets/images/Elow_Luas_Branca-scaled.png',
 };
 const root = document.documentElement;
 Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('${v}')`));
@@ -206,6 +204,7 @@ function setLang(lang){
 </script>
 <div id="gt-hidden-elow" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;"></div>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="../assets/data/portfolio-data.js"></script>
 
 <div id="cur"></div>
 <div id="cur2"></div>
@@ -213,7 +212,7 @@ function setLang(lang){
 <!-- NAV -->
 <nav id="nav">
   <a href="portfolio.html" class="nav-logo">
-    <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
+    <img src="../assets/images/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
   </a>
     <div style="display:flex;align-items:center;gap:24px;margin-left:auto">
     <div class="nav-menu">
@@ -254,7 +253,7 @@ function setLang(lang){
 <footer>
   <div class="wrap">
     <div class="foot-content">
-      <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
+      <img src="../assets/images/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
       <div class="foot-links">
         <a href="#">Política de Privacidade</a>
         <div class="sep"></div>
@@ -286,7 +285,7 @@ const ro=new IntersectionObserver(entries=>{
 },{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-/* PROJECT — fetch & render */
+/* PROJECT — render from local data */
 (function(){
   const CAT_LABELS={
     'identidade-visual':'Identidade Visual',
@@ -294,7 +293,7 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
     'redesign-de-marca':'Redesign de Marca'
   };
 
-  const SETOR={
+  const SETOR_LEGACY={
     'cubo-engenharia':        'Engenharia',
     'ane-jeans':              'Moda',
     'bittale-travel-boutique':'Turismo',
@@ -329,55 +328,24 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   const params=new URLSearchParams(location.search);
   const slug=params.get('slug');
 
-  function showLoading(){
-    root.innerHTML=`<div class="proj-state"><div class="proj-state-dots"><span></span><span></span><span></span></div></div>`;
-  }
-
   function showError(){
     root.innerHTML=`<div class="proj-state"><div class="proj-state-msg">Projeto não encontrado</div><a href="portfolio.html" style="color:var(--golden);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;margin-top:8px">← Voltar ao portfólio</a></div>`;
   }
 
-  function getCatSlug(post){
-    const classes=(post.class_list||[]).join(' ');
-    for(const s of Object.keys(CAT_LABELS)){
-      if(classes.includes('categorias-do-projeto-'+s)) return s;
-    }
-    return '';
-  }
-
-  function extractImages(html){
-    const div=document.createElement('div');
-    div.innerHTML=html;
-    return Array.from(div.querySelectorAll('img')).map(img=>{
-      /* prefer largest src from srcset */
-      if(img.srcset){
-        const parts=img.srcset.split(',').map(s=>s.trim().split(' '));
-        const sorted=parts.sort((a,b)=>parseInt(b[1]||0)-parseInt(a[1]||0));
-        if(sorted[0]) return sorted[0][0];
-      }
-      return img.src;
-    }).filter(Boolean);
-  }
-
-  function render(post){
-    const featuredImg=post._embedded&&post._embedded['wp:featuredmedia']&&post._embedded['wp:featuredmedia'][0]
-      ?post._embedded['wp:featuredmedia'][0].source_url:'';
-    const title=post.title.rendered;
-    const catSlug=getCatSlug(post);
-    const catLabel=CAT_LABELS[catSlug]||'';
-    const images=extractImages(post.content.rendered);
+  function render(p){
+    const title=p.title;
+    const heroImg=p.img||'';
 
     /* set page title */
     document.title=title+' — ÉLOW Estúdio Design';
 
     /* hero */
-    const heroImg=featuredImg||images[0]||'';
     root.innerHTML=`
       <section class="proj-hero" id="proj-hero">
         ${heroImg?`<img class="proj-hero-img" src="${heroImg}" alt="${title}">`:''}
         <div class="proj-hero-gradient"></div>
         <div class="proj-hero-content">
-          ${SETOR[slug]?`<div class="proj-cat">${SETOR[slug]}</div>`:''}
+          ${p.setor?`<div class="proj-cat">${p.setor}</div>`:''}
           <h1 class="proj-title">${title}</h1>
         </div>
       </section>
@@ -389,10 +357,9 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
       document.getElementById('proj-hero').classList.add('loaded');
     });
 
-    /* gallery — skip first image if same as featured */
+    /* gallery — local images from portfolio-data.js */
     const gallery=document.getElementById('proj-gallery');
-    images.forEach((src,i)=>{
-      if(i===0&&featuredImg&&src===featuredImg) return;
+    (p.gallery||[]).forEach((src,i)=>{
       const img=document.createElement('img');
       img.src=src;
       img.alt=`${title} — imagem ${i+1}`;
@@ -407,15 +374,10 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   }
 
   if(!slug){showError();return;}
-  showLoading();
 
-  fetch(`https://elowestudiodesign.com.br/wp-json/wp/v2/projeto?slug=${encodeURIComponent(slug)}&_embed`)
-    .then(r=>r.json())
-    .then(data=>{
-      if(!data||!data.length){showError();return;}
-      render(data[0]);
-    })
-    .catch(showError);
+  const project=(PORTFOLIO_DATA||[]).find(p=>p.slug===slug);
+  if(!project){showError();return;}
+  render(project);
 })();
 </script>
 
