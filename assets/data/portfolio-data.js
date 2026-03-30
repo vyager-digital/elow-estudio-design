@@ -11,7 +11,7 @@ const PORTFOLIO_DATA = [
     title:   'Kabyte',
     cat:     'identidade-visual',
     setor:   'Tecnologia',
-    img:     '../assets/images/SITE-KABYTE-06-759x1024.webp',
+    img:     '../assets/images/portfolio-kabyte-solucoes-em-ti.png',
     gallery: []
   },
   {
@@ -19,7 +19,7 @@ const PORTFOLIO_DATA = [
     title:   'Orla Farma',
     cat:     'identidade-visual',
     setor:   'Farmácia',
-    img:     '../assets/images/Site-OrlaFarma-07-807x1024.webp',
+    img:     '../assets/images/portfolio-orla-farma.png',
     gallery: []
   },
   {
@@ -27,7 +27,7 @@ const PORTFOLIO_DATA = [
     title:   'Sympa Bakery',
     cat:     'identidade-visual',
     setor:   'Padaria',
-    img:     '../assets/images/Site-Sympa-06-759x1024.webp',
+    img:     '../assets/images/portfolio-sympa-bakery.png',
     gallery: []
   },
   {
@@ -35,7 +35,7 @@ const PORTFOLIO_DATA = [
     title:   'Taboa',
     cat:     'identidade-visual',
     setor:   'Restaurante',
-    img:     '../assets/images/SITE-TABOA-07-718x1024.webp',
+    img:     '../assets/images/portfolio-taboa-restaurante.png',
     gallery: []
   },
   {
@@ -67,7 +67,7 @@ const PORTFOLIO_DATA = [
     title:   'Bittale Travel Boutique',
     cat:     'identidade-visual',
     setor:   'Turismo',
-    img:     '',
+    img:     '../assets/images/portfolio-bittale-travel-boutique.png',
     gallery: []
   },
   {
@@ -75,7 +75,7 @@ const PORTFOLIO_DATA = [
     title:   'Babi Supermercados',
     cat:     'identidade-visual',
     setor:   'Supermercado',
-    img:     '',
+    img:     '../assets/images/portfolio-babi-supermercados.png',
     gallery: []
   },
   {
@@ -83,7 +83,7 @@ const PORTFOLIO_DATA = [
     title:   'Ceci Bolos',
     cat:     'identidade-visual',
     setor:   'Confeitaria',
-    img:     '',
+    img:     '../assets/images/portfolio-ceci-bolos.png',
     gallery: []
   },
   {
@@ -91,7 +91,7 @@ const PORTFOLIO_DATA = [
     title:   'Santo Dia Assessoria',
     cat:     'identidade-visual',
     setor:   'Assessoria',
-    img:     '',
+    img:     '../assets/images/portfolio-santo-dia-assessoria.png',
     gallery: []
   },
   {
@@ -99,7 +99,7 @@ const PORTFOLIO_DATA = [
     title:   'Matilha Dogs Artesanais',
     cat:     'identidade-visual',
     setor:   'Petshop',
-    img:     '',
+    img:     '../assets/images/portfolio-matilha-dogs-artesanais.png',
     gallery: []
   },
   {
@@ -107,7 +107,7 @@ const PORTFOLIO_DATA = [
     title:   'Montenegro Alfaiataria',
     cat:     'identidade-visual',
     setor:   'Moda',
-    img:     '',
+    img:     '../assets/images/portfolio-montenegro-alfaiataria.png',
     gallery: []
   },
   {
@@ -115,7 +115,7 @@ const PORTFOLIO_DATA = [
     title:   'Crocco',
     cat:     'identidade-visual',
     setor:   'Restaurante',
-    img:     '',
+    img:     '../assets/images/portfolio-crocco.png',
     gallery: []
   },
   {
@@ -123,7 +123,7 @@ const PORTFOLIO_DATA = [
     title:   'Restaurante Trama',
     cat:     'identidade-visual',
     setor:   'Restaurante',
-    img:     '',
+    img:     '../assets/images/portfolio-restaurante-trama.png',
     gallery: []
   },
   {
@@ -131,7 +131,7 @@ const PORTFOLIO_DATA = [
     title:   'Produtos Nordeli',
     cat:     'identidade-visual',
     setor:   'Alimentação',
-    img:     '',
+    img:     '../assets/images/portfolio-produtos-nordeli.jpg',
     gallery: []
   },
   {
@@ -139,7 +139,7 @@ const PORTFOLIO_DATA = [
     title:   'Instituto Aluze',
     cat:     'identidade-visual',
     setor:   '',
-    img:     '',
+    img:     '../assets/images/portfolio-instituto-aluze.png',
     gallery: []
   },
   {
@@ -147,7 +147,7 @@ const PORTFOLIO_DATA = [
     title:   'Noon Clinic',
     cat:     'identidade-visual',
     setor:   'Saúde',
-    img:     '',
+    img:     '../assets/images/portfolio-noon-clinic.png',
     gallery: []
   },
   {
@@ -155,7 +155,7 @@ const PORTFOLIO_DATA = [
     title:   'NOC Clinic',
     cat:     'identidade-visual',
     setor:   'Saúde',
-    img:     '',
+    img:     '../assets/images/portfolio-noc-clinic.png',
     gallery: []
   },
   {
@@ -163,7 +163,7 @@ const PORTFOLIO_DATA = [
     title:   'Artfarma',
     cat:     'identidade-visual',
     setor:   'Farmácia',
-    img:     '',
+    img:     '../assets/images/portfolio-artfarma.png',
     gallery: []
   },
   {
@@ -171,7 +171,7 @@ const PORTFOLIO_DATA = [
     title:   'Vic Falcão',
     cat:     'identidade-visual',
     setor:   'Moda',
-    img:     '',
+    img:     '../assets/images/portfolio-vic-falcao.png',
     gallery: []
   },
   {
@@ -179,7 +179,7 @@ const PORTFOLIO_DATA = [
     title:   'Snackinhos',
     cat:     'identidade-visual',
     setor:   'Restaurante',
-    img:     '',
+    img:     '../assets/images/portfolio-snackinhos.png',
     gallery: []
   },
 
