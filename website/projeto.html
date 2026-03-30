@@ -328,38 +328,58 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   const params=new URLSearchParams(location.search);
   const slug=params.get('slug');
 
+  function showLoading(){
+    root.innerHTML=`<div class="proj-state"><div class="proj-state-dots"><span></span><span></span><span></span></div></div>`;
+  }
+
   function showError(){
     root.innerHTML=`<div class="proj-state"><div class="proj-state-msg">Projeto não encontrado</div><a href="portfolio.html" style="color:var(--golden);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;margin-top:8px">← Voltar ao portfólio</a></div>`;
   }
 
-  function render(p){
-    const title=p.title;
-    const heroImg=p.img||'';
+  function extractImages(html){
+    const div=document.createElement('div');
+    div.innerHTML=html;
+    return Array.from(div.querySelectorAll('img')).map(img=>{
+      if(img.srcset){
+        const parts=img.srcset.split(',').map(s=>s.trim().split(' '));
+        const sorted=parts.sort((a,b)=>parseInt(b[1]||0)-parseInt(a[1]||0));
+        if(sorted[0]) return sorted[0][0];
+      }
+      return img.src;
+    }).filter(Boolean);
+  }
 
-    /* set page title */
+  function render(post){
+    /* use local data for hero if available, fall back to WP embed */
+    const local=(PORTFOLIO_DATA||[]).find(p=>p.slug===slug);
+    const featuredImg=(post._embedded&&post._embedded['wp:featuredmedia']&&post._embedded['wp:featuredmedia'][0])
+      ?post._embedded['wp:featuredmedia'][0].source_url:'';
+    const heroImg=(local&&local.img)||featuredImg||'';
+    const title=post.title.rendered;
+    const setor=(local&&local.setor)||SETOR_LEGACY[slug]||'';
+    const images=extractImages(post.content.rendered);
+
     document.title=title+' — ÉLOW Estúdio Design';
 
-    /* hero */
     root.innerHTML=`
       <section class="proj-hero" id="proj-hero">
         ${heroImg?`<img class="proj-hero-img" src="${heroImg}" alt="${title}">`:''}
         <div class="proj-hero-gradient"></div>
         <div class="proj-hero-content">
-          ${p.setor?`<div class="proj-cat">${p.setor}</div>`:''}
+          ${setor?`<div class="proj-cat">${setor}</div>`:''}
           <h1 class="proj-title">${title}</h1>
         </div>
       </section>
       <section class="proj-gallery" id="proj-gallery"></section>
     `;
 
-    /* trigger hero zoom */
     requestAnimationFrame(()=>{
       document.getElementById('proj-hero').classList.add('loaded');
     });
 
-    /* gallery — local images from portfolio-data.js */
     const gallery=document.getElementById('proj-gallery');
-    (p.gallery||[]).forEach((src,i)=>{
+    images.forEach((src,i)=>{
+      if(i===0&&featuredImg&&src===featuredImg) return;
       const img=document.createElement('img');
       img.src=src;
       img.alt=`${title} — imagem ${i+1}`;
@@ -369,15 +389,19 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
       ro.observe(img);
     });
 
-    /* re-run reveal on new elements */
     document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   }
 
   if(!slug){showError();return;}
+  showLoading();
 
-  const project=(PORTFOLIO_DATA||[]).find(p=>p.slug===slug);
-  if(!project){showError();return;}
-  render(project);
+  fetch(`https://elowestudiodesign.com.br/wp-json/wp/v2/projeto?slug=${encodeURIComponent(slug)}&_embed`)
+    .then(r=>r.json())
+    .then(data=>{
+      if(!data||!data.length){showError();return;}
+      render(data[0]);
+    })
+    .catch(showError);
 })();
 </script>
 
