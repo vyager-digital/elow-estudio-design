@@ -488,12 +488,29 @@ function setLang(lang){
 <section class="hero">
   <div class="hero-l">
     <div class="hero-eyebrow">IDENTIDADE DE MARCA PARA NEGÓCIOS REAIS</div>
-    <h1 class="hero-title">
+    <h1 class="hero-title" id="hero-h1">
       <span>Marcas pequenas também</span>
       <span class="accent">merecem ser</span>
       <span class="sub">grandiosas</span>
     </h1>
-    <p class="hero-body">Sua marca com mais clareza, valor e autoridade.</p>
+    <p class="hero-body" id="hero-body">Sua marca com mais clareza, valor e autoridade.</p>
+    <script>
+    (function(){
+      var match=document.cookie.match(/googtrans=\/pt\/([a-z]+)/);
+      if(match&&match[1]==='en'){
+        var h1=document.getElementById('hero-h1');
+        var body=document.getElementById('hero-body');
+        if(h1){
+          h1.setAttribute('translate','no');
+          h1.innerHTML='<span>Small brands also</span><span class="accent">deserve to be</span><span class="sub">great</span>';
+        }
+        if(body){
+          body.setAttribute('translate','no');
+          body.textContent='Your brand with more clarity, value, and authority.';
+        }
+      }
+    })();
+    </script>
     <div class="hero-btns">
       <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-primary">
         <span>Fala com a gente</span>
