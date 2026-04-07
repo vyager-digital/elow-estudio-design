@@ -417,11 +417,12 @@ body {cursor:auto}
 }
 
 @media(max-width: 600px) {
-#elow-wrapper .deliverables { overflow:hidden; }
-#elow-wrapper .del-grid { display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;gap:3px;padding-left:24px;padding-right:24px;margin:0 -24px; }
-#elow-wrapper .del-grid::-webkit-scrollbar { display:none; }
-#elow-wrapper .del-card { scroll-snap-align:start;min-width:82vw;flex-shrink:0;opacity:1 !important;transform:none !important; }
-#elow-wrapper .del-dots { display:flex !important; }
+/* Deliverables — vertical stack, no carousel */
+#elow-wrapper .deliverables { overflow:visible; }
+#elow-wrapper .del-grid { display:grid;grid-template-columns:1fr;gap:16px;overflow-x:visible;padding-left:0;padding-right:0;margin:0; }
+#elow-wrapper .del-card { min-width:0;flex-shrink:unset;opacity:1 !important;transform:none !important; }
+#elow-wrapper .del-dots { display:none !important; }
+
 #elow-wrapper .snake-container { padding-left: 60px; }
 #elow-wrapper .snake-marker { left: -45px; width: 40px; height: 40px; font-size: 16px !important; box-shadow: 0 0 0 4px var(--navy2); }
 #elow-wrapper .snake-container::before { left: 35px; }
@@ -429,6 +430,13 @@ body {cursor:auto}
 #elow-wrapper .snake-title { font-size: 20px !important; }
 #elow-wrapper .hero-stats { flex-wrap: wrap; justify-content: center; gap: 24px 12px; }
 #elow-wrapper .hs-item { width: calc(50% - 12px); align-items: center; text-align: center; }
+
+/* Nav — hide CTA on small screens to prevent clipping */
+#elow-wrapper .nav-cta { display:none !important; }
+#elow-wrapper .nav-logo img { height:60px !important; }
+
+/* Badges — all full-width on mobile */
+#elow-wrapper .badge { width:100% !important; }
 }
 
 
