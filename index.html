@@ -431,16 +431,29 @@ body {cursor:auto}
 #elow-wrapper .hero-stats { flex-wrap: wrap; justify-content: center; gap: 24px 12px; }
 #elow-wrapper .hs-item { width: calc(50% - 12px); align-items: center; text-align: center; }
 
-/* Nav — compress everything, keep all elements */
-#elow-wrapper .nav-logo img { height:44px !important; }
-#elow-wrapper .lang-btn { font-size:0.55rem !important; padding:2px 3px !important; }
-#elow-wrapper .nav-cta { font-size:8px !important; padding:9px 12px !important; letter-spacing:.08em !important; white-space:nowrap; }
+/* Nav — hamburger on mobile */
+#elow-wrapper .nav-desktop { display:none !important; }
+#elow-wrapper .hamburger { display:flex; }
 
 /* Badges — all full-width on mobile */
 #elow-wrapper .badge { width:100% !important; }
 }
 
 
+
+/* ── MOBILE NAV ── */
+#elow-wrapper .nav-desktop{display:flex;align-items:center;gap:16px;margin-left:auto}
+#elow-wrapper .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;z-index:301}
+#elow-wrapper .hamburger span{display:block;width:24px;height:2px;background:var(--cream);transition:all .3s var(--ease);border-radius:2px}
+#elow-wrapper .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+#elow-wrapper .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+#elow-wrapper .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+#elow-wrapper .mobile-menu{position:fixed;inset:0;background:var(--navy3);z-index:300;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s;padding:40px 24px}
+#elow-wrapper .mobile-menu.open{opacity:1;visibility:visible}
+#elow-wrapper .mobile-menu .m-cta{display:inline-flex;align-items:center;justify-content:center;width:100%;background:var(--orange);color:var(--cream);font-size:13px;font-weight:700 !important;letter-spacing:.12em !important;text-transform:uppercase !important;padding:20px 40px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));margin-bottom:28px}
+#elow-wrapper .mobile-menu .m-lang{display:flex;gap:8px}
+#elow-wrapper .mobile-menu .m-lang button{background:transparent;border:1px solid rgba(248,235,206,.2);color:rgba(255,255,255,.5);font-family:'League Spartan',sans-serif;font-weight:600;font-size:11px;letter-spacing:.1em;padding:8px 16px;cursor:pointer;transition:all .2s}
+#elow-wrapper .mobile-menu .m-lang button.active{border-color:var(--orange);color:var(--orange)}
 
 /* ── LANG SWITCHER ── */
 .goog-te-banner-frame,.skiptranslate{display:none!important;height:0!important}
@@ -504,7 +517,7 @@ function setLang(lang){
   <a href="#" class="nav-logo">
     <img id="nav-logo-img" src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
   </a>
-  <div style="display:flex;align-items:center;gap:16px;margin-left:auto">
+  <div class="nav-desktop">
     <div class="lang-switcher" translate="no">
       <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
@@ -512,7 +525,20 @@ function setLang(lang){
     </div>
     <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="nav-cta">Quero minha identidade</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="m-cta">Quero minha identidade</a>
+  <div class="m-lang" translate="no">
+    <button data-lang="pt" onclick="setLang('pt')">PT</button>
+    <button data-lang="en" onclick="setLang('en')">EN</button>
+    <button data-lang="es" onclick="setLang('es')">ES</button>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -890,6 +916,22 @@ statsObserver.observe(document.querySelector('.stats-bar'));
     });
   });
 })();
+
+/* HAMBURGER */
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobile-menu');
+if(hamburger&&mobileMenu){
+  hamburger.addEventListener('click',()=>{
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+  });
+  mobileMenu.querySelector('.m-cta').addEventListener('click',()=>{
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow='';
+  });
+}
 </script>
 
 
