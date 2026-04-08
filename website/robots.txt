@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://elowestudiodesign.com.br/sitemap.xml
+
 User-agent: GPTBot
 Allow: /
 
