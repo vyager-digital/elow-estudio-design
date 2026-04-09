@@ -406,6 +406,8 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
 #elow-wrapper .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 #elow-wrapper .mobile-menu{position:fixed;inset:0;background:var(--navy3);z-index:300;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s;padding:40px 24px}
 #elow-wrapper .mobile-menu.open{opacity:1;visibility:visible}
+#elow-wrapper .mobile-nav-close{position:absolute;top:28px;right:24px;background:none;border:none;color:var(--cream);font-size:28px;cursor:pointer;opacity:.5;transition:opacity .2s}
+#elow-wrapper .mobile-nav-close:hover{opacity:1}
 #elow-wrapper .mobile-menu .m-link{font-size:clamp(28px,8vw,42px);font-weight:900 !important;letter-spacing:-.02em !important;text-transform:uppercase !important;color:var(--cream);text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(248,235,206,.08);width:100%;text-align:center;transition:color .2s}
 #elow-wrapper .mobile-menu .m-link:hover{color:var(--orange)}
 #elow-wrapper .mobile-menu .m-cta{margin-top:36px;display:inline-flex;align-items:center;gap:12px;background:var(--orange);color:var(--cream);font-size:13px;font-weight:700 !important;letter-spacing:.12em !important;text-transform:uppercase !important;padding:18px 40px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
@@ -482,6 +484,7 @@ function setLang(lang){
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
+  <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Fechar menu">✕</button>
   <a href="index.html" class="m-link">Início</a>
   <a href="about.html" class="m-link">Sobre nós</a>
   <a href="services.html" class="m-link">Serviços</a>
@@ -771,6 +774,11 @@ hamburger.addEventListener('click',()=>{
   hamburger.classList.toggle('open');
   mobileMenu.classList.toggle('open');
   document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+document.getElementById('mobile-nav-close').addEventListener('click',()=>{
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow='';
 });
 mobileMenu.querySelectorAll('.m-link,.m-cta').forEach(el=>el.addEventListener('click',()=>{
   hamburger.classList.remove('open');
