@@ -23,38 +23,36 @@
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <!-- PRECONNECT + PRELOAD: hero images -->
-<link rel="preconnect" href="https://elowestudiodesign.com.br">
-<link rel="preload" as="image" href="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/ChatGPT-Image-Feb-27-2026-05_12_39-AM-1.png" fetchpriority="high">
-<link rel="preload" as="image" href="https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Azul-scaled.png">
+<link rel="preload" as="image" href="assets/images/ChatGPT-Image-Feb-27-2026-05_12_39-AM-1.webp" fetchpriority="high">
 
 <!-- 2. ASSET MAP -->
 <script>
 const A = {
   // Logos
-  logo_azul:      'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png',
-  logo_amarela:   'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Mono-Amarela.png',
-  logo_laranja:   'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Mono-Laranja.png',
-  logo_mono_azul: 'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Mono-Azul.png',
+  logo_azul:      'assets/images/Elow_1_Fundo-Azul.png',
+  logo_amarela:   'assets/images/Elow_1_Mono-Amarela.png',
+  logo_laranja:   'assets/images/Elow_1_Mono-Laranja.png',
+  logo_mono_azul: 'assets/images/Elow_1_Mono-Azul.png',
   // Team
-  team:           'https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow-Rebecca-Natalia-1-1.png',
+  team:           'assets/images/Elow-Rebecca-Natalia-1-1.png',
   // Estampas (patterns)
-  estampa_laranja:'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_Estampa_Laranja.png',
-  estampa_off:    'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_Estampa_Off.png',
-  estampa_branca: 'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_Estampa_Branca.png',
-  estampa_laranjaC:'https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_Estampa_Laranja-C-1.png',
+  estampa_laranja:'assets/images/Elow_Estampa_Laranja.png',
+  estampa_off:    'assets/images/Elow_Estampa_Off.png',
+  estampa_branca: 'assets/images/Elow_Estampa_Branca.png',
+  estampa_laranjaC:'assets/images/Elow_Estampa_Laranja-C-1.png',
   // Texturas
-  textura_laranja:'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Laranja-scaled.png',
-  textura_off:    'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Off-scaled.png',
-  textura_azul:   'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Textura_Azul-scaled.png',
+  textura_laranja:'assets/images/Elow_Textura_Laranja-scaled.png',
+  textura_off:    'assets/images/Elow_Textura_Off-scaled.png',
+  textura_azul:   'assets/images/Elow_Textura_Azul-scaled.png',
   // Luas (circles)
-  luas_laranja:   'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Laranja-scaled.png',
-  luas_branca:    'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Branca-scaled.png',
-  luas_off:       'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Off-scaled.png',
-  luas_azul:      'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Luas_Azul-scaled.png',
+  luas_laranja:   'assets/images/Elow_Luas_Laranja-scaled.png',
+  luas_branca:    'assets/images/Elow_Luas_Branca-scaled.png',
+  luas_off:       'assets/images/Elow_Luas_Off-scaled.png',
+  luas_azul:      'assets/images/Elow_Luas_Azul-scaled.png',
   // Linhas (lines)
-  linhas_laranja: 'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Linhas_Laranja.png',
-  linhas_branca:  'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Linhas_Branca.png',
-  linhas_azul:    'https://elowestudiodesign.com.br/wp-content/uploads/2025/12/Elow_Linhas_Azul.png',
+  linhas_laranja: 'assets/images/Elow_Linhas_Laranja.png',
+  linhas_branca:  'assets/images/Elow_Linhas_Branca.png',
+  linhas_azul:    'assets/images/Elow_Linhas_Azul.png',
 };
 // Inject all as CSS vars so we can use them in background-image
   const root = document.documentElement;
@@ -553,7 +551,7 @@ function setLang(lang){
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">
-    <img id="nav-logo-img" src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design">
+    <picture><source srcset="assets/images/Elow_1_Fundo-Azul.webp" type="image/webp"><img id="nav-logo-img" src="assets/images/Elow_1_Fundo-Azul.png" alt="ÉLOW Estúdio Design"></picture>
   </a>
   <div class="nav-desktop">
     <div class="lang-switcher" translate="no">
@@ -618,7 +616,7 @@ function setLang(lang){
   </div>
   <div class="hero-r">
     <div class="hero-r-bg"></div>
-    <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/02/ChatGPT-Image-Feb-27-2026-05_12_39-AM-1.png" class="hero-main-img" alt="Identidade visual estratégica para empresas de serviços — ÉLOW Estúdio Design" width="1920" height="1080" fetchpriority="high" loading="eager">
+    <picture><source srcset="assets/images/ChatGPT-Image-Feb-27-2026-05_12_39-AM-1.webp" type="image/webp"><img src="assets/images/ChatGPT-Image-Feb-27-2026-05_12_39-AM-1.png" class="hero-main-img" alt="Identidade visual estratégica para empresas de serviços — ÉLOW Estúdio Design" width="1920" height="1080" fetchpriority="high" loading="eager"></picture>
 
     <div class="hero-accent"></div>
   </div>
@@ -655,21 +653,21 @@ function setLang(lang){
   <div class="port-slider reveal d1">
     <div class="port-item">
       <div class="port-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/SITE-KABYTE-06-759x1024.png" class="port-img" alt="Identidade visual Kabyte — ÉLOW Estúdio Design" width="759" height="1024" loading="lazy">
+        <picture><source srcset="assets/images/SITE-KABYTE-06-759x1024.webp" type="image/webp"><img src="assets/images/SITE-KABYTE-06-759x1024.png" class="port-img" alt="Identidade visual Kabyte — ÉLOW Estúdio Design" width="759" height="1024" loading="lazy"></picture>
         <div class="port-overlay-text">Kabyte</div>
       </div>
       <div class="port-cat">Tecnologia &amp; Internet</div>
     </div>
     <div class="port-item">
       <div class="port-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Site-OrlaFarma-07-807x1024.png" class="port-img" alt="Identidade visual Orla Farma — ÉLOW Estúdio Design" width="807" height="1024" loading="lazy">
+        <picture><source srcset="assets/images/Site-OrlaFarma-07-807x1024.webp" type="image/webp"><img src="assets/images/Site-OrlaFarma-07-807x1024.png" class="port-img" alt="Identidade visual Orla Farma — ÉLOW Estúdio Design" width="807" height="1024" loading="lazy"></picture>
         <div class="port-overlay-text">Orla Farma</div>
       </div>
       <div class="port-cat">Saúde &amp; Bem-estar</div>
     </div>
     <div class="port-item">
       <div class="port-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Site-Sympa-06-759x1024.png" class="port-img" alt="Identidade visual Sympa — ÉLOW Estúdio Design" width="759" height="1024" loading="lazy">
+        <picture><source srcset="assets/images/Site-Sympa-06-759x1024.webp" type="image/webp"><img src="assets/images/Site-Sympa-06-759x1024.png" class="port-img" alt="Identidade visual Sympa — ÉLOW Estúdio Design" width="759" height="1024" loading="lazy"></picture>
         <div class="port-overlay-text">Sympa</div>
       </div>
       <div class="port-cat">Cafeteria</div>
@@ -677,7 +675,7 @@ function setLang(lang){
 
     <div class="port-item">
       <div class="port-img-wrap">
-        <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/SITE-TABOA-07-718x1024.png" class="port-img" alt="Identidade visual Taboa — ÉLOW Estúdio Design" width="718" height="1024" loading="lazy">
+        <picture><source srcset="assets/images/SITE-TABOA-07-718x1024.webp" type="image/webp"><img src="assets/images/SITE-TABOA-07-718x1024.png" class="port-img" alt="Identidade visual Taboa — ÉLOW Estúdio Design" width="718" height="1024" loading="lazy"></picture>
         <div class="port-overlay-text">Taboa</div>
       </div>
       <div class="port-cat">Gastronomia</div>
@@ -769,7 +767,7 @@ function setLang(lang){
 <section class="about">
   <div class="about-grid">
     <div class="about-photo reveal">
-      <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow-Rebecca-Natalia-1-1.png" alt="Rebecca Menezes e Natália Nery — ÉLOW Estúdio Design" width="1000" height="1399" loading="lazy">
+      <picture><source srcset="assets/images/Elow-Rebecca-Natalia-1-1.webp" type="image/webp"><img src="assets/images/Elow-Rebecca-Natalia-1-1.png" alt="Rebecca Menezes e Natália Nery — ÉLOW Estúdio Design" width="1000" height="1399" loading="lazy"></picture>
       <div class="photo-caption">
         <div class="photo-caption-name">Rebecca Menezes &amp; Natália Nery</div>
         <div class="photo-caption-role">Fundadoras — ÉLOW Estúdio Design</div>
@@ -859,9 +857,9 @@ function setLang(lang){
     <div class="sec-label reveal">Histórias Reais</div>
     <h2 class="test-h reveal d1">Histórias de quem<em>elevou sua marca</em></h2>
     <div class="test-grid">
-      <div class="test-card reveal"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Simplesmente incrível, a sensibilidade em entender o propósito da marca e traduzir um sentimento em imagem, elas foram muito competentes em todos os quesitos. Só agradecer por ter conhecido vocês."</p><div class="test-author"><img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/23fc226e-3397-4845-899a-34ad42c16105.jpeg" class="avatar" alt="Zuza Visagista" width="42" height="42" loading="lazy"><div><div class="a-name">Zuza Visagista</div></div></div></div>
-      <div class="test-card reveal d1"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"O trabalho delas é incrível. Conseguem captar de forma única a essência da marca, criando algo original e impactante. Um investimento essencial que traz um retorno muito maior do que o investido."</p><div class="test-author"><img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Screenshot-2026-01-13-at-17.31.48.png" class="avatar" alt="José Maurício Neto" width="42" height="42" loading="lazy"><div><div class="a-name">José Maurício Neto</div></div></div></div>
-      <div class="test-card reveal d2"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Atendimento acessível. Elas realmente estudam o cliente e entregam um resultado de alta qualidade. Trabalho feito de forma artesanal."</p><div class="test-author"><img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/3c9a6776-fdb3-4821-9a09-77bb9ebef57c-e1768317734907.jpeg" class="avatar" alt="Ilan Leibel Swartzman" width="42" height="42" loading="lazy"><div><div class="a-name">Ilan Leibel Swartzman</div></div></div></div>
+      <div class="test-card reveal"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Simplesmente incrível, a sensibilidade em entender o propósito da marca e traduzir um sentimento em imagem, elas foram muito competentes em todos os quesitos. Só agradecer por ter conhecido vocês."</p><div class="test-author"><img src="assets/images/23fc226e-3397-4845-899a-34ad42c16105.jpeg" class="avatar" alt="Zuza Visagista" width="42" height="42" loading="lazy"><div><div class="a-name">Zuza Visagista</div></div></div></div>
+      <div class="test-card reveal d1"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"O trabalho delas é incrível. Conseguem captar de forma única a essência da marca, criando algo original e impactante. Um investimento essencial que traz um retorno muito maior do que o investido."</p><div class="test-author"><img src="assets/images/Screenshot-2026-01-13-at-17.31.48.png" class="avatar" alt="José Maurício Neto" width="42" height="42" loading="lazy"><div><div class="a-name">José Maurício Neto</div></div></div></div>
+      <div class="test-card reveal d2"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Atendimento acessível. Elas realmente estudam o cliente e entregam um resultado de alta qualidade. Trabalho feito de forma artesanal."</p><div class="test-author"><img src="assets/images/3c9a6776-fdb3-4821-9a09-77bb9ebef57c-e1768317734907.jpeg" class="avatar" alt="Ilan Leibel Swartzman" width="42" height="42" loading="lazy"><div><div class="a-name">Ilan Leibel Swartzman</div></div></div></div>
     </div>
   </div>
 </section>
@@ -885,7 +883,7 @@ function setLang(lang){
 <footer>
   <div class="wrap">
     <div class="foot-content">
-      <img src="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
+      <picture><source srcset="assets/images/Elow_Selo_Fundo-Azul-scaled-e1766154650731.webp" type="image/webp"><img src="assets/images/Elow_Selo_Fundo-Azul-scaled-e1766154650731.png" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px"></picture>
       
       <div class="foot-links">
         <a href="https://elowestudiodesign.com.br/privacy.html">Política de Privacidade</a>
