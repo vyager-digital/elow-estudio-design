@@ -43,7 +43,7 @@ const PORTFOLIO_DATA = [
     title:   'Ura Advocacia',
     cat:     'identidade-visual',
     setor:   'Advocacia',
-    img:     '../assets/images/Apresentacao-Ura_Prancheta-1.png',
+    img:     '../assets/images/portfolio-ura-advocacia.png',
     gallery: ["../assets/images/gallery-ura-advocacia-01.png", "../assets/images/gallery-ura-advocacia-02.png", "../assets/images/gallery-ura-advocacia-03.png", "../assets/images/gallery-ura-advocacia-04.png", "../assets/images/gallery-ura-advocacia-05.png"]
   },
   {
@@ -51,7 +51,7 @@ const PORTFOLIO_DATA = [
     title:   'Coffeely',
     cat:     'identidade-visual',
     setor:   'Café',
-    img:     '../assets/images/SITE-COFFEELY_Prancheta-1.png',
+    img:     '../assets/images/portfolio-coffeely.png',
     gallery: ["../assets/images/gallery-coffeely-01.png", "../assets/images/gallery-coffeely-02.png", "../assets/images/gallery-coffeely-03.png", "../assets/images/gallery-coffeely-04.png", "../assets/images/gallery-coffeely-05.png", "../assets/images/gallery-coffeely-06.png"]
   },
   {
@@ -59,7 +59,7 @@ const PORTFOLIO_DATA = [
     title:   'Art Salon',
     cat:     'identidade-visual',
     setor:   'Beleza',
-    img:     '../assets/images/Apresentacao-Art-Salon-01.png',
+    img:     '../assets/images/portfolio-art-salon.png',
     gallery: ["../assets/images/gallery-art-salon-01.png", "../assets/images/gallery-art-salon-02.png", "../assets/images/gallery-art-salon-03.png", "../assets/images/gallery-art-salon-04.png", "../assets/images/gallery-art-salon-05.png", "../assets/images/gallery-art-salon-06.png"]
   },
   {
@@ -189,7 +189,7 @@ const PORTFOLIO_DATA = [
     title:   'Molib',
     cat:     'naming',
     setor:   '',
-    img:     '../assets/images/Apresentacao-Molib_Prancheta-1.png',
+    img:     '../assets/images/portfolio-molib.png',
     gallery: ["../assets/images/gallery-molib-01.png", "../assets/images/gallery-molib-02.png", "../assets/images/gallery-molib-03.png", "../assets/images/gallery-molib-04.png", "../assets/images/gallery-molib-05.png", "../assets/images/gallery-molib-06.png"]
   },
   {
@@ -197,7 +197,7 @@ const PORTFOLIO_DATA = [
     title:   'Realsky',
     cat:     'naming',
     setor:   'Aviação',
-    img:     '../assets/images/Apresentacao-Realsky_Prancheta-1.png',
+    img:     '../assets/images/portfolio-realsky.png',
     gallery: ["../assets/images/gallery-realsky-01.png", "../assets/images/gallery-realsky-02.png", "../assets/images/gallery-realsky-03.png", "../assets/images/gallery-realsky-04.png", "../assets/images/gallery-realsky-05.png"]
   },
   {
@@ -205,7 +205,7 @@ const PORTFOLIO_DATA = [
     title:   'Vinna',
     cat:     'naming',
     setor:   'Moda',
-    img:     '../assets/images/APRESENTACAO-SITE_Vinna_Prancheta-1.jpg',
+    img:     '../assets/images/portfolio-vinna.jpg',
     gallery: ["../assets/images/gallery-vinna-01.jpg", "../assets/images/gallery-vinna-02.jpg", "../assets/images/gallery-vinna-03.jpg", "../assets/images/gallery-vinna-04.jpg", "../assets/images/gallery-vinna-05.jpg"]
   },
 
@@ -215,7 +215,7 @@ const PORTFOLIO_DATA = [
     title:   'Cubo Engenharia',
     cat:     'redesign-de-marca',
     setor:   'Engenharia',
-    img:     '../assets/images/APRESENTACAO-SITE_Cubo-engenharia_Prancheta-1.png',
+    img:     '../assets/images/portfolio-cubo-engenharia.png',
     gallery: ["../assets/images/gallery-cubo-engenharia-01.png", "../assets/images/gallery-cubo-engenharia-02.png", "../assets/images/gallery-cubo-engenharia-03.png", "../assets/images/gallery-cubo-engenharia-04.png", "../assets/images/gallery-cubo-engenharia-05.png"]
   },
   {
@@ -223,7 +223,7 @@ const PORTFOLIO_DATA = [
     title:   'Ane Jeans',
     cat:     'redesign-de-marca',
     setor:   'Moda',
-    img:     '../assets/images/APRESENTACAO-SITE_Ane-Jeans_Prancheta-1.png',
+    img:     '../assets/images/portfolio-ane-jeans.png',
     gallery: ["../assets/images/gallery-ane-jeans-01.png", "../assets/images/gallery-ane-jeans-02.png", "../assets/images/gallery-ane-jeans-03.png", "../assets/images/gallery-ane-jeans-04.png", "../assets/images/gallery-ane-jeans-05.png", "../assets/images/gallery-ane-jeans-06.png"]
   },
   {
@@ -231,7 +231,7 @@ const PORTFOLIO_DATA = [
     title:   'Bio Stick',
     cat:     'redesign-de-marca',
     setor:   'Cosméticos',
-    img:     '../assets/images/SITE-BIO-STICK_Prancheta-1.png',
+    img:     '../assets/images/portfolio-bio-stick.png',
     gallery: ["../assets/images/gallery-bio-stick-01.png", "../assets/images/gallery-bio-stick-02.png", "../assets/images/gallery-bio-stick-03.png", "../assets/images/gallery-bio-stick-04.png", "../assets/images/gallery-bio-stick-05.png", "../assets/images/gallery-bio-stick-06.png"]
   },
 
