@@ -185,7 +185,7 @@
 #elow-wrapper .trans-grid {display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
 #elow-wrapper .trans-h {font-size:clamp(34px,4vw,50px);font-weight:900 !important;line-height:1.02 !important;letter-spacing:-.025em !important;text-transform:uppercase !important;color:var(--cream);margin-bottom:22px !important}
 #elow-wrapper .trans-h .accent {color:var(--orange);display:block}
-#elow-wrapper .trans-body {font-size:15px;font-weight:400 !important;line-height:1.75 !important;color:rgba(248,235,206,.5);margin-bottom:40px !important}
+#elow-wrapper .trans-body {font-size:15px;font-weight:400 !important;line-height:1.75 !important;color:rgba(248,235,206,.75);margin-bottom:40px !important}
 #elow-wrapper .result-pill {border:1px solid rgba(197,112,64,.3);padding:28px 30px;position:relative;background:rgba(197,112,64,.05);margin-top:32px !important}
 #elow-wrapper .result-pill::before {content:'O RESULTADO';position:absolute;top:-10px;left:20px;background:var(--orange);color:var(--cream);font-size:8px;font-weight:700 !important;letter-spacing:.3em !important;padding:4px 12px}
 #elow-wrapper .result-txt {font-size:21px;font-weight:300 !important;line-height:1.55 !important;color:var(--cream)}
@@ -437,8 +437,8 @@ body {cursor:auto}
 #elow-wrapper .ind-body { margin-bottom: 36px!important; }
   
   /* Typography Adjustments */
-#elow-wrapper h1.hero-title { font-size: 42px !important; }
-#elow-wrapper .prob-h, #elow-wrapper .trans-h, #elow-wrapper .port-h, #elow-wrapper .del-h, #elow-wrapper .about-h, #elow-wrapper .proc-h, #elow-wrapper .test-h, #elow-wrapper .cta-h { font-size: 32px !important; }
+#elow-wrapper h1.hero-title { font-size: clamp(58px, 15vw, 72px) !important; }
+#elow-wrapper .prob-h, #elow-wrapper .trans-h, #elow-wrapper .port-h, #elow-wrapper .del-h, #elow-wrapper .about-h, #elow-wrapper .proc-h, #elow-wrapper .test-h, #elow-wrapper .cta-h { font-size: 34px !important; }
 }
 
 @media(max-width: 600px) {
@@ -462,6 +462,10 @@ body {cursor:auto}
 
 /* Badges — all full-width on mobile */
 #elow-wrapper .badge { width:100% !important; }
+
+/* Pain grid — single column */
+#elow-wrapper .pain-grid { grid-template-columns: 1fr; }
+#elow-wrapper .btxt { font-size: 15px !important; }
 }
 
 
@@ -690,11 +694,11 @@ function setLang(lang){
       <div class="reveal d2">
         <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--golden);margin-bottom:24px">Quando sua marca funciona adequadamente:</h3>
         <ul class="benefits">
-          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Clareza imediata</strong><p class="btxt" style="font-size:14px">Em segundos, a pessoa entende o que você faz e por que isso importa</p></div></li>
-          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Menos negociação de preço</strong><p class="btxt" style="font-size:14px">A conversa muda de "quanto custa?" para "como começamos?"</p></div></li>
-          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Reconhecimento que gera indicação</strong><p class="btxt" style="font-size:14px">As pessoas lembram e indicam seu negócio corretamente</p></div></li>
-          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Materiais profissionais sem travar</strong><p class="btxt" style="font-size:14px">Do Instagram à proposta, você tem base pronta para comunicar com segurança</p></div></li>
-          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Autoridade visual (sem parecer "genérico")</strong><p class="btxt" style="font-size:14px">Você entra na disputa com marcas maiores no mesmo nível de presença</p></div></li>
+          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Clareza imediata</strong><p class="btxt">Em segundos, a pessoa entende o que você faz e por que isso importa</p></div></li>
+          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Menos negociação de preço</strong><p class="btxt">A conversa muda de "quanto custa?" para "como começamos?"</p></div></li>
+          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Reconhecimento que gera indicação</strong><p class="btxt">As pessoas lembram e indicam seu negócio corretamente</p></div></li>
+          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Materiais profissionais sem travar</strong><p class="btxt">Do Instagram à proposta, você tem base pronta para comunicar com segurança</p></div></li>
+          <li class="benefit"><div class="bcheck"><span class="bcheck-mark">✓</span></div><div><strong style="color:var(--cream);display:block;margin-bottom:4px;font-size:15px">Autoridade visual (sem parecer "genérico")</strong><p class="btxt">Você entra na disputa com marcas maiores no mesmo nível de presença</p></div></li>
         </ul>
       </div>
     </div>
