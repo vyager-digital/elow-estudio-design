@@ -37,7 +37,6 @@
   --img-estampa_off:     url('assets/images/elow-estampa-off.png');
   --img-estampa_branca:  url('assets/images/elow-estampa-branca.png');
   --img-estampa_laranjaC:url('assets/images/elow-estampa-laranja-c.png');
-  --img-textura_laranja: url('assets/images/elow-textura-laranja.png');
   --img-textura_off:     url('assets/images/elow-textura-off.png');
   --img-textura_azul:    url('assets/images/elow-textura-azul.png');
   --img-luas_laranja:    url('assets/images/elow-luas-laranja.png');
@@ -218,7 +217,7 @@
 /* ── STATS ──────────────────────────────── */
 #elow-wrapper .stats-bar {background:var(--orange);position:relative;overflow:hidden;padding:52px 0}
 /* Textura overlay */
-#elow-wrapper .stats-bar::before {content:'';position:absolute;inset:0;background-image:var(--img-textura_laranja);background-size:cover;opacity:.15;mix-blend-mode:multiply;pointer-events:none}
+#elow-wrapper .stats-bar::before {content:none}
 #elow-wrapper .stats-grid {display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:1}
 #elow-wrapper .stat-i {text-align:center;padding:0 40px;border-right:1px solid rgba(248,235,206,.2)}
 #elow-wrapper .stat-i:last-child {border:none}
@@ -357,7 +356,7 @@
 #elow-wrapper .cta-section {background:var(--navy3);padding:80px 64px 130px}
 #elow-wrapper .cta-box {background:var(--orange);position:relative;overflow:hidden;clip-path:polygon(0 0,calc(100% - 48px) 0,100% 48px,100% 100%,48px 100%,0 calc(100% - 48px));padding:88px 80px;max-width:1240px;margin:0 auto}
 /* Textura on CTA */
-#elow-wrapper .cta-box::before {content:'';position:absolute;inset:0;background-image:var(--img-textura_laranja);background-size:cover;opacity:.18;mix-blend-mode:multiply}
+#elow-wrapper .cta-box::before {content:none}
 /* Luas decoration */
 #elow-wrapper .cta-box::after {content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background-image:var(--img-luas_branca);background-size:contain;background-repeat:no-repeat;opacity:.08}
 #elow-wrapper .cta-inner {display:grid;grid-template-columns:1fr auto;gap:80px;align-items:center;position:relative;z-index:1}
