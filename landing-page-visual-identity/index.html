@@ -501,32 +501,31 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
 <script>
 function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'pt',autoDisplay:false},'gt-hidden-elow')}
 function setLang(lang){
-  var d=location.hostname;
-  var exp='expires=Thu,01 Jan 1970 00:00:00 UTC;';
-  if(lang==='pt'){
+  var params=new URLSearchParams(location.search);
+  if(lang==='pt'){params.delete('lang');}else{params.set('lang',lang);}
+  var qs=params.toString();
+  location.href=location.pathname+(qs?'?'+qs:'');
+}
+(function(){
+  var params=new URLSearchParams(location.search);
+  var active=params.get('lang')||'pt';
+  var manualEN={line1:'Strategic',line2:'Visual',line3:'Identity'};
+  var manualES={line1:'Identidad',line2:'Visual',line3:'Estratégica'};
+  if(active!=='pt'){
+    /* Set googtrans cookie so GT widget picks it up on load */
+    var d=location.hostname;
+    document.cookie='googtrans=/pt/'+active+';path=/';
+    document.cookie='googtrans=/pt/'+active+';path=/;domain='+d;
+    document.cookie='googtrans=/pt/'+active+';path=/;domain=.'+d;
+  } else {
+    /* Clear any stale GT cookies */
+    var exp='expires=Thu,01 Jan 1970 00:00:00 UTC;';
+    var d=location.hostname;
     document.cookie='googtrans=;'+exp+'path=/;';
     document.cookie='googtrans=;'+exp+'path=/;domain='+d;
     document.cookie='googtrans=;'+exp+'path=/;domain=.'+d;
     try{localStorage.removeItem('googtrans');}catch(e){}
-  } else {
-    document.cookie='googtrans=/pt/'+lang+';path=/';
-    document.cookie='googtrans=/pt/'+lang+';path=/;domain='+d;
-    document.cookie='googtrans=/pt/'+lang+';path=/;domain=.'+d;
   }
-  location.reload(true);
-}
-(function(){
-  var hash=location.hash;
-  if(hash.includes('googtrans(pt|')){
-    var lang=hash.includes('|en)')?'en':'es';
-    document.cookie='googtrans=/pt/'+lang+';path=/';
-    document.cookie='googtrans=/pt/'+lang+';path=/;domain='+location.hostname;
-    history.replaceState(null,'',location.pathname+location.search);
-  }
-  var match=document.cookie.match(/googtrans=\/pt\/([a-z]+)/);
-  var active=match?match[1]:'pt';
-  var manualEN={line1:'Strategic',line2:'Visual',line3:'Identity'};
-  var manualES={line1:'Identidad',line2:'Visual',line3:'Estratégica'};
   function hl(){
     var b=document.querySelector('#elow-wrapper [data-lang="'+active+'"]');if(b)b.classList.add('active');
     var t=active==='en'?manualEN:active==='es'?manualES:null;
