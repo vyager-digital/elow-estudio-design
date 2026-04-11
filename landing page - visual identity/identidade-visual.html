@@ -25,39 +25,30 @@
 <!-- PRECONNECT + PRELOAD: hero images -->
 <link rel="preload" as="image" href="assets/images/ChatGPT-Image-Feb-27-2026-05_12_39-AM-1.webp" fetchpriority="high">
 
-<!-- 2. ASSET MAP -->
-<script>
-const A = {
-  // Logos
-  logo_azul:      'assets/images/Elow_1_Fundo-Azul.png',
-  logo_amarela:   'assets/images/Elow_1_Mono-Amarela.png',
-  logo_laranja:   'assets/images/Elow_1_Mono-Laranja.png',
-  logo_mono_azul: 'assets/images/Elow_1_Mono-Azul.png',
-  // Team
-  team:           'assets/images/Elow-Rebecca-Natalia-1-1.png',
-  // Estampas (patterns)
-  estampa_laranja:'assets/images/Elow_Estampa_Laranja.png',
-  estampa_off:    'assets/images/Elow_Estampa_Off.png',
-  estampa_branca: 'assets/images/Elow_Estampa_Branca.png',
-  estampa_laranjaC:'assets/images/Elow_Estampa_Laranja-C-1.png',
-  // Texturas
-  textura_laranja:'assets/images/Elow_Textura_Laranja-scaled.png',
-  textura_off:    'assets/images/Elow_Textura_Off-scaled.png',
-  textura_azul:   'assets/images/Elow_Textura_Azul-scaled.png',
-  // Luas (circles)
-  luas_laranja:   'assets/images/Elow_Luas_Laranja-scaled.png',
-  luas_branca:    'assets/images/Elow_Luas_Branca-scaled.png',
-  luas_off:       'assets/images/Elow_Luas_Off-scaled.png',
-  luas_azul:      'assets/images/Elow_Luas_Azul-scaled.png',
-  // Linhas (lines)
-  linhas_laranja: 'assets/images/Elow_Linhas_Laranja.png',
-  linhas_branca:  'assets/images/Elow_Linhas_Branca.png',
-  linhas_azul:    'assets/images/Elow_Linhas_Azul.png',
-};
-// Inject all as CSS vars so we can use them in background-image
-  const root = document.documentElement;
-  Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('${v}')`));
-</script>
+<!-- 2. ASSET MAP — defined as CSS vars, no JS needed -->
+<style>
+:root {
+  --img-logo_azul:       url('assets/images/Elow_1_Fundo-Azul.png');
+  --img-logo_amarela:    url('assets/images/Elow_1_Mono-Amarela.png');
+  --img-logo_laranja:    url('assets/images/Elow_1_Mono-Laranja.png');
+  --img-logo_mono_azul:  url('assets/images/Elow_1_Mono-Azul.png');
+  --img-team:            url('assets/images/Elow-Rebecca-Natalia-1-1.png');
+  --img-estampa_laranja: url('assets/images/Elow_Estampa_Laranja.png');
+  --img-estampa_off:     url('assets/images/Elow_Estampa_Off.png');
+  --img-estampa_branca:  url('assets/images/Elow_Estampa_Branca.png');
+  --img-estampa_laranjaC:url('assets/images/Elow_Estampa_Laranja-C-1.png');
+  --img-textura_laranja: url('assets/images/Elow_Textura_Laranja-scaled.png');
+  --img-textura_off:     url('assets/images/Elow_Textura_Off-scaled.png');
+  --img-textura_azul:    url('assets/images/Elow_Textura_Azul-scaled.png');
+  --img-luas_laranja:    url('assets/images/Elow_Luas_Laranja-scaled.png');
+  --img-luas_branca:     url('assets/images/Elow_Luas_Branca-scaled.png');
+  --img-luas_off:        url('assets/images/Elow_Luas_Off-scaled.png');
+  --img-luas_azul:       url('assets/images/Elow_Luas_Azul-scaled.png');
+  --img-linhas_laranja:  url('assets/images/Elow_Linhas_Laranja.png');
+  --img-linhas_branca:   url('assets/images/Elow_Linhas_Branca.png');
+  --img-linhas_azul:     url('assets/images/Elow_Linhas_Azul.png');
+}
+</style>
 
 <!-- 3. SCOPED CSS -->
 <style>
