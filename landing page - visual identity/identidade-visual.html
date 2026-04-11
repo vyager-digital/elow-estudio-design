@@ -236,6 +236,19 @@ const A = {
 #elow-wrapper .stat-n sup {font-size:22px !important}
 #elow-wrapper .stat-l {font-size:10px;font-weight:700 !important;letter-spacing:.22em !important;text-transform:uppercase !important;color:rgba(248,235,206,.62);margin-top:8px !important}
 
+/* ── INDUSTRIES ─────────────────────────── */
+#elow-wrapper .industries {background:var(--navy2);padding:100px 0}
+#elow-wrapper .ind-h {font-size:clamp(28px,3.5vw,48px);font-weight:900!important;line-height:1.05!important;letter-spacing:-.025em!important;text-transform:uppercase!important;color:var(--cream);text-align:center;margin-top:20px!important}
+#elow-wrapper .ind-h em {display:block;color:var(--golden);font-weight:300!important;font-size:.75em!important;text-transform:none!important;letter-spacing:.01em!important}
+#elow-wrapper .ind-body {font-size:16px;line-height:1.7!important;color:rgba(248,235,206,.6);text-align:center;max-width:600px;margin:20px auto 56px!important}
+#elow-wrapper .ind-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1200px;margin:0 auto}
+#elow-wrapper .ind-item {background:rgba(255,255,255,.04);border:1px solid rgba(197,112,64,.12);padding:28px 24px;transition:border-color .3s,background .3s}
+#elow-wrapper .ind-item:hover {border-color:rgba(197,112,64,.4);background:rgba(197,112,64,.06)}
+#elow-wrapper .ind-icon {width:36px;height:36px;color:var(--orange);margin-bottom:16px}
+#elow-wrapper .ind-icon svg {width:100%;height:100%}
+#elow-wrapper .ind-name {font-size:15px;font-weight:700!important;color:var(--cream);margin-bottom:6px!important}
+#elow-wrapper .ind-desc {font-size:13px;color:rgba(248,235,206,.5);line-height:1.5!important}
+
 /* ── DELIVERABLES ───────────────────────── */
 #elow-wrapper .deliverables {background:var(--cream);color:var(--navy);padding:130px 0;position:relative;overflow:hidden}
 /* Luas Branca watermark - REMOVED */
@@ -429,6 +442,9 @@ body {cursor:auto}
   
   /* Section Padding Adjustments */
 #elow-wrapper .problem, #elow-wrapper .transform, #elow-wrapper .portfolio, #elow-wrapper .deliverables, #elow-wrapper .process, #elow-wrapper .testimonials { padding: 80px 0; }
+#elow-wrapper .industries { padding: 60px 0; }
+#elow-wrapper .ind-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
+#elow-wrapper .ind-body { margin-bottom: 36px!important; }
   
   /* Typography Adjustments */
 #elow-wrapper h1.hero-title { font-size: 42px !important; }
@@ -704,6 +720,25 @@ function setLang(lang){
     </div>
   </div>
 </div>
+
+<!-- INDUSTRIES -->
+<section class="industries">
+  <div class="wrap">
+    <div class="sec-label reveal" style="justify-content:center">Segmentos Atendidos</div>
+    <h2 class="ind-h reveal d1">Identidade visual para quem<em>já sabe o que quer construir</em></h2>
+    <p class="ind-body reveal d2">Desenvolvemos identidade visual profissional para negócios de serviços em diferentes segmentos — do redesign de marca ao projeto completo de branding e identidade visual.</p>
+    <div class="ind-grid reveal d2">
+      <div class="ind-item"><div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="ind-name">Advocacia</div><div class="ind-desc">Escritórios de advocacia e advogados</div></div>
+      <div class="ind-item"><div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="ind-name">Saúde</div><div class="ind-desc">Médicos, clínicas, dentistas e nutricionistas</div></div>
+      <div class="ind-item"><div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div class="ind-name">Psicologia</div><div class="ind-desc">Psicólogos e clínicas de psicologia</div></div>
+      <div class="ind-item"><div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div class="ind-name">Consultoria</div><div class="ind-desc">Consultorias, coaches e contadores</div></div>
+      <div class="ind-item"><div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="ind-name">Moda</div><div class="ind-desc">Marcas de moda e identidade visual para marcas de roupas</div></div>
+      <div class="ind-item"><div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div class="ind-name">Gastronomia</div><div class="ind-desc">Restaurantes, cafeterias e confeitarias</div></div>
+      <div class="ind-item"><div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><div class="ind-name">Saúde & Wellness</div><div class="ind-desc">Marcas de suplementos, wellness e bem-estar</div></div>
+      <div class="ind-item"><div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="ind-name">Arquitetura & Design</div><div class="ind-desc">Arquitetos, designers e estúdios criativos</div></div>
+    </div>
+  </div>
+</section>
 
 <!-- DELIVERABLES -->
 <section class="deliverables" id="o-que-inclui">
