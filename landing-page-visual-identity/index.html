@@ -502,14 +502,18 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
 function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'pt',autoDisplay:false},'gt-hidden-elow')}
 function setLang(lang){
   var d=location.hostname;
+  var exp='expires=Thu,01 Jan 1970 00:00:00 UTC;';
   if(lang==='pt'){
-    document.cookie='googtrans=;expires=Thu,01 Jan 1970 00:00:00 UTC;path=/;';
-    document.cookie='googtrans=;expires=Thu,01 Jan 1970 00:00:00 UTC;path=/;domain='+d;
+    document.cookie='googtrans=;'+exp+'path=/;';
+    document.cookie='googtrans=;'+exp+'path=/;domain='+d;
+    document.cookie='googtrans=;'+exp+'path=/;domain=.'+d;
+    try{localStorage.removeItem('googtrans');}catch(e){}
   } else {
     document.cookie='googtrans=/pt/'+lang+';path=/';
     document.cookie='googtrans=/pt/'+lang+';path=/;domain='+d;
+    document.cookie='googtrans=/pt/'+lang+';path=/;domain=.'+d;
   }
-  location.href=location.pathname+location.search;
+  location.reload(true);
 }
 (function(){
   var hash=location.hash;
