@@ -2,21 +2,34 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projeto — ÉLOW Estúdio Design</title>
+<title>Portfólio — ÉLOW Estúdio Design</title>
+<meta name="description" content="Portfólio ÉLOW Estúdio Design — projetos de identidade visual para escritórios de advocacia, clínicas, consultorias e empresas B2B.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://elowestudiodesign.com.br/portfolio">
+<meta property="og:title" content="Portfólio — ÉLOW Estúdio Design">
+<meta property="og:description" content="Projetos de identidade visual para escritórios de advocacia, clínicas, consultorias e empresas B2B.">
+<meta property="og:image" content="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/portfolio-kabyte-solucoes-em-ti.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portfólio — ÉLOW Estúdio Design">
+<meta name="twitter:description" content="Projetos de identidade visual para escritórios de advocacia, clínicas, consultorias e empresas B2B.">
+<meta name="twitter:image" content="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/portfolio-kabyte-solucoes-em-ti.png">
 <!-- 1. GOOGLE FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <!-- 2. ASSET MAP -->
 <script>
 const A = {
-  logo_azul:      '../assets/images/elow-logo-fundo-azul.webp',
-  selo:           '../assets/images/elow-selo-fundo-azul.webp',
-  textura_azul:   '../assets/images/elow-textura-azul.webp',
-  textura_laranja:'../assets/images/elow-textura-laranja.webp',
-  luas_laranja:   '../assets/images/elow-luas-laranja.webp',
-  luas_branca:    '../assets/images/elow-luas-branca.webp',
+  logo_azul:      'assets/images/elow-logo-fundo-azul.webp',
+  selo:           'assets/images/elow-selo-fundo-azul.webp',
+  textura_azul:   'assets/images/elow-textura-azul.webp',
+  textura_laranja:'assets/images/elow-textura-laranja.webp',
+  luas_laranja:   'assets/images/elow-luas-laranja.webp',
+  luas_branca:    'assets/images/elow-luas-branca.webp',
 };
 const root = document.documentElement;
 Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('${v}')`));
@@ -35,6 +48,7 @@ Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('
   --golden:     #C9892D;
   --cream:      #F8EBCE;
   --gold-light: #D5B26B;
+  --gray-light: #E3E3E3;
   --ease:       cubic-bezier(0.23,1,0.32,1);
 }
 
@@ -57,46 +71,68 @@ html{margin:0;padding:0;background:#0f181e;overflow-x:hidden}body{margin:0;paddi
 
 /* SHARED */
 #elow-wrapper .wrap{max-width:1240px;margin:0 auto;padding:0 64px}
+#elow-wrapper .sec-label{font-size:10px;font-weight:700 !important;letter-spacing:.35em !important;text-transform:uppercase !important;color:var(--golden);display:flex;align-items:center;gap:14px;margin-bottom:20px !important}
+#elow-wrapper .sec-label::before{content:'';width:32px;height:1px;background:var(--golden);display:block}
 #elow-wrapper .reveal{opacity:0;transform:translateY(34px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
 #elow-wrapper .reveal.on{opacity:1;transform:none}
-#elow-wrapper .d1{transition-delay:.1s}.d2{transition-delay:.2s}
+#elow-wrapper .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+#elow-wrapper .btn-primary{display:inline-flex;align-items:center;gap:12px;background:var(--orange);color:var(--cream);font-size:12px;font-weight:700 !important;letter-spacing:.12em !important;text-transform:uppercase !important;padding:18px 36px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));position:relative;overflow:hidden;transition:transform .3s}
+#elow-wrapper .btn-primary::after{content:'';position:absolute;inset:0;background:var(--golden);transform:translateX(-110%);transition:transform .4s var(--ease);z-index:0}
+#elow-wrapper .btn-primary:hover{transform:translateY(-3px)}
+#elow-wrapper .btn-primary:hover::after{transform:translateX(0)}
+#elow-wrapper .btn-primary span{position:relative;z-index:1}
 
 /* HERO */
-#elow-wrapper .proj-hero{position:relative;height:100vh;min-height:600px;overflow:hidden;background:var(--navy3);display:flex;align-items:flex-end}
-#elow-wrapper .proj-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.45);transition:transform 8s var(--ease)}
-#elow-wrapper .proj-hero.loaded .proj-hero-img{transform:scale(1.04)}
-#elow-wrapper .proj-hero-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,24,30,.95) 0%,rgba(15,24,30,.2) 60%,transparent 100%)}
-#elow-wrapper .proj-hero-content{position:relative;z-index:2;padding:0 64px 80px;width:100%}
-#elow-wrapper .proj-back{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700 !important;letter-spacing:.22em !important;text-transform:uppercase !important;color:rgba(248,235,206,.5);text-decoration:none;margin-bottom:32px !important;transition:color .2s;position:absolute;top:calc(100% + 40px);left:64px}
-#elow-wrapper .proj-back:hover{color:var(--golden)}
-#elow-wrapper .proj-back svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;transition:transform .2s}
-#elow-wrapper .proj-back:hover svg{transform:translateX(-3px)}
-#elow-wrapper .proj-cat{font-size:10px;font-weight:700 !important;letter-spacing:.35em !important;text-transform:uppercase !important;color:var(--golden);display:flex;align-items:center;gap:14px;margin-bottom:20px !important;opacity:0;animation:up .9s .1s var(--ease) forwards}
-#elow-wrapper .proj-cat::before{content:'';width:32px;height:1px;background:var(--golden);display:block}
-#elow-wrapper .proj-title{font-size:clamp(42px,6vw,96px);font-weight:900 !important;line-height:.92 !important;letter-spacing:-.03em !important;text-transform:uppercase !important;color:var(--cream);opacity:0;animation:up .9s .2s var(--ease) forwards}
+#elow-wrapper .port-hero{background:var(--navy3);padding:180px 0 100px;position:relative;overflow:hidden}
+#elow-wrapper .port-hero::before{content:'';position:absolute;inset:0;background-image:var(--img-textura_azul);background-size:cover;opacity:.35;pointer-events:none}
+#elow-wrapper .port-hero::after{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background-image:var(--img-luas_laranja);background-size:contain;background-repeat:no-repeat;opacity:.05;pointer-events:none}
+#elow-wrapper .port-hero-inner{position:relative;z-index:2}
+#elow-wrapper .hero-label{font-size:10px;font-weight:700 !important;letter-spacing:.35em !important;text-transform:uppercase !important;color:var(--golden);display:flex;align-items:center;gap:14px;margin-bottom:28px !important;opacity:0;animation:up .9s .1s var(--ease) forwards}
+#elow-wrapper .hero-label::before{content:'';width:32px;height:1px;background:var(--golden);display:block}
+#elow-wrapper .port-hero h1{font-size:clamp(42px,5.5vw,82px);font-weight:900 !important;line-height:.96 !important;letter-spacing:-.028em !important;text-transform:uppercase !important;color:var(--cream);max-width:860px;opacity:0;animation:up .9s .2s var(--ease) forwards}
+#elow-wrapper .port-hero h1 em{color:var(--orange);font-style:normal;display:block}
+#elow-wrapper .port-hero-sub{font-size:16px;line-height:1.78 !important;color:rgba(248,235,206,.5);max-width:520px;margin-top:28px !important;opacity:0;animation:up .9s .35s var(--ease) forwards}
 
-/* GALLERY */
-#elow-wrapper .proj-gallery{background:var(--navy3);padding:4px 0}
-#elow-wrapper .proj-gallery-img{display:block;width:100%;height:auto;margin-bottom:4px;opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-#elow-wrapper .proj-gallery-img.on{opacity:1;transform:none}
-#elow-wrapper .proj-gallery-img:last-child{margin-bottom:0}
+/* FILTER BAR */
+#elow-wrapper .port-filters{background:var(--navy2);border-bottom:1px solid rgba(197,112,64,.12);position:sticky;top:0;z-index:100;transition:top .4s}
+#elow-wrapper .filter-inner{max-width:1240px;margin:0 auto;padding:0 64px;display:flex;align-items:center;justify-content:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+#elow-wrapper .filter-inner::-webkit-scrollbar{display:none}
+#elow-wrapper .filter-btn{font-size:10px;font-weight:700 !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:rgba(248,235,206,.45);background:transparent;border:none;padding:20px 20px;cursor:pointer;white-space:nowrap;transition:color .2s;position:relative;font-family:'League Spartan',sans-serif}
+#elow-wrapper .filter-btn::after{content:'';position:absolute;bottom:0;left:20px;right:20px;height:2px;background:var(--orange);transform:scaleX(0);transition:transform .25s var(--ease)}
+#elow-wrapper .filter-btn:hover{color:rgba(248,235,206,.8)}
+#elow-wrapper .filter-btn.active{color:var(--cream)}
+#elow-wrapper .filter-btn.active::after{transform:scaleX(1)}
+#elow-wrapper .filter-count{font-size:9px;font-weight:700 !important;letter-spacing:.1em;color:var(--golden);background:rgba(197,112,64,.12);padding:3px 7px;margin-left:6px;border-radius:2px}
 
-/* LOADING / ERROR */
-#elow-wrapper .proj-state{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:24px;color:rgba(248,235,206,.3)}
-#elow-wrapper .proj-state-dots{display:inline-flex;gap:8px}
-#elow-wrapper .proj-state-dots span{width:8px;height:8px;background:var(--golden);border-radius:50%;animation:dot .9s ease-in-out infinite}
-#elow-wrapper .proj-state-dots span:nth-child(2){animation-delay:.15s}
-#elow-wrapper .proj-state-dots span:nth-child(3){animation-delay:.3s}
-#elow-wrapper .proj-state-msg{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+/* GRID */
+#elow-wrapper .port-grid-section{background:var(--navy3);padding:80px 0 130px}
+#elow-wrapper .port-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px}
+#elow-wrapper .port-card{display:block;text-decoration:none;background:transparent}
+#elow-wrapper .port-card.hidden{display:none}
+#elow-wrapper .port-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--navy2)}
+#elow-wrapper .port-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease),filter .5s;filter:brightness(.75)}
+#elow-wrapper .port-card:hover img{transform:scale(1.04);filter:brightness(.45)}
+#elow-wrapper .port-title-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,2.8vw,42px);font-weight:900 !important;color:var(--cream);text-align:center;width:100%;z-index:2;letter-spacing:-.03em !important;text-transform:uppercase !important;line-height:1 !important;opacity:0;transform:translateY(10px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+#elow-wrapper .port-card:hover .port-title-overlay{opacity:1;transform:translateY(0)}
+#elow-wrapper .port-card-arrow{position:absolute;top:24px;right:24px;width:36px;height:36px;border:1px solid rgba(197,112,64,.5);display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.8);transition:opacity .3s .1s,transform .3s .1s var(--ease);z-index:3}
+#elow-wrapper .port-card:hover .port-card-arrow{opacity:1;transform:scale(1)}
+#elow-wrapper .port-card-arrow svg{width:14px;height:14px;stroke:var(--golden);stroke-width:2;fill:none}
+#elow-wrapper .port-card-below{padding:20px 0 36px}
+#elow-wrapper .port-card-cat{font-size:9px;font-weight:700 !important;letter-spacing:.22em !important;text-transform:uppercase !important;color:var(--golden);display:block}
+
+/* LOADING STATE */
+#elow-wrapper .port-loading{text-align:center;padding:120px 0;color:rgba(248,235,206,.3)}
+#elow-wrapper .port-loading-dots{display:inline-flex;gap:8px}
+#elow-wrapper .port-loading-dots span{width:8px;height:8px;background:var(--golden);border-radius:50%;animation:dot .9s ease-in-out infinite}
+#elow-wrapper .port-loading-dots span:nth-child(2){animation-delay:.15s}
+#elow-wrapper .port-loading-dots span:nth-child(3){animation-delay:.3s}
 @keyframes dot{0%,80%,100%{opacity:.2;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
 
-/* NAV BACK LINK (positioned in nav bar) */
-#elow-wrapper .nav-back{font-size:10px;font-weight:700 !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:rgba(248,235,206,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s}
-#elow-wrapper .nav-back:hover{color:var(--golden)}
-#elow-wrapper .nav-back svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
+/* EMPTY STATE */
+#elow-wrapper .port-empty{text-align:center;padding:80px 0;color:rgba(248,235,206,.3);font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:none}
 
 /* CTA */
-#elow-wrapper .cta-section{background:var(--navy3);padding:80px 64px 130px}
+#elow-wrapper .cta-section{background:var(--navy3);padding:0 64px 130px}
 #elow-wrapper .cta-box{background:var(--orange);position:relative;overflow:hidden;clip-path:polygon(0 0,calc(100% - 48px) 0,100% 48px,100% 100%,48px 100%,0 calc(100% - 48px));padding:88px 80px;max-width:1240px;margin:0 auto}
 #elow-wrapper .cta-box::before{content:'';position:absolute;inset:0;background-image:var(--img-textura_laranja);background-size:cover;opacity:.18;mix-blend-mode:multiply}
 #elow-wrapper .cta-box::after{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background-image:var(--img-luas_branca);background-size:contain;background-repeat:no-repeat;opacity:.08}
@@ -140,9 +176,12 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
   #elow-wrapper nav,#elow-wrapper nav.scrolled{padding:16px 20px}
   #elow-wrapper .nav-logo img{height:80px !important}
   #elow-wrapper nav.scrolled .nav-logo img{height:64px !important}
-  #elow-wrapper .proj-hero-content{padding:0 24px 60px}
-  #elow-wrapper .proj-back{left:24px}
-  #elow-wrapper .cta-section{padding:60px 24px 100px}
+  #elow-wrapper .wrap{padding:0 24px}
+  #elow-wrapper .port-hero{padding:140px 0 80px}
+  #elow-wrapper .filter-inner{padding:0 24px}
+  #elow-wrapper .port-grid{grid-template-columns:1fr}
+  #elow-wrapper .port-grid-section{padding:60px 0 100px}
+  #elow-wrapper .cta-section{padding:0 24px 100px}
   #elow-wrapper .cta-inner{grid-template-columns:1fr;gap:40px}
   #elow-wrapper .cta-box{padding:60px 24px;clip-path:none;border-radius:20px}
   #elow-wrapper .cta-right{align-items:flex-start;width:100%}
@@ -152,6 +191,9 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
   #elow-wrapper footer{text-align:center;padding:60px 24px 40px}
 }
 @media(max-width:600px){
+  #elow-wrapper .port-grid{grid-template-columns:1fr}
+  #elow-wrapper .port-card-info{opacity:1;transform:none}
+  #elow-wrapper .port-card-overlay{opacity:1}
   body{cursor:auto}
   #elow-wrapper #cur,#elow-wrapper #cur2{display:none}
 }
@@ -204,22 +246,22 @@ function setLang(lang){
 </script>
 <div id="gt-hidden-elow" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;"></div>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script src="../assets/data/portfolio-data.js"></script>
+<script src="assets/data/portfolio-data.js"></script>
 
 <div id="cur"></div>
 <div id="cur2"></div>
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="portfolio.html" class="nav-logo">
-    <img src="../assets/images/elow-logo-fundo-azul.webp" alt="ÉLOW Estúdio Design">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/images/elow-logo-fundo-azul.webp" alt="ÉLOW Estúdio Design">
   </a>
     <div style="display:flex;align-items:center;gap:24px;margin-left:auto">
     <div class="nav-menu">
       <a href="index.html" class="nav-link">Início</a>
       <a href="about.html" class="nav-link">Sobre</a>
       <a href="services.html" class="nav-link">Serviços</a>
-      <a href="portfolio.html" class="nav-link">Portfólio</a>
+      <a href="portfolio.html" class="nav-link active">Portfólio</a>
     </div>
     <div class="lang-switcher" translate="no">
       <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
@@ -231,15 +273,42 @@ function setLang(lang){
   </div>
 </nav>
 
-<!-- CONTENT — rendered by JS -->
-<div id="proj-root"></div>
+<!-- HERO -->
+<section class="port-hero">
+  <div class="wrap port-hero-inner">
+    <div class="hero-label">Nosso Trabalho</div>
+    <h1>Marcas que vendem<em>e ficam na memória</em></h1>
+    <p class="port-hero-sub">Cada projeto é construído com estratégia, intenção e design que trabalha pelo negócio — não apenas pelo visual.</p>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="port-filters" id="port-filters">
+  <div class="filter-inner">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="identidade-visual">Identidade Visual</button>
+    <button class="filter-btn" data-filter="naming">Naming</button>
+    <button class="filter-btn" data-filter="redesign-de-marca">Redesign de Marca</button>
+  </div>
+</div>
+
+<!-- GRID -->
+<section class="port-grid-section">
+  <div class="wrap">
+    <div id="port-loading" class="port-loading">
+      <div class="port-loading-dots"><span></span><span></span><span></span></div>
+    </div>
+    <div class="port-grid" id="port-grid"></div>
+    <div class="port-empty" id="port-empty">Nenhum projeto encontrado</div>
+  </div>
+</section>
 
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-box reveal">
     <div class="cta-inner">
       <div>
-        <h2 class="cta-h">Sua marca pode ser<em>a próxima história</em></h2>
+        <h2 class="cta-h">Sua marca está pronta<em>para crescer?</em></h2>
         <p class="cta-body">Vamos conversar sobre seu negócio e entender se a ÉLOW é o próximo passo certo para você.</p>
       </div>
       <div class="cta-right">
@@ -253,7 +322,7 @@ function setLang(lang){
 <footer>
   <div class="wrap">
     <div class="foot-content">
-      <img src="../assets/images/elow-selo-fundo-azul.webp" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
+      <img src="assets/images/elow-selo-fundo-azul.webp" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
       <div class="foot-links">
         <a href="privacy.html">Política de Privacidade</a>
         <div class="sep"></div>
@@ -279,96 +348,97 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
 
+/* FILTER BAR — stick below nav */
+(function(){
+  const filters=document.getElementById('port-filters');
+  function updateTop(){
+    const navH=nav.getBoundingClientRect().height;
+    filters.style.top=navH+'px';
+  }
+  updateTop();
+  window.addEventListener('scroll',updateTop,{passive:true});
+  window.addEventListener('resize',updateTop,{passive:true});
+})();
+
+
 /* REVEAL */
 const ro=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
-},{threshold:.08});
+},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-/* PROJECT — render from local data */
+/* PORTFOLIO — static local data */
 (function(){
-  const CAT_LABELS={
-    'identidade-visual':'Identidade Visual',
-    'naming':'Naming',
-    'redesign-de-marca':'Redesign de Marca'
-  };
+  const grid=document.getElementById('port-grid');
+  const loading=document.getElementById('port-loading');
+  const empty=document.getElementById('port-empty');
 
-  const SETOR_LEGACY={
-    'cubo-engenharia':        'Engenharia',
-    'ane-jeans':              'Moda',
-    'bittale-travel-boutique':'Turismo',
-    'babi-supermercados':     'Supermercado',
-    'kabyte-solucoes-em-ti':  'Tecnologia',
-    'art-salon':              'Beleza',
-    'ceci-bolos':             'Confeitaria',
-    'santo-dia-assessoria':   'Assessoria',
-    'matilha-dogs-artesanais':'Petshop',
-    'bio-stick':              'Cosméticos',
-    'coffeely':               'Café',
-    'montenegro-alfaiataria': 'Moda',
-    'crocco':                 'Restaurante',
-    'sympa-bakery':           'Padaria',
-    'taboa-restaurante':      'Restaurante',
-    'restaurante-trama':      'Restaurante',
-    'produtos-nordeli':       'Alimentação',
-    'instituto-aluze':        '',
-    'orla-farma':             'Farmácia',
-    'noon-clinic':            'Saúde',
-    'realsky':                'Aviação',
-    'noc-clinic':             'Saúde',
-    'artfarma':               'Farmácia',
-    'ura-advocacia':          'Advocacia',
-    'vic-falcao':             'Moda',
-    'snackinhos':             'Restaurante',
-    'molib':                  '',
-    'vinna':                  'Moda',
-  };
+  let allCards=[];
 
-  const root=document.getElementById('proj-root');
-  const params=new URLSearchParams(location.search);
-  const slug=params.get('slug');
-
-  function showError(){
-    root.innerHTML=`<div class="proj-state"><div class="proj-state-msg">Projeto não encontrado</div><a href="portfolio.html" style="color:var(--golden);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;margin-top:8px">← Voltar ao portfólio</a></div>`;
-  }
-
-  function render(p){
-    document.title=p.title+' — ÉLOW Estúdio Design';
-
-    root.innerHTML=`
-      <section class="proj-hero" id="proj-hero">
-        ${p.img?`<img class="proj-hero-img" src="${p.img}" alt="${p.title}">`:''}
-        <div class="proj-hero-gradient"></div>
-        <div class="proj-hero-content">
-          ${p.setor?`<div class="proj-cat">${p.setor}</div>`:''}
-          <h1 class="proj-title">${p.title}</h1>
+  function buildCard(p){
+    const a=document.createElement('a');
+    a.className='port-card reveal';
+    a.href='projeto.html?slug='+p.slug;
+    a.dataset.cat=p.cat;
+    a.innerHTML=`
+      <div class="port-img-wrap">
+        ${p.img?`<img src="${p.img}" alt="${p.title}" loading="lazy">`:''}
+        <div class="port-title-overlay">${p.title}</div>
+        <div class="port-card-arrow">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
         </div>
-      </section>
-      <section class="proj-gallery" id="proj-gallery"></section>
+      </div>
+      <div class="port-card-below">
+        ${p.setor?`<span class="port-card-cat">${p.setor}</span>`:''}
+      </div>
     `;
-
-    requestAnimationFrame(()=>{
-      document.getElementById('proj-hero').classList.add('loaded');
-    });
-
-    const gallery=document.getElementById('proj-gallery');
-    (p.gallery||[]).forEach((src,i)=>{
-      const img=document.createElement('img');
-      img.src=src;
-      img.alt=`${p.title} — imagem ${i+1}`;
-      img.className='proj-gallery-img';
-      img.loading='lazy';
-      gallery.appendChild(img);
-      ro.observe(img);
-    });
-
-    document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+    return a;
   }
 
-  if(!slug){showError();return;}
-  const project=(PORTFOLIO_DATA||[]).find(p=>p.slug===slug);
-  if(!project){showError();return;}
-  render(project);
+  function updateCounts(cards){
+    const counts={'all':cards.length};
+    cards.forEach(c=>{
+      const cat=c.dataset.cat;
+      if(cat) counts[cat]=(counts[cat]||0)+1;
+    });
+    Object.entries(counts).forEach(([k,v])=>{
+      const el=document.getElementById('count-'+k);
+      if(el) el.textContent=v;
+    });
+  }
+
+  function filter(slug){
+    let visible=0;
+    allCards.forEach(c=>{
+      const show=(slug==='all'||c.dataset.cat===slug);
+      c.classList.toggle('hidden',!show);
+      if(show) visible++;
+    });
+    empty.style.display=visible===0?'block':'none';
+    allCards.forEach(c=>{
+      if(!c.classList.contains('hidden')&&!c.classList.contains('on')) ro.observe(c);
+    });
+  }
+
+  /* filter buttons */
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      this.classList.add('active');
+      filter(this.dataset.filter);
+    });
+  });
+
+  /* render from local data */
+  loading.style.display='none';
+  if(!PORTFOLIO_DATA||!PORTFOLIO_DATA.length){empty.style.display='block';return;}
+  PORTFOLIO_DATA.forEach(p=>{
+    const card=buildCard(p);
+    grid.appendChild(card);
+    allCards.push(card);
+    ro.observe(card);
+  });
+  updateCounts(allCards);
 })();
 </script>
 

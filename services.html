@@ -2,20 +2,20 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sobre — ÉLOW Estúdio Design</title>
-<meta name="description" content="Conheça a ÉLOW Estúdio Design — mais de 15 anos transformando marcas de empresas de serviços no Brasil e no mercado internacional.">
+<title>Serviços — ÉLOW Estúdio Design</title>
+<meta name="description" content="Identidade visual completa, manual da marca e suporte ao lançamento. Design estratégico para empresas de serviços que querem crescer com consistência e autoridade.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://elowestudiodesign.com.br/sobre">
-<meta property="og:title" content="Sobre — ÉLOW Estúdio Design">
-<meta property="og:description" content="Conheça a ÉLOW Estúdio Design — mais de 15 anos transformando marcas de empresas de serviços no Brasil e no mercado internacional.">
-<meta property="og:image" content="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/elow-team.png">
+<meta property="og:url" content="https://elowestudiodesign.com.br/servicos">
+<meta property="og:title" content="Serviços — ÉLOW Estúdio Design">
+<meta property="og:description" content="Identidade visual completa, manual da marca e suporte ao lançamento para empresas de serviços.">
+<meta property="og:image" content="https://elowestudiodesign.com.br/assets/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sobre — ÉLOW Estúdio Design">
-<meta name="twitter:description" content="Mais de 15 anos transformando marcas de empresas de serviços no Brasil e no mercado internacional.">
-<meta name="twitter:image" content="https://elowestudiodesign.com.br/wp-content/uploads/2026/01/elow-team.png">
+<meta name="twitter:title" content="Serviços — ÉLOW Estúdio Design">
+<meta name="twitter:description" content="Identidade visual completa, manual da marca e suporte ao lançamento para empresas de serviços.">
+<meta name="twitter:image" content="https://elowestudiodesign.com.br/assets/images/og-image.png">
 <!-- 1. GOOGLE FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,18 +24,13 @@
 <!-- 2. ASSET MAP -->
 <script>
 const A = {
-  logo_azul:      '../assets/images/elow-logo-fundo-azul.webp',
-  team:           '../assets/images/elow-team.webp',
-  rebecca:        '../assets/images/foto-rebecca-menezes.webp',
-  natalia:        '../assets/images/foto-natalia-nery.webp',
-  textura_azul:   '../assets/images/elow-textura-azul.webp',
-  textura_laranja:'../assets/images/elow-textura-laranja.webp',
-  estampa_off:    '../assets/images/elow-estampa-off.webp',
-  estampa_laranja:'../assets/images/elow-estampa-laranja.webp',
-  linhas_laranja: '../assets/images/elow-linhas-laranja.webp',
-  luas_laranja:   '../assets/images/elow-luas-laranja.webp',
-  luas_branca:    '../assets/images/elow-luas-branca.webp',
-  selo:           '../assets/images/elow-selo-fundo-azul.webp',
+  logo_azul:      'assets/images/elow-logo-fundo-azul.webp',
+  selo:           'assets/images/elow-selo-fundo-azul.webp',
+  textura_azul:   'assets/images/elow-textura-azul.webp',
+  textura_laranja:'assets/images/elow-textura-laranja.webp',
+  luas_laranja:   'assets/images/elow-luas-laranja.webp',
+  luas_branca:    'assets/images/elow-luas-branca.webp',
+  linhas_laranja: 'assets/images/elow-linhas-laranja.webp',
 };
 const root = document.documentElement;
 Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('${v}')`));
@@ -54,7 +49,6 @@ Object.entries(A).forEach(([k,v]) => root.style.setProperty(`--img-${k}`, `url('
   --golden:     #C9892D;
   --cream:      #F8EBCE;
   --gold-light: #D5B26B;
-  --gray-light: #E3E3E3;
   --ease:       cubic-bezier(0.23,1,0.32,1);
 }
 
@@ -87,75 +81,62 @@ html{margin:0;padding:0;background:#0f181e;overflow-x:hidden}body{margin:0;paddi
 #elow-wrapper .btn-primary:hover{transform:translateY(-3px)}
 #elow-wrapper .btn-primary:hover::after{transform:translateX(0)}
 #elow-wrapper .btn-primary span{position:relative;z-index:1}
-#elow-wrapper .btn-ghost{font-size:11px;font-weight:600 !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:rgba(248,235,206,.5);text-decoration:none;border-bottom:1px solid rgba(248,235,206,.2);padding-bottom:3px;transition:color .2s,border-color .2s}
-#elow-wrapper .btn-ghost:hover{color:var(--cream);border-color:var(--orange)}
 
 /* HERO */
-#elow-wrapper .about-hero{background:var(--navy3);padding:180px 0 130px;position:relative;overflow:hidden}
-#elow-wrapper .about-hero::before{content:'';position:absolute;inset:0;background-image:var(--img-textura_azul);background-size:cover;opacity:.4;pointer-events:none}
-#elow-wrapper .about-hero::after{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background-image:var(--img-luas_laranja);background-size:contain;background-repeat:no-repeat;opacity:.05;pointer-events:none}
+#elow-wrapper .svc-hero{background:var(--navy3);padding:260px 0 120px;position:relative;overflow:hidden}
+#elow-wrapper .svc-hero::before{content:'';position:absolute;inset:0;background-image:var(--img-textura_azul);background-size:cover;opacity:.35;pointer-events:none}
+#elow-wrapper .svc-hero::after{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background-image:var(--img-luas_laranja);background-size:contain;background-repeat:no-repeat;opacity:.05;pointer-events:none}
+#elow-wrapper .svc-hero-inner{position:relative;z-index:2;max-width:900px}
 #elow-wrapper .hero-label{font-size:10px;font-weight:700 !important;letter-spacing:.35em !important;text-transform:uppercase !important;color:var(--golden);display:flex;align-items:center;gap:14px;margin-bottom:28px !important;opacity:0;animation:up .9s .1s var(--ease) forwards}
 #elow-wrapper .hero-label::before{content:'';width:32px;height:1px;background:var(--golden);display:block}
-#elow-wrapper .about-hero h1{font-size:clamp(42px,5.5vw,82px);font-weight:900 !important;line-height:.96 !important;letter-spacing:-.028em !important;text-transform:uppercase !important;color:var(--cream);max-width:860px;opacity:0;animation:up .9s .2s var(--ease) forwards}
-#elow-wrapper .about-hero h1 em{color:var(--orange);font-style:normal;display:block}
-#elow-wrapper .about-hero-body{font-size:16px;line-height:1.78 !important;color:rgba(248,235,206,.55);max-width:620px;margin:32px 0 48px !important;opacity:0;animation:up .9s .35s var(--ease) forwards}
-#elow-wrapper .about-hero-btns{display:flex;align-items:center;gap:24px;flex-wrap:wrap;opacity:0;animation:up .9s .5s var(--ease) forwards}
+#elow-wrapper .svc-hero h1{font-size:clamp(36px,4.5vw,68px);font-weight:900 !important;line-height:.96 !important;letter-spacing:-.028em !important;text-transform:uppercase !important;color:var(--cream);opacity:0;animation:up .9s .2s var(--ease) forwards}
+#elow-wrapper .svc-hero h1 em{color:var(--orange);font-style:normal}
+#elow-wrapper .svc-hero-sub{font-size:17px;line-height:1.7 !important;color:rgba(248,235,206,.5);max-width:580px;margin-top:28px !important;opacity:0;animation:up .9s .35s var(--ease) forwards}
 
-/* PHILOSOPHY */
-#elow-wrapper .philosophy{background:var(--cream);color:var(--navy);padding:130px 0;position:relative;overflow:hidden}
-#elow-wrapper .philosophy::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(to right,var(--orange),var(--golden),var(--orange))}
-#elow-wrapper .philosophy .sec-label{color:var(--orange)}
-#elow-wrapper .philosophy .sec-label::before{background:var(--orange)}
-#elow-wrapper .phil-h{font-size:clamp(32px,4vw,50px);font-weight:900 !important;line-height:1.02 !important;letter-spacing:-.025em !important;text-transform:uppercase !important;color:var(--navy);margin-bottom:56px !important}
-#elow-wrapper .phil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:rgba(28,44,54,.1)}
-#elow-wrapper .phil-card{background:var(--cream);padding:48px 36px;position:relative;overflow:hidden;transition:transform .35s var(--ease)}
-#elow-wrapper .phil-card::after{content:'';position:absolute;inset:0;background:var(--navy);transform:translateY(102%);transition:transform .44s var(--ease);z-index:0}
-#elow-wrapper .phil-card:hover{transform:translateY(-4px)}
-#elow-wrapper .phil-card:hover::after{transform:translateY(0)}
-#elow-wrapper .phil-card>*{position:relative;z-index:1}
-#elow-wrapper .phil-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orange);z-index:2}
-#elow-wrapper .phil-card:nth-child(2)::before{background:var(--golden)}
-#elow-wrapper .phil-card:nth-child(3)::before{background:var(--gold-light)}
-#elow-wrapper .phil-icon{width:36px;height:36px;margin-bottom:24px !important;color:var(--orange);stroke-width:1.5;display:block}
-#elow-wrapper .phil-card:hover .phil-icon{color:var(--golden)}
-#elow-wrapper .phil-title{font-size:17px;font-weight:800 !important;letter-spacing:.02em !important;color:var(--navy);margin-bottom:16px !important;line-height:1.2 !important;transition:color .4s}
-#elow-wrapper .phil-card:hover .phil-title{color:var(--cream)}
-#elow-wrapper .phil-txt{font-size:14px;line-height:1.72 !important;color:rgba(28,44,54,.62);transition:color .4s}
-#elow-wrapper .phil-card:hover .phil-txt{color:rgba(248,235,206,.55)}
+/* SERVICE NAV */
+#elow-wrapper .svc-nav{background:var(--navy2);border-bottom:1px solid rgba(197,112,64,.12);position:fixed;left:0;right:0;z-index:150}
+#elow-wrapper .svc-nav-inner{max-width:1240px;margin:0 auto;padding:0 64px;display:flex;align-items:center;justify-content:center;gap:0;overflow-x:auto;scrollbar-width:none}
+#elow-wrapper .svc-nav-inner::-webkit-scrollbar{display:none}
+#elow-wrapper .svc-tab{font-size:10px;font-weight:700 !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:rgba(248,235,206,.4);background:transparent;border:none;padding:22px 28px;cursor:pointer;white-space:nowrap;transition:color .2s;position:relative;font-family:'League Spartan',sans-serif;text-decoration:none;display:inline-block}
+#elow-wrapper .svc-tab::after{content:'';position:absolute;bottom:0;left:28px;right:28px;height:2px;background:var(--orange);transform:scaleX(0);transition:transform .25s var(--ease)}
+#elow-wrapper .svc-tab:hover{color:rgba(248,235,206,.75)}
+#elow-wrapper .svc-tab.active{color:var(--cream)}
+#elow-wrapper .svc-tab.active::after{transform:scaleX(1)}
 
-/* COMMITMENT */
-#elow-wrapper .commitment{background:var(--navy2);padding:130px 0;position:relative;overflow:hidden}
-#elow-wrapper .commitment::before{content:'';position:absolute;top:-120px;right:-120px;width:640px;height:640px;background-image:var(--img-linhas_laranja);background-size:contain;background-repeat:no-repeat;opacity:.06;pointer-events:none}
-#elow-wrapper .commit-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
-#elow-wrapper .commit-grid .sec-label{color:var(--golden)}
-#elow-wrapper .commit-h{font-size:clamp(30px,3.5vw,46px);font-weight:900 !important;line-height:1.04 !important;letter-spacing:-.022em !important;text-transform:uppercase !important;color:var(--cream);margin-bottom:24px !important}
-#elow-wrapper .commit-h em{color:var(--orange);font-style:normal;display:block}
-#elow-wrapper .commit-body{font-size:15px;line-height:1.78 !important;color:rgba(248,235,206,.52)}
-#elow-wrapper .commit-photo{position:relative;overflow:hidden}
-#elow-wrapper .commit-photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:contrast(1.04);transition:transform .8s var(--ease)}
-#elow-wrapper .commit-photo:hover img{transform:scale(1.03)}
-#elow-wrapper .commit-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(197,112,64,.12),transparent)}
+/* SERVICE SECTIONS */
+#elow-wrapper .svc-section{padding:120px 0;position:relative;overflow:hidden}
+#elow-wrapper .svc-section.bg-navy3{background:var(--navy3)}
+#elow-wrapper .svc-section.bg-navy2{background:var(--navy2)}
+#elow-wrapper .svc-eyebrow{font-size:10px;font-weight:700 !important;letter-spacing:.3em !important;text-transform:uppercase !important;color:var(--golden);display:flex;align-items:center;gap:12px;margin-bottom:16px !important}
+#elow-wrapper .svc-eyebrow::before{content:'';width:28px;height:1px;background:var(--golden);display:block}
+#elow-wrapper .svc-name{font-size:clamp(38px,4.5vw,66px);font-weight:900 !important;line-height:.95 !important;letter-spacing:-.03em !important;text-transform:uppercase !important;color:var(--cream);margin-bottom:56px !important}
+#elow-wrapper .svc-name em{color:var(--orange);font-style:normal;display:block}
 
-/* TEAM */
-#elow-wrapper .team{background:var(--navy3);padding:130px 0;position:relative;overflow:hidden}#elow-wrapper .team-head{margin-bottom:80px !important}
-#elow-wrapper .team-head h2{font-size:clamp(34px,4vw,52px);font-weight:900 !important;line-height:1.02 !important;letter-spacing:-.025em !important;text-transform:uppercase !important;color:var(--cream)}
-#elow-wrapper .team-head h2 em{font-weight:300 !important;color:var(--golden);display:block;text-transform:none;font-size:.8em !important}
-#elow-wrapper .member{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:4px;background:var(--navy2);overflow:hidden;transition:box-shadow .4s}
-#elow-wrapper .member:hover{box-shadow:0 20px 60px rgba(0,0,0,.3)}
-#elow-wrapper .member:last-child{margin-bottom:0}
-#elow-wrapper .member.flip{direction:rtl}
-#elow-wrapper .member.flip>*{direction:ltr}
-#elow-wrapper .member-photo{position:relative;overflow:hidden;min-height:480px}
-#elow-wrapper .member-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .8s var(--ease)}
-#elow-wrapper .member:hover .member-photo img{transform:scale(1.04)}
-#elow-wrapper .member-content{padding:72px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-#elow-wrapper .member-content::before{content:'';position:absolute;bottom:-80px;right:-80px;width:280px;height:280px;background-image:var(--img-luas_laranja);background-size:contain;background-repeat:no-repeat;opacity:.06}
-#elow-wrapper .member-name{font-size:clamp(28px,3vw,40px);font-weight:900 !important;letter-spacing:-.02em !important;color:var(--cream);margin-bottom:8px !important}
-#elow-wrapper .member-role{font-size:12px;font-weight:700 !important;letter-spacing:.15em !important;text-transform:uppercase !important;color:var(--golden);margin-bottom:32px !important;line-height:1.4 !important}
-#elow-wrapper .member-bio{font-size:15px;line-height:1.78 !important;color:rgba(248,235,206,.52);margin-bottom:36px !important}
-#elow-wrapper .member-badges{display:flex;gap:8px;flex-wrap:wrap}
-#elow-wrapper .mbadge{font-size:10px;font-weight:700 !important;letter-spacing:.18em !important;text-transform:uppercase !important;border:1px solid rgba(197,112,64,.3);color:var(--golden);padding:7px 14px;transition:all .25s;cursor:default}
-#elow-wrapper .mbadge:hover{background:var(--orange);color:var(--cream);border-color:var(--orange)}
+/* 2-COL CONTENT */
+#elow-wrapper .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+#elow-wrapper .svc-desc{font-size:16px;line-height:1.78 !important;color:rgba(248,235,206,.55);margin-bottom:32px !important}
+#elow-wrapper .svc-sub-heading{font-size:13px;font-weight:800 !important;letter-spacing:.1em !important;text-transform:uppercase !important;color:var(--cream);margin-bottom:16px !important}
+#elow-wrapper .svc-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:0 !important}
+#elow-wrapper .svc-bullets li{font-size:15px;line-height:1.5 !important;color:rgba(248,235,206,.55);padding-left:20px;position:relative}
+#elow-wrapper .svc-bullets li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--orange)}
+
+/* DELIVERABLES BOX */
+#elow-wrapper .svc-deliverables{background:rgba(255,255,255,.03);border:1px solid rgba(197,112,64,.15);padding:40px}
+#elow-wrapper .svc-del-heading{font-size:13px;font-weight:800 !important;letter-spacing:.1em !important;text-transform:uppercase !important;color:var(--cream);margin-bottom:24px !important;padding-bottom:20px;border-bottom:1px solid rgba(197,112,64,.15)}
+#elow-wrapper .svc-del-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px !important}
+#elow-wrapper .svc-del-list li{font-size:14px;line-height:1.5 !important;color:rgba(248,235,206,.65);padding-left:22px;position:relative}
+#elow-wrapper .svc-del-list li::before{content:'—';position:absolute;left:0;color:var(--golden);font-size:11px !important;top:1px}
+
+/* IMAGE STRIP */
+#elow-wrapper .svc-imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:64px}
+#elow-wrapper .svc-img-wrap{display:block;position:relative;overflow:hidden;aspect-ratio:4/3}
+#elow-wrapper .svc-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+#elow-wrapper .svc-img-wrap:hover img{transform:scale(1.04)}
+#elow-wrapper .svc-img-label{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(15,24,30,.85),transparent);font-size:10px;font-weight:700 !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:rgba(248,235,206,.7);opacity:0;transition:opacity .3s}
+#elow-wrapper .svc-img-wrap:hover .svc-img-label{opacity:1}
+
+/* ACCENT LINES */
+#elow-wrapper .svc-section.bg-navy2::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background-image:var(--img-linhas_laranja);background-size:contain;background-repeat:no-repeat;opacity:.04;pointer-events:none}
 
 /* CTA */
 #elow-wrapper .cta-section{background:var(--navy3);padding:80px 64px 130px}
@@ -203,14 +184,15 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
   #elow-wrapper .nav-logo img{height:80px !important}
   #elow-wrapper nav.scrolled .nav-logo img{height:64px !important}
   #elow-wrapper .wrap{padding:0 24px}
-  #elow-wrapper .about-hero{padding:140px 0 80px}
-  #elow-wrapper .philosophy,.commitment,.team,.cta-section{padding:80px 0}
-  #elow-wrapper .phil-grid{grid-template-columns:1fr}
-  #elow-wrapper .commit-grid{grid-template-columns:1fr;gap:48px}
-  #elow-wrapper .member{grid-template-columns:1fr}
-  #elow-wrapper .member.flip{direction:ltr}
-  #elow-wrapper .member-photo{min-height:320px}
-  #elow-wrapper .member-content{padding:48px 24px}
+  #elow-wrapper .svc-hero{padding:240px 0 80px}
+  #elow-wrapper .svc-nav-inner{padding:0;justify-content:flex-start;flex-wrap:wrap;overflow-x:visible}
+  #elow-wrapper .svc-tab{padding:16px 12px;width:50%;text-align:center;font-size:9px !important;border-bottom:1px solid rgba(197,112,64,.1)}
+  #elow-wrapper .svc-tab::after{left:12px;right:12px}
+  #elow-wrapper .svc-section{padding:80px 0}
+  #elow-wrapper .svc-grid{grid-template-columns:1fr;gap:48px}
+  #elow-wrapper .svc-imgs{grid-template-columns:1fr;gap:3px}
+  #elow-wrapper .svc-img-label{opacity:1}
+  #elow-wrapper .cta-section{padding:60px 24px 100px}
   #elow-wrapper .cta-inner{grid-template-columns:1fr;gap:40px}
   #elow-wrapper .cta-box{padding:60px 24px;clip-path:none;border-radius:20px}
   #elow-wrapper .cta-right{align-items:flex-start;width:100%}
@@ -218,10 +200,9 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
   #elow-wrapper .foot-bottom{flex-direction:column;align-items:center;gap:24px;text-align:center}
   #elow-wrapper .foot-links{justify-content:center}
   #elow-wrapper footer{text-align:center;padding:60px 24px 40px}
-  #elow-wrapper .about-hero-btns{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:600px){
-  #elow-wrapper .member-badges{gap:6px}
+  #elow-wrapper .svc-imgs{grid-template-columns:1fr}
   body{cursor:auto}
   #elow-wrapper #cur,#elow-wrapper #cur2{display:none}
 }
@@ -281,13 +262,13 @@ function setLang(lang){
 <!-- NAV -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="../assets/images/elow-logo-fundo-azul.webp" alt="ÉLOW Estúdio Design">
+    <img src="assets/images/elow-logo-fundo-azul.webp" alt="ÉLOW Estúdio Design">
   </a>
     <div style="display:flex;align-items:center;gap:24px;margin-left:auto">
     <div class="nav-menu">
       <a href="index.html" class="nav-link">Início</a>
-      <a href="about.html" class="nav-link active">Sobre</a>
-      <a href="services.html" class="nav-link">Serviços</a>
+      <a href="about.html" class="nav-link">Sobre</a>
+      <a href="services.html" class="nav-link active">Serviços</a>
       <a href="portfolio.html" class="nav-link">Portfólio</a>
     </div>
     <div class="lang-switcher" translate="no">
@@ -301,97 +282,186 @@ function setLang(lang){
 </nav>
 
 <!-- HERO -->
-<section class="about-hero">
-  <div class="wrap" style="position:relative;z-index:2">
-    <div class="hero-label">Quem Somos</div>
-    <h1>Branding profissional<em>para a realidade de pequenos negócios</em></h1>
-    <p class="about-hero-body">A ÉLOW foi fundada para tornar branding profissional acessível a negócios que tipicamente não conseguem acessá-lo — não como uma versão simplificada de trabalho corporativo, mas como design estratégico construído para a realidade deles.<br><br>Somos um estúdio liderado por mulheres com mais de 15 anos de experiência criando identidades de marca para empreendedores e donas de pequenos negócios. Nossas formações abrangem design, estratégia de negócios e gestão de projetos.</p>
-    <div class="about-hero-btns">
-      <a href="#" class="btn-primary"><span>Ver trabalhos</span></a>
-      <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-ghost">Fala com a gente</a>
+<section class="svc-hero">
+  <div class="wrap">
+    <div class="svc-hero-inner">
+      <div class="hero-label">O que fazemos</div>
+      <h1>Negócios diferentes precisam de <em>níveis diferentes</em> de trabalho de marca</h1>
+      <p class="svc-hero-sub">Seja construindo uma marca do zero, atualizando uma identidade existente ou criando um nome, estamos aqui para ajudar.</p>
     </div>
   </div>
 </section>
 
-<!-- PHILOSOPHY -->
-<section class="philosophy">
-  <div class="wrap">
-    <div class="sec-label reveal">Como Pensamos Sobre Branding</div>
-    <h2 class="phil-h reveal d1">Branding é ferramenta<br>de crescimento</h2>
-    <div class="phil-grid">
-      <div class="phil-card reveal">
-        <svg class="phil-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
-        </svg>
-        <h3 class="phil-title">Branding profissional é para pequenos negócios, sim</h3>
-        <p class="phil-txt">Marca estratégica não é privilégio de empresa grande. Pequenos negócios merecem identidade com inteligência, qualidade e intenção.</p>
-      </div>
-      <div class="phil-card reveal d1">
-        <svg class="phil-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-        </svg>
-        <h3 class="phil-title">Design só é bom quando serve ao negócio</h3>
-        <p class="phil-txt">Criamos ferramentas visuais que comunicam valor, atraem o cliente certo e sustentam o crescimento. Se não ajuda seu negócio a avançar, não pertence à sua marca.</p>
-      </div>
-      <div class="phil-card reveal d2">
-        <svg class="phil-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        </svg>
-        <h3 class="phil-title">Consistência importa</h3>
-        <p class="phil-txt">Marcas não nascem do improviso, nascem da repetição intencional. Quando a comunicação é coerente, o público entende, confia e lembra.</p>
-      </div>
-    </div>
+<!-- SERVICE NAV -->
+<div class="svc-nav" id="svc-nav">
+  <div class="svc-nav-inner">
+    <a href="#diagnostico" class="svc-tab active" data-target="diagnostico">Diagnóstico de Marca</a>
+    <a href="#naming" class="svc-tab" data-target="naming">Naming</a>
+    <a href="#identidade" class="svc-tab" data-target="identidade">Identidade Visual</a>
+    <a href="#redesign" class="svc-tab" data-target="redesign">Redesign de Marca</a>
   </div>
-</section>
+</div>
 
-<!-- COMMITMENT -->
-<section class="commitment">
+<!-- SERVICE 1: DIAGNÓSTICO DE MARCA -->
+<section class="svc-section bg-navy3" id="diagnostico">
   <div class="wrap">
-    <div class="commit-grid">
-      <div>
-        <div class="sec-label reveal">Nosso Compromisso</div>
-        <h2 class="commit-h reveal d1">Nosso compromisso é fortalecer<em>o empreendedorismo feminino</em></h2>
-        <p class="commit-body reveal d2">Quando uma mulher cresce, o mercado se transforma. Estamos alinhados ao Objetivo de Desenvolvimento Sustentável 5 da ONU porque acreditamos que igualdade de gênero também se constrói com estrutura, visibilidade e direção.<br><br>Como um estúdio liderado por mulheres, criamos marcas que ajudam outras empreendedoras a crescer com autonomia, presença e clareza de posicionamento. Quando uma mulher empreende com uma identidade sólida, o impacto vai além do negócio: gera oportunidades, movimenta a economia local e inspira novas trajetórias.<br><br>Marcas fortes elevam histórias. E é isso que nos move.</p>
+    <div class="svc-eyebrow reveal">Não sabe por onde começar?</div>
+    <h2 class="svc-name reveal d1">Diagnóstico<em>de Marca</em></h2>
+    <div class="svc-grid">
+      <div class="reveal d1">
+        <p class="svc-desc">Avaliamos posicionamento, identidade, comunicação, coerência visual e narrativa, além do contexto de mercado e concorrência, para identificar desalinhamentos, oportunidades e pontos de fortalecimento.</p>
+        <p class="svc-desc">O resultado é um direcionamento claro e assertivo, que traz clareza sobre onde a marca está, onde pode chegar e quais decisões estratégicas precisam ser tomadas para evoluir com consistência, propósito e resultado.</p>
       </div>
-      <div class="commit-photo reveal d2">
-        <img src="../assets/images/elow-team.webp" alt="Rebecca Menezes e Natália Nery — ÉLOW Estúdio Design" width="1000" height="1399" loading="lazy">
+      <div class="svc-deliverables reveal d2">
+        <div class="svc-del-heading">O que você receberá</div>
+        <ul class="svc-del-list">
+          <li>Visão Geral</li>
+          <li>Parecer de viabilidade de INPI</li>
+          <li>Análise Técnica do logotipo (Legibilidade, memorização, flexibilidade, diferenciação e consistência)</li>
+          <li>Análise de Concorrência</li>
+          <li>Diagnóstico Final</li>
+        </ul>
+        <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-primary"><span>Solicite um orçamento</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="team">
+<!-- SERVICE 2: NAMING -->
+<section class="svc-section bg-navy2" id="naming">
   <div class="wrap">
-    <div class="team-head reveal">
-      <div class="sec-label">Nossa Jornada</div>
-      <h2>As pessoas por trás<em>da ÉLOW</em></h2>
+    <div class="svc-eyebrow reveal">Precisa de um nome para seu negócio?</div>
+    <h2 class="svc-name reveal d1">Naming</h2>
+    <div class="svc-grid">
+      <div class="reveal d1">
+        <p class="svc-desc">Criação estratégica de nomes com análise de viabilidade de registro para novos negócios ou produtos.</p>
+        <div class="svc-sub-heading">Um nome forte</div>
+        <ul class="svc-bullets">
+          <li>É memorável e fácil de pronunciar</li>
+          <li>Dá uma noção do que você faz ou quem você serve</li>
+          <li>Diferencia você dos concorrentes</li>
+          <li>Funciona em diferentes idiomas e culturas (se relevante)</li>
+          <li>Tem domínio e marca registrada disponíveis</li>
+        </ul>
+      </div>
+      <div class="svc-deliverables reveal d2">
+        <div class="svc-del-heading">O que você receberá</div>
+        <ul class="svc-del-list">
+          <li>Consultoria e estratégia de naming</li>
+          <li>3 ou 5 opções finalizadas de nome com justificativa</li>
+          <li>Relatório de disponibilidade de marca registrada para cada nome</li>
+          <li>Disponibilidade de domínio para cada nome</li>
+          <li>Disponibilidade de usuários (@) nas redes sociais</li>
+          <li>Orientação de pronúncia e uso</li>
+        </ul>
+        <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-primary"><span>Solicite um orçamento</span></a>
+      </div>
     </div>
+    <div class="svc-imgs reveal d2">
+      <a class="svc-img-wrap" href="projeto.html?slug=molib">
+        <img src="assets/images/portfolio-molib.webp" alt="Molib — Naming" loading="lazy">
+        <div class="svc-img-label">Molib</div>
+      </a>
+      <a class="svc-img-wrap" href="projeto.html?slug=realsky">
+        <img src="assets/images/portfolio-realsky.webp" alt="Realsky Aviation — Naming" loading="lazy">
+        <div class="svc-img-label">Realsky Aviation</div>
+      </a>
+      <a class="svc-img-wrap" href="projeto.html?slug=vinna">
+        <img src="assets/images/portfolio-vinna.webp" alt="Vinna — Naming" loading="lazy">
+        <div class="svc-img-label">Vinna</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <!-- Rebecca -->
-    <div class="member reveal">
-      <div class="member-photo">
-        <img src="../assets/images/foto-rebecca-menezes.webp" alt="Rebecca Menezes — ÉLOW Estúdio Design" width="800" height="1000" loading="lazy">
+<!-- SERVICE 3: IDENTIDADE VISUAL -->
+<section class="svc-section bg-navy3" id="identidade">
+  <div class="wrap">
+    <div class="svc-eyebrow reveal">Começando um novo negócio?</div>
+    <h2 class="svc-name reveal d1">Identidade<em>Visual</em></h2>
+    <div class="svc-grid">
+      <div class="reveal d1">
+        <p class="svc-desc">Criação completa de identidade de marca para novos negócios ou aqueles sem identidade profissional.</p>
+        <div class="svc-sub-heading">O que é identidade visual?</div>
+        <p class="svc-desc">Identidade visual é o sistema visual completo que representa seu negócio consistentemente em cada ponto de contato. Vai além do logo: são cores, tipografia, padrões e como tudo funciona junto para tornar sua marca reconhecível.</p>
+        <p class="svc-desc">Uma identidade visual forte ajuda as pessoas a reconhecer e lembrar da sua marca, comunica quem você é antes de você dizer uma palavra e diferencia você dos concorrentes.</p>
       </div>
-      <div class="member-content">
-        <h3 class="member-name">Rebecca Menezes</h3>
-        <div class="member-role">Designer | Mestre em Economia Criativa</div>
-        <p class="member-bio">Pernambucana, atualmente mora no Rio de Janeiro. É designer, mestre em Economia Criativa, Estratégia e Inovação pela ESPM Rio, com especializações em Gestão de Negócios e Gestão Estratégica do Design. Empreendedora há mais de 15 anos, atua com branding e design estratégico, além de ser mentora de negócios femininos e parecerista de projetos culturais.</p>
+      <div class="svc-deliverables reveal d2">
+        <div class="svc-del-heading">O que você receberá</div>
+        <ul class="svc-del-list">
+          <li>Sistema completo de logo (marca principal, variações, diretrizes de uso)</li>
+          <li>Paleta de cores</li>
+          <li>Sistema tipográfico para todas as aplicações</li>
+          <li>Elementos visuais e padrões</li>
+          <li>Manual completo da marca</li>
+          <li>Todos os formatos de arquivo (PDF, PNG, JPG, SVG, EPS)</li>
+          <li>Exemplos (mockups) de aplicação</li>
+          <li>Suporte de implementação</li>
+        </ul>
+        <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-primary"><span>Solicite um orçamento</span></a>
       </div>
     </div>
+    <div class="svc-imgs reveal d2">
+      <a class="svc-img-wrap" href="projeto.html?slug=ura-advocacia">
+        <img src="assets/images/portfolio-ura-advocacia.webp" alt="Ura Advocacia — Identidade Visual" loading="lazy">
+        <div class="svc-img-label">Ura Advocacia</div>
+      </a>
+      <a class="svc-img-wrap" href="projeto.html?slug=coffeely">
+        <img src="assets/images/portfolio-coffeely.webp" alt="Coffeely — Identidade Visual" loading="lazy">
+        <div class="svc-img-label">Coffeely</div>
+      </a>
+      <a class="svc-img-wrap" href="projeto.html?slug=art-salon">
+        <img src="assets/images/portfolio-art-salon.webp" alt="Art Salon — Identidade Visual" loading="lazy">
+        <div class="svc-img-label">Art Salon</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <!-- Natália -->
-    <div class="member flip reveal d1">
-      <div class="member-photo">
-        <img src="../assets/images/foto-natalia-nery.webp" alt="Natália Nery — ÉLOW Estúdio Design" width="800" height="1000" loading="lazy">
+<!-- SERVICE 4: REDESIGN DE MARCA -->
+<section class="svc-section bg-navy2" id="redesign">
+  <div class="wrap">
+    <div class="svc-eyebrow reveal">Já tem uma marca que precisa de atualização?</div>
+    <h2 class="svc-name reveal d1">Redesign<em>de Marca</em></h2>
+    <div class="svc-grid">
+      <div class="reveal d1">
+        <p class="svc-desc">Atualização ou evolução de marca existente para negócios que cresceram além de sua identidade atual.</p>
+        <div class="svc-sub-heading">Quando redesign faz sentido</div>
+        <ul class="svc-bullets">
+          <li>Sua identidade atual parece desatualizada ou amadora</li>
+          <li>Seu negócio evoluiu além do seu posicionamento original</li>
+          <li>Você está competindo em um nível mais alto e precisa refletir isso</li>
+          <li>Sua marca não funciona bem em canais modernos</li>
+          <li>Você quer cobrar o que vale e precisa de credibilidade</li>
+        </ul>
       </div>
-      <div class="member-content">
-        <h3 class="member-name">Natália Nery</h3>
-        <div class="member-role">Designer | Especialista em Gestão de Projetos</div>
-        <p class="member-bio">Pernambucana e residente em Recife – PE, é especialista em Gestão de Projetos e possui formação acadêmica em Design. Com mais de 15 anos de experiência como empreendedora, lidera todos os projetos de identidade visual na Élow. Sua escuta ativa permite captar a essência de cada cliente.</p>
+      <div class="svc-deliverables reveal d2">
+        <div class="svc-del-heading">O que você receberá</div>
+        <ul class="svc-del-list">
+          <li>Análise da marca atual</li>
+          <li>Direção estratégica para o redesign</li>
+          <li>Identidade visual completa e atualizada</li>
+          <li>Manual da marca</li>
+          <li>Todos os formatos de arquivo</li>
+          <li>Orientação e suporte de transição</li>
+        </ul>
+        <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-primary"><span>Solicite um orçamento</span></a>
       </div>
     </div>
-
+    <div class="svc-imgs reveal d2">
+      <a class="svc-img-wrap" href="projeto.html?slug=cubo-engenharia">
+        <img src="assets/images/portfolio-cubo-engenharia.webp" alt="Cubo Engenharia — Redesign de Marca" loading="lazy">
+        <div class="svc-img-label">Cubo Engenharia</div>
+      </a>
+      <a class="svc-img-wrap" href="projeto.html?slug=ane-jeans">
+        <img src="assets/images/portfolio-ane-jeans.webp" alt="Ane Jeans — Redesign de Marca" loading="lazy">
+        <div class="svc-img-label">Ane Jeans</div>
+      </a>
+      <a class="svc-img-wrap" href="projeto.html?slug=bio-stick">
+        <img src="assets/images/portfolio-bio-stick.webp" alt="Bio Stick — Redesign de Marca" loading="lazy">
+        <div class="svc-img-label">Bio Stick</div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -400,11 +470,11 @@ function setLang(lang){
   <div class="cta-box reveal">
     <div class="cta-inner">
       <div>
-        <h2 class="cta-h">Sua marca está pronta<em>para crescer?</em></h2>
-        <p class="cta-body">Vamos conversar sobre seu negócio e entender se a ÉLOW é o próximo passo certo para você.</p>
+        <h2 class="cta-h">Pronto para começar?<em>Vamos falar sobre seu projeto.</em></h2>
+        <p class="cta-body">Se sua marca não representa mais a qualidade do seu trabalho, é hora de mudar.</p>
       </div>
       <div class="cta-right">
-        <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-cta">Quero estruturar minha marca →</a>
+        <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-cta">Começar a conversa →</a>
       </div>
     </div>
   </div>
@@ -414,7 +484,7 @@ function setLang(lang){
 <footer>
   <div class="wrap">
     <div class="foot-content">
-      <img src="../assets/images/elow-selo-fundo-azul.webp" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
+      <img src="assets/images/elow-selo-fundo-azul.webp" alt="ÉLOW Estúdio Design" class="foot-logo-img" width="300" height="90" loading="lazy" style="height:90px;width:auto;max-width:300px">
       <div class="foot-links">
         <a href="privacy.html">Política de Privacidade</a>
         <div class="sep"></div>
@@ -428,6 +498,7 @@ function setLang(lang){
   </div>
 </footer>
 
+
 <script>
 /* CURSOR */
 const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
@@ -439,25 +510,61 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
 
-/* SCROLL REVEAL */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
-},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+/* SERVICE NAV — fixed below main nav */
+(function(){
+  const svcNav=document.getElementById('svc-nav');
+  function updateTop(){svcNav.style.top=nav.getBoundingClientRect().height+'px';}
+  updateTop();
+  window.addEventListener('scroll',updateTop,{passive:true});
+  window.addEventListener('resize',updateTop,{passive:true});
+})();
+
+/* ACTIVE TAB ON SCROLL */
+(function(){
+  const tabs=document.querySelectorAll('.svc-tab');
+  const sections=Array.from(tabs).map(t=>document.getElementById(t.dataset.target));
+  const svcNavH=()=>document.getElementById('svc-nav').offsetHeight+nav.offsetHeight+40;
+  function update(){
+    let current=sections[0];
+    sections.forEach(s=>{if(s&&scrollY>=s.offsetTop-svcNavH()) current=s;});
+    tabs.forEach(t=>{
+      t.classList.toggle('active',t.dataset.target===current.id);
+    });
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+
+/* SMOOTH SCROLL FOR TABS */
+document.querySelectorAll('.svc-tab').forEach(tab=>{
+  tab.addEventListener('click',function(e){
+    e.preventDefault();
+    const target=document.getElementById(this.dataset.target);
+    if(!target) return;
+    const offset=nav.offsetHeight+document.getElementById('svc-nav').offsetHeight;
+    window.scrollTo({top:target.offsetTop-offset,behavior:'smooth'});
+  });
+});
+
+
+/* REVEAL */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 </script>
 
 <!-- MOBILE NAV -->
 <div id="mobile-nav" class="mobile-nav">
   <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Fechar menu">✕</button>
   <a href="index.html" class="mobile-nav-link">Início</a>
-  <a href="about.html" class="mobile-nav-link active">Sobre nós</a>
-  <a href="services.html" class="mobile-nav-link">Serviços</a>
+  <a href="about.html" class="mobile-nav-link">Sobre nós</a>
+  <a href="services.html" class="mobile-nav-link active">Serviços</a>
   <a href="portfolio.html" class="mobile-nav-link">Portfólio</a>
   <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="mobile-nav-link" style="color:var(--orange);margin-top:16px">Quero minha identidade</a>
 </div>
 
 <script>
-/* HAMBURGER */
 const hamburger=document.getElementById('hamburger');
 const mobileNav=document.getElementById('mobile-nav');
 hamburger.addEventListener('click',()=>{mobileNav.classList.add('open');document.body.style.overflow='hidden';});
@@ -481,6 +588,6 @@ mobileNav.querySelectorAll('.mobile-nav-link').forEach(el=>el.addEventListener('
 .wa-label{display:block!important;background:#25D366!important;color:#fff!important;font-family:Arial,Helvetica,sans-serif!important;font-size:14px!important;font-weight:700!important;font-style:normal!important;font-variant:normal!important;line-height:1!important;letter-spacing:0!important;text-transform:none!important;word-spacing:0!important;white-space:nowrap!important;padding:10px 16px!important;border-radius:20px!important;margin:0 8px 0 0!important;opacity:0!important;transform:translateX(12px)!important;transition:opacity .2s ease,transform .25s ease!important;pointer-events:none!important;box-shadow:none!important;text-decoration:none!important;box-sizing:border-box!important;}
 .wa-wrap:hover .wa-label{opacity:1!important;transform:translateX(0)!important;}
 </style>
-</div><!-- /elow-wrapper -->
+</div>
 </body>
 </html>

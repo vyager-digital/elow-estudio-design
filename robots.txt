@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://elowestudiodesign.com.br/sitemap.xml
+
 User-agent: GPTBot
 Allow: /
 
@@ -24,5 +26,3 @@ Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
-
-Sitemap: https://elowestudiodesign.com.br/sitemap.xml
