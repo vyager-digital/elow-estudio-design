@@ -476,7 +476,7 @@ function setLang(lang){
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
       <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
     </div>
-    <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="nav-cta">Quero minha identidade</a>
+    <button type="button" onclick="openHsModal()" class="nav-cta">Quero minha identidade</button>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -490,7 +490,7 @@ function setLang(lang){
   <a href="about.html" class="m-link">Sobre nós</a>
   <a href="services.html" class="m-link">Serviços</a>
   <a href="portfolio.html" class="m-link">Portfólio</a>
-  <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="m-cta">Quero minha identidade</a>
+  <button type="button" onclick="openHsModal()" class="m-cta">Quero minha identidade</button>
   <div class="m-lang">
     <button data-lang="pt" onclick="setLang('pt')">PT</button>
     <button data-lang="en" onclick="setLang('en')">EN</button>
@@ -526,10 +526,10 @@ function setLang(lang){
     })();
     </script>
     <div class="hero-btns">
-      <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-primary">
+      <button type="button" onclick="openHsModal()" class="btn-primary">
         <span>Fala com a gente</span>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+      </button>
     </div>
   </div>
   <div class="hero-r">
@@ -724,7 +724,7 @@ function setLang(lang){
         <p class="cta-body">Estamos aqui para construir isso com você.</p>
       </div>
       <div class="cta-right">
-        <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-cta">Começar a conversa →</a>
+        <button type="button" onclick="openHsModal()" class="btn-cta">Começar a conversa →</button>
       </div>
     </div>
   </div>

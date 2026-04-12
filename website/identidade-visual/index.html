@@ -498,6 +498,31 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
 #elow-wrapper .lang-btn:hover{border-color:var(--orange);color:var(--orange)}
 #elow-wrapper .lang-btn.active{border-color:var(--orange);color:var(--orange);background:rgba(197,112,64,.1)}
 
+/* ===== HubSpot Modal ===== */
+#hs-modal-overlay {opacity:0;visibility:hidden;pointer-events:none;display:flex;position:fixed;inset:0;background:rgba(15,24,30,.88);z-index:10000;align-items:flex-start;justify-content:center;padding:40px 24px;backdrop-filter:blur(6px);overflow-y:auto;transition:opacity 0.3s ease,visibility 0.3s ease}
+#hs-modal-overlay.open {opacity:1;visibility:visible;pointer-events:auto}
+#hs-modal {background:var(--navy);position:relative;width:100%;max-width:560px;padding:52px 48px 48px;flex-shrink:0;border:1px solid rgba(197,112,64,.2)}
+#hs-modal-close {position:absolute;top:18px;right:18px;background:none;border:none;color:var(--cream);opacity:.45;font-size:22px;cursor:pointer;line-height:1 !important;padding:4px 8px;transition:opacity .2s;z-index:10}
+#hs-modal-close:hover {opacity:1}
+#hs-modal-title {font-size:clamp(18px,2.5vw,26px);font-weight:900 !important;letter-spacing:-.02em !important;text-transform:uppercase !important;color:var(--cream);margin-bottom:8px !important}
+#hs-modal-sub {font-size:13px;color:rgba(248,235,206,.5);margin-bottom:32px;line-height:1.5 !important}
+#hs-modal .hs-form-frame {color-scheme:dark}
+#hs-modal label {color:rgba(248,235,206,.75) !important;font-size:12px !important;font-weight:600 !important;letter-spacing:.06em !important;text-transform:uppercase !important;margin-bottom:6px !important;display:block !important}
+#hs-modal input[type=text], #hs-modal input[type=email], #hs-modal input[type=tel], #hs-modal input[type=number], #hs-modal select, #hs-modal textarea {background:rgba(255,255,255,.07) !important;border:1px solid rgba(248,235,206,.18) !important;color:var(--cream) !important;padding:12px 14px !important;font-family:inherit !important;font-size:14px !important;width:100% !important;box-sizing:border-box !important;border-radius:0 !important;outline:none !important}
+#hs-modal input::placeholder, #hs-modal textarea::placeholder {color:rgba(248,235,206,.3) !important}
+#hs-modal input:focus, #hs-modal select:focus, #hs-modal textarea:focus {border-color:var(--orange) !important}
+#hs-modal select option {background:var(--navy) !important;color:var(--cream) !important}
+#hs-modal .hs-form-field {margin-bottom:18px !important}
+#hs-modal .hs-error-msgs {list-style:none !important;padding:0 !important;margin:4px 0 0 !important}
+#hs-modal .hs-error-msgs li label {color:var(--orange) !important;font-size:11px !important;text-transform:none !important;letter-spacing:0 !important}
+#hs-modal .hs-button {background:var(--orange) !important;color:var(--cream) !important;border:none !important;padding:16px 40px !important;font-family:inherit !important;font-size:12px !important;font-weight:700 !important;letter-spacing:.12em !important;text-transform:uppercase !important;cursor:pointer !important;width:100% !important;margin-top:8px !important}
+#hs-modal .hs-button:hover {background:var(--golden) !important}
+#hs-modal .legal-consent-container {color:rgba(248,235,206,.45) !important;font-size:11px !important}
+#hs-modal .legal-consent-container a {color:var(--golden) !important}
+#hs-modal .inputs-list {list-style:none !important;padding:0 !important}
+#hs-modal .inputs-list label {text-transform:none !important;letter-spacing:0 !important;font-size:13px !important}
+@media(max-width:480px){#elow-wrapper #hs-modal{padding:44px 24px 32px}}
+
 </style>
 
 </head>
@@ -561,7 +586,7 @@ function setLang(lang){
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
       <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
     </div>
-    <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="nav-cta">Quero minha identidade</a>
+    <button type="button" onclick="openHsModal()" class="nav-cta">Quero minha identidade</button>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -571,7 +596,7 @@ function setLang(lang){
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
   <button class="m-close" id="m-close" aria-label="Fechar menu">&times;</button>
-  <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="m-cta">Quero minha identidade</a>
+  <button type="button" onclick="openHsModal()" class="m-cta">Quero minha identidade</button>
   <div class="m-lang" translate="no">
     <button data-lang="pt" onclick="setLang('pt')">PT</button>
     <button data-lang="en" onclick="setLang('en')">EN</button>
@@ -591,10 +616,10 @@ function setLang(lang){
     <p style="font-size:24px;font-weight:700;color:var(--cream);margin-top:24px;line-height:1.2;text-transform:none;max-width:500px">Para empresas de serviços prontas para crescer</p>
     <p class="hero-body" style="margin-top:16px;line-height:1.78;margin-bottom:46px">Conquiste a presença e a autoridade que o mercado exige através de design e direção criativa.</p>
     <div class="hero-btns">
-      <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-primary">
+      <button type="button" onclick="openHsModal()" class="btn-primary">
         <span>Quero profissionalizar minha marca</span>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+      </button>
 
     </div>
     <div class="hero-stats">
@@ -874,7 +899,7 @@ function setLang(lang){
         <p class="cta-body">Envie uma mensagem e em breve uma de nossas especialistas entrará em contato para entender seu projeto e dar os próximos passos.</p>
       </div>
       <div class="cta-right">
-        <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="btn-cta">Quero profissionalizar minha marca →</a>
+        <button type="button" onclick="openHsModal()" class="btn-cta">Quero profissionalizar minha marca →</button>
       </div>
     </div>
   </div>
@@ -991,6 +1016,27 @@ if(hamburger&&mobileMenu){
   document.getElementById('m-close').addEventListener('click',closeMenu);
   mobileMenu.querySelector('.m-cta').addEventListener('click',closeMenu);
 }
+</script>
+
+<script src="https://js-eu1.hsforms.net/forms/embed/147712865.js" defer></script>
+
+<!-- HubSpot Modal -->
+<div id="hs-modal-overlay" role="dialog" aria-modal="true" aria-label="Formulário de contato">
+  <div id="hs-modal">
+    <button id="hs-modal-close" aria-label="Fechar">&times;</button>
+    <p id="hs-modal-title">Vamos profissionalizar<br>sua marca</p>
+    <p id="hs-modal-sub">Preencha o formulário e entraremos em contato.</p>
+    <div class="hs-form-frame" data-region="eu1" data-form-id="456f7d72-ee38-4af5-a878-e9b666a4d925" data-portal-id="147712865"></div>
+  </div>
+</div>
+
+<script>
+  const hsOverlay=document.getElementById('hs-modal-overlay');
+  function openHsModal(){hsOverlay.classList.add('open');document.body.style.overflow='hidden';}
+  function closeHsModal(){hsOverlay.classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('hs-modal-close').addEventListener('click',closeHsModal);
+  hsOverlay.addEventListener('click',function(e){if(e.target===hsOverlay)closeHsModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeHsModal();});
 </script>
 
 <!-- WhatsApp Float -->
