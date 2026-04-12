@@ -378,7 +378,7 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   function buildCard(p){
     const a=document.createElement('a');
     a.className='port-card reveal';
-    a.href='projeto.html?slug='+p.slug;
+    a.href='/projeto/'+p.slug+'/';
     a.dataset.cat=p.cat;
     a.innerHTML=`
       <div class="port-img-wrap">

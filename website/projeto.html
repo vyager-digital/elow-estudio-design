@@ -325,8 +325,7 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   };
 
   const root=document.getElementById('proj-root');
-  const params=new URLSearchParams(location.search);
-  const slug=params.get('slug');
+  const slug=location.pathname.split('/').filter(Boolean).pop();
 
   function showError(){
     root.innerHTML=`<div class="proj-state"><div class="proj-state-msg">Projeto não encontrado</div><a href="portfolio.html" style="color:var(--golden);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;margin-top:8px">← Voltar ao portfólio</a></div>`;
