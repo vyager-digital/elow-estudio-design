@@ -1,2 +1,5 @@
 /assets/images/*
   Cache-Control: public, max-age=31536000, no-transform
+
+/identidade-visual/assets/images/*
+  Cache-Control: public, max-age=31536000, no-transform
