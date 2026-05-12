@@ -445,6 +445,16 @@ function setLang(lang){
 }
 (function(){
   var match=document.cookie.match(/googtrans=\/pt\/([a-z]+)/);
+  if(!match){
+    var bl=(navigator.language||navigator.userLanguage||'pt').toLowerCase();
+    if(!bl.startsWith('pt')){
+      var d=location.hostname;
+      document.cookie='googtrans=/pt/en;path=/';
+      document.cookie='googtrans=/pt/en;path=/;domain='+d;
+      location.href=location.pathname+location.search;
+      return;
+    }
+  }
   var active=match?match[1]:'pt';
   document.readyState==='loading'
     ? document.addEventListener('DOMContentLoaded',function(){
