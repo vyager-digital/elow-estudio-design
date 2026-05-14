@@ -3,13 +3,17 @@
 
 ---
 
+What started as a marketing engagement has become something more involved — and more valuable — for both businesses. Before we move into the next phase, we want to make sure the terms we're working under actually reflect that.
+
+This document is not a formal agreement. It is our way of putting our thinking on the table so we can align and move forward with clarity.
+
+---
+
 ## Where we are
 
 This collaboration started with a clear scope: Vyager manages marketing and paid traffic for Élow. Over time, and because the opportunity was there, it grew into something more hands-on. We have been involved in sales calls, proposal structure, scripts, lead follow-up, and commercial strategy.
 
-That growth is a good thing. It reflects trust on both sides. But it also means the original terms no longer describe what is actually happening — and that is worth sitting down and correcting together.
-
-This document is not a formal agreement. It is our way of putting our thinking on the table so we can align and move forward with clarity.
+The original terms no longer describe what is actually happening — and that is worth sitting down and correcting together.
 
 ---
 
@@ -55,11 +59,16 @@ The retainer covers the full scope of work listed above. This includes all comme
 
 To put this in context: hiring an SDR and a marketing manager separately in the Brazilian market would cost between R$3,500 and R$5,000 per month before commission. What we offer covers both those roles, plus strategic direction, for R$2,000 flat.
 
-**Referrals from Élow to Vyager: 10%**
+**Referrals from Élow to Vyager: 10% / 12%**
 
-When Élow refers a client to Vyager and that client closes a paid project, Élow receives 10% of the invoiced value. This applies to the project fee, not any recurring retainer that may follow. It is paid within 14 days of Vyager receiving payment.
+When Élow refers a client to Vyager and that client closes a paid project, Élow receives a referral commission on the first project only — not on any retainer or ongoing work that follows:
 
-This rate is fixed. It does not change without agreement from both parties — in writing.
+- **10%** on projects under R$8,000
+- **12%** on projects of R$8,000 and above
+
+Commission is calculated on the net invoiced amount and paid within 14 days of Vyager receiving payment from the client.
+
+These rates are fixed. They do not change without written agreement from both parties.
 
 **Websites and landing pages: wholesale pricing**
 
@@ -70,7 +79,7 @@ For Élow clients who need a website or landing page, Vyager provides a fixed wh
 ## What we are asking from this conversation
 
 - Agreement on the retainer continuing from July at R$2,000/month
-- Confirmation of the 10% referral rate from Élow to Vyager, documented going forward
+- Confirmation of the tiered referral rate from Élow to Vyager, documented going forward
 - A shared understanding of what each side brings — and that both sides benefit
 
 We are not looking to extract more from this collaboration. We are looking to build on what is working, with terms that both parties understand and have signed off on.
