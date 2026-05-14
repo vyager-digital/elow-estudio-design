@@ -27,7 +27,7 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap"></noscript>
 
 <!-- PRECONNECT + PRELOAD: hero images -->
-<link rel="preload" as="image" href="assets/images/hero-identidade-visual.webp" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="assets/images/hero-identidade-visual-640.webp 640w, assets/images/hero-identidade-visual.webp 1024w" imagesizes="(max-width:768px) 640px, 1024px" fetchpriority="high">
 
 <!-- 2. ASSET MAP — defined as CSS vars, no JS needed -->
 <style>
@@ -638,7 +638,10 @@ function setLang(lang){
   </div>
   <div class="hero-r">
     <div class="hero-r-bg"></div>
-    <picture><source srcset="assets/images/hero-identidade-visual.webp" type="image/webp"><img src="assets/images/hero-identidade-visual.png" class="hero-main-img" alt="Identidade visual estratégica para empresas de serviços — ÉLOW Estúdio Design" width="1920" height="1080" fetchpriority="high" loading="eager"></picture>
+    <picture>
+      <source srcset="assets/images/hero-identidade-visual-640.webp 640w, assets/images/hero-identidade-visual.webp 1024w" sizes="(max-width:768px) 640px, 1024px" type="image/webp">
+      <img src="assets/images/hero-identidade-visual.png" class="hero-main-img" alt="Identidade visual estratégica para empresas de serviços — ÉLOW Estúdio Design" width="1024" height="1536" fetchpriority="high" loading="eager">
+    </picture>
 
     <div class="hero-accent"></div>
   </div>
@@ -878,9 +881,9 @@ function setLang(lang){
     <div class="sec-label reveal">Histórias Reais</div>
     <h2 class="test-h reveal d1">Histórias de quem<em>elevou sua marca</em></h2>
     <div class="test-grid">
-      <div class="test-card reveal"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Simplesmente incrível, a sensibilidade em entender o propósito da marca e traduzir um sentimento em imagem, elas foram muito competentes em todos os quesitos. Só agradecer por ter conhecido vocês."</p><div class="test-author"><img src="assets/images/avatar-zuza-visagista.jpeg" class="avatar" alt="Zuza Visagista" width="42" height="42" loading="lazy"><div><div class="a-name">Zuza Visagista</div></div></div></div>
+      <div class="test-card reveal"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Simplesmente incrível, a sensibilidade em entender o propósito da marca e traduzir um sentimento em imagem, elas foram muito competentes em todos os quesitos. Só agradecer por ter conhecido vocês."</p><div class="test-author"><img src="assets/images/avatar-zuza-visagista.webp" class="avatar" alt="Zuza Visagista" width="42" height="42" loading="lazy"><div><div class="a-name">Zuza Visagista</div></div></div></div>
       <div class="test-card reveal d1"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"O trabalho delas é incrível. Conseguem captar de forma única a essência da marca, criando algo original e impactante. Um investimento essencial que traz um retorno muito maior do que o investido."</p><div class="test-author"><img src="assets/images/avatar-jose-mauricio.webp" class="avatar" alt="José Maurício Neto" width="42" height="42" loading="lazy"><div><div class="a-name">José Maurício Neto</div></div></div></div>
-      <div class="test-card reveal d2"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Atendimento acessível. Elas realmente estudam o cliente e entregam um resultado de alta qualidade. Trabalho feito de forma artesanal."</p><div class="test-author"><img src="assets/images/avatar-ilan-swartzman.jpeg" class="avatar" alt="Ilan Leibel Swartzman" width="42" height="42" loading="lazy"><div><div class="a-name">Ilan Leibel Swartzman</div></div></div></div>
+      <div class="test-card reveal d2"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="test-q">"Atendimento acessível. Elas realmente estudam o cliente e entregam um resultado de alta qualidade. Trabalho feito de forma artesanal."</p><div class="test-author"><img src="assets/images/avatar-ilan-swartzman.webp" class="avatar" alt="Ilan Leibel Swartzman" width="42" height="42" loading="lazy"><div><div class="a-name">Ilan Leibel Swartzman</div></div></div></div>
     </div>
   </div>
 </section>
@@ -925,16 +928,18 @@ function setLang(lang){
 </footer>
 
 <script>
-/* CURSOR */
+/* CURSOR — desktop/mouse only */
 const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
-let mx=0,my=0,fx=0,fy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-(function tick(){
-  fx+=(mx-fx)*.13;fy+=(my-fy)*.13;
-  cur.style.transform=`translate3d(${mx}px,${my}px,0)`;
-  cur2.style.transform=`translate3d(${fx}px,${fy}px,0)`;
-  requestAnimationFrame(tick);
-})();
+if(!('ontouchstart' in window) && !navigator.maxTouchPoints){
+  let mx=0,my=0,fx=0,fy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  (function tick(){
+    fx+=(mx-fx)*.13;fy+=(my-fy)*.13;
+    cur.style.transform=`translate3d(${mx}px,${my}px,0)`;
+    cur2.style.transform=`translate3d(${fx}px,${fy}px,0)`;
+    requestAnimationFrame(tick);
+  })();
+}
 
 /* NAV */
 const nav=document.getElementById('nav');
@@ -974,12 +979,17 @@ statsObserver.observe(document.querySelector('.stats-bar'));
   const grid = document.querySelector('.del-grid');
   const dots = document.querySelectorAll('.del-dot');
   if(!grid || !dots.length) return;
+  let cardOffsets = [];
+  function cacheOffsets(){
+    cardOffsets = Array.from(grid.querySelectorAll('.del-card')).map(c => c.offsetLeft);
+  }
+  cacheOffsets();
+  window.addEventListener('resize', cacheOffsets, {passive:true});
   function updateDots(){
-    const cards = grid.querySelectorAll('.del-card');
     const scrollLeft = grid.scrollLeft;
     let closest = 0, minDist = Infinity;
-    cards.forEach((card, i) => {
-      const dist = Math.abs(card.offsetLeft - scrollLeft);
+    cardOffsets.forEach((offset, i) => {
+      const dist = Math.abs(offset - scrollLeft);
       if(dist < minDist){ minDist = dist; closest = i; }
     });
     dots.forEach((d, i) => d.classList.toggle('active', i === closest));
@@ -988,8 +998,7 @@ statsObserver.observe(document.querySelector('.stats-bar'));
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
       const idx = parseInt(dot.dataset.index);
-      const card = grid.querySelectorAll('.del-card')[idx];
-      if(card) grid.scrollTo({left: card.offsetLeft, behavior:'smooth'});
+      if(cardOffsets[idx] !== undefined) grid.scrollTo({left: cardOffsets[idx], behavior:'smooth'});
     });
   });
 })();
@@ -1013,8 +1022,6 @@ if(hamburger&&mobileMenu){
 }
 </script>
 
-<script src="https://js-eu1.hsforms.net/forms/embed/147712865.js" defer></script>
-
 <!-- HubSpot Modal -->
 <div id="hs-modal-overlay" role="dialog" aria-modal="true" aria-label="Formulário de contato">
   <div id="hs-modal">
@@ -1027,7 +1034,16 @@ if(hamburger&&mobileMenu){
 
 <script>
   const hsOverlay=document.getElementById('hs-modal-overlay');
-  function openHsModal(){hsOverlay.classList.add('open');document.body.style.overflow='hidden';}
+  let hsLoaded=false;
+  function openHsModal(){
+    if(!hsLoaded){
+      hsLoaded=true;
+      var s=document.createElement('script');
+      s.src='https://js-eu1.hsforms.net/forms/embed/147712865.js';
+      document.body.appendChild(s);
+    }
+    hsOverlay.classList.add('open');document.body.style.overflow='hidden';
+  }
   function closeHsModal(){hsOverlay.classList.remove('open');document.body.style.overflow='';}
   document.getElementById('hs-modal-close').addEventListener('click',closeHsModal);
   hsOverlay.addEventListener('click',function(e){if(e.target===hsOverlay)closeHsModal();});
