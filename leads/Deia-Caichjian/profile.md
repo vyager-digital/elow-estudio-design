@@ -2,7 +2,7 @@
 **Business:** Click by Déia
 **Type:** Photographer (personal branding, family, weddings, events)
 **Market:** Brazil
-**Source:** Élow collab (Raphael's lead)
+**Source:** Élow collab
 **Status:** Proposal drafted — awaiting next step
 
 ---
