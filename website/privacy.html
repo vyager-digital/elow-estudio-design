@@ -165,7 +165,7 @@ function setLang(lang){
       <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-    <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="nav-cta">Quero minha identidade</a>
+    <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" onclick="dataLayer.push({event:'whatsapp_click'})" class="nav-cta">Quero minha identidade</a>
   </div>
 </nav>
 
@@ -277,7 +277,7 @@ function setLang(lang){
   <a href="about.html" class="mobile-nav-link">Sobre nós</a>
   <a href="services.html" class="mobile-nav-link">Serviços</a>
   <a href="portfolio.html" class="mobile-nav-link">Portfólio</a>
-  <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" class="mobile-nav-link" style="color:var(--orange);margin-top:16px">Quero minha identidade</a>
+  <a href="https://wa.me/5521992247324" target="_blank" rel="noopener" onclick="dataLayer.push({event:'whatsapp_click'})" class="mobile-nav-link" style="color:var(--orange);margin-top:16px">Quero minha identidade</a>
 </div>
 
 <script>
