@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Publicar Projeto — ÉLOW Estúdio Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800&display=swap"></noscript>
+<style>
+:root{
+  --navy:#1C2C36; --navy2:#162229; --navy3:#0f181e;
+  --orange:#C57040; --golden:#C9892D; --cream:#F8EBCE;
+  --gold-light:#D5B26B; --gray-dark:#706F6F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{
+  font-family:'League Spartan',sans-serif;
+  background:var(--navy3);
+  color:var(--cream);
+  min-height:100vh;
+  line-height:1.5;
+}
+.wrap{max-width:680px;margin:0 auto;padding:clamp(24px,6vw,56px) 20px 80px}
+.logo{display:block;height:48px;width:auto;margin-bottom:clamp(28px,5vw,44px)}
+.eyebrow{
+  color:var(--golden);
+  font-size:.875rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:10px;
+}
+h1{font-size:clamp(1.75rem,5vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:8px}
+.intro{color:var(--cream);opacity:.72;font-size:1rem;max-width:46ch;margin-bottom:clamp(28px,5vw,40px)}
+.card{
+  background:var(--navy);
+  clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,28px 100%,0 calc(100% - 28px));
+  padding:clamp(24px,5vw,40px);
+}
+.field{margin-bottom:24px}
+label{display:block;font-weight:600;font-size:1rem;margin-bottom:8px}
+.hint{display:block;font-weight:400;font-size:.9375rem;opacity:.6;margin-top:4px}
+input[type=text],input[type=password],select{
+  width:100%;min-height:48px;
+  background:var(--navy2);
+  border:1px solid rgba(248,235,206,.18);
+  color:var(--cream);
+  font-family:inherit;font-size:1rem;
+  padding:12px 14px;border-radius:0;
+}
+input:focus,select:focus{outline:2px solid var(--golden);outline-offset:-1px;border-color:var(--golden)}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--golden) 50%),linear-gradient(135deg,var(--golden) 50%,transparent 50%);background-position:calc(100% - 20px) 22px,calc(100% - 14px) 22px;background-size:6px 6px;background-repeat:no-repeat}
+.drop{
+  border:2px dashed rgba(248,235,206,.3);
+  background:var(--navy2);
+  padding:24px 16px;text-align:center;
+  cursor:pointer;min-height:96px;
+  display:flex;flex-direction:column;justify-content:center;gap:4px;
+  transition:border-color .2s;
+}
+.drop:hover,.drop.over{border-color:var(--golden)}
+.drop strong{font-weight:600;font-size:1rem}
+.drop span{font-size:.9375rem;opacity:.6}
+.previews{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin-top:12px}
+.thumb{position:relative;aspect-ratio:1;background:var(--navy2)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .num{
+  position:absolute;left:0;top:0;
+  background:var(--golden);color:var(--navy3);
+  font-size:.8125rem;font-weight:700;
+  min-width:24px;text-align:center;padding:3px 6px;
+}
+.thumb button{
+  position:absolute;right:0;top:0;
+  width:44px;height:44px;max-width:50%;max-height:50%;
+  min-width:28px;min-height:28px;
+  background:rgba(15,24,30,.85);color:var(--cream);
+  border:none;font-size:1rem;font-family:inherit;cursor:pointer;
+}
+.thumb button:hover{background:var(--orange)}
+.btn{
+  display:inline-block;width:100%;
+  background:var(--orange);color:var(--cream);
+  font-family:inherit;font-size:1.0625rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+  border:none;cursor:pointer;
+  padding:18px 28px;min-height:56px;
+  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px));
+  transition:filter .2s;
+}
+.btn:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.55;cursor:wait}
+.status{margin-top:18px;font-size:1rem;min-height:24px}
+.status.err{color:#E58A6B;font-weight:600}
+.status.ok{color:var(--gold-light)}
+.success{
+  display:none;
+  background:var(--navy);
+  clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,28px 100%,0 calc(100% - 28px));
+  padding:clamp(28px,5vw,44px);text-align:center;
+}
+.success h2{color:var(--gold-light);font-size:1.5rem;margin-bottom:10px}
+.success p{opacity:.78;margin-bottom:22px;font-size:1rem}
+.success a{color:var(--golden);font-weight:600}
+.success .btn{width:auto;padding:16px 36px}
+.warn{
+  display:none;
+  background:var(--orange);color:var(--cream);
+  padding:14px 18px;margin-bottom:24px;
+  font-weight:600;font-size:1rem;
+}
+@media (max-width:480px){
+  .previews{grid-template-columns:repeat(3,1fr);gap:8px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img src="../assets/images/elow-logo-fundo-azul.webp" alt="ÉLOW Estúdio Design" class="logo" width="160" height="48">
+
+  <p class="eyebrow">Área Interna</p>
+  <h1>Publicar novo projeto</h1>
+  <p class="intro">Preencha os dados, envie as imagens e o projeto entra no ar no portfólio em poucos minutos.</p>
+
+  <div class="warn" id="warn">Este navegador não converte as imagens no formato necessário. Use o Google Chrome para publicar.</div>
+
+  <form class="card" id="form" novalidate>
+    <div class="field">
+      <label for="password">Senha</label>
+      <input type="password" id="password" autocomplete="current-password" required>
+    </div>
+    <div class="field">
+      <label for="title">Nome do projeto</label>
+      <input type="text" id="title" maxlength="80" placeholder="Ex.: Kabyte" required>
+    </div>
+    <div class="field">
+      <label for="setor">Setor <span class="hint">O segmento do cliente — aparece no card do portfólio.</span></label>
+      <input type="text" id="setor" maxlength="40" list="setores" placeholder="Ex.: Tecnologia" required>
+      <datalist id="setores">
+        <option>Advocacia</option><option>Alimentação</option><option>Assessoria</option>
+        <option>Aviação</option><option>Beleza</option><option>Café</option>
+        <option>Confeitaria</option><option>Cosméticos</option><option>Engenharia</option>
+        <option>Farmácia</option><option>Moda</option><option>Padaria</option>
+        <option>Petshop</option><option>Restaurante</option><option>Saúde</option>
+        <option>Supermercado</option><option>Tecnologia</option><option>Turismo</option>
+      </datalist>
+    </div>
+    <div class="field">
+      <label for="cat">Categoria</label>
+      <select id="cat" required>
+        <option value="identidade-visual">Identidade Visual</option>
+        <option value="naming">Naming</option>
+        <option value="redesign-de-marca">Redesign de Marca</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Imagem de capa <span class="hint">Uma imagem. É a que aparece no card do portfólio.</span></label>
+      <div class="drop" id="coverDrop" role="button" tabindex="0">
+        <strong>Clique ou arraste a capa aqui</strong>
+        <span>PNG, JPG ou WebP</span>
+      </div>
+      <input type="file" id="coverInput" accept="image/png,image/jpeg,image/webp" hidden>
+      <div class="previews" id="coverPreview"></div>
+    </div>
+    <div class="field">
+      <label>Galeria <span class="hint">Até 14 imagens, na ordem em que devem aparecer na página do projeto.</span></label>
+      <div class="drop" id="galDrop" role="button" tabindex="0">
+        <strong>Clique ou arraste as imagens aqui</strong>
+        <span>Pode adicionar mais de uma vez — a numeração mostra a ordem</span>
+      </div>
+      <input type="file" id="galInput" accept="image/png,image/jpeg,image/webp" multiple hidden>
+      <div class="previews" id="galPreview"></div>
+    </div>
+    <button type="submit" class="btn" id="publishBtn">Publicar projeto</button>
+    <p class="status" id="status" role="status"></p>
+  </form>
+
+  <div class="success" id="success">
+    <h2>Projeto publicado!</h2>
+    <p>O site está sendo atualizado e o projeto aparece no portfólio em até 2 minutos.</p>
+    <a href="../portfolio.html">Ver portfólio →</a>
+    <p style="margin-top:26px;margin-bottom:0"><button type="button" class="btn" id="anotherBtn">Publicar outro projeto</button></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var MAX_GALLERY = 14;
+  var MAX_EDGE = 2400;
+  var QUALITY = 0.82;
+
+  // WebP encode support check (Safari falls back to PNG)
+  var testCanvas = document.createElement('canvas');
+  testCanvas.width = testCanvas.height = 1;
+  var webpOK = testCanvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+  if (!webpOK) {
+    document.getElementById('warn').style.display = 'block';
+    document.getElementById('publishBtn').disabled = true;
+  }
+
+  var coverFile = null;
+  var galFiles = [];
+
+  var form = document.getElementById('form');
+  var statusEl = document.getElementById('status');
+  var btn = document.getElementById('publishBtn');
+
+  function setStatus(msg, cls) {
+    statusEl.textContent = msg;
+    statusEl.className = 'status' + (cls ? ' ' + cls : '');
+  }
+
+  function bindDrop(dropId, inputId, onFiles) {
+    var drop = document.getElementById(dropId);
+    var input = document.getElementById(inputId);
+    drop.addEventListener('click', function () { input.click(); });
+    drop.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); }
+    });
+    input.addEventListener('change', function () { onFiles(Array.prototype.slice.call(input.files)); input.value = ''; });
+    drop.addEventListener('dragover', function (e) { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', function () { drop.classList.remove('over'); });
+    drop.addEventListener('drop', function (e) {
+      e.preventDefault();
+      drop.classList.remove('over');
+      onFiles(Array.prototype.slice.call(e.dataTransfer.files).filter(function (f) { return /^image\//.test(f.type); }));
+    });
+  }
+
+  function renderPreviews(containerId, files, numbered, onRemove) {
+    var box = document.getElementById(containerId);
+    box.innerHTML = '';
+    files.forEach(function (file, i) {
+      var cell = document.createElement('div');
+      cell.className = 'thumb';
+      var img = document.createElement('img');
+      img.alt = file.name;
+      var url = URL.createObjectURL(file);
+      img.onload = function () { URL.revokeObjectURL(url); };
+      img.src = url;
+      cell.appendChild(img);
+      if (numbered) {
+        var num = document.createElement('span');
+        num.className = 'num';
+        num.textContent = i + 1;
+        cell.appendChild(num);
+      }
+      var rm = document.createElement('button');
+      rm.type = 'button';
+      rm.textContent = '✕';
+      rm.setAttribute('aria-label', 'Remover ' + file.name);
+      rm.addEventListener('click', function () { onRemove(i); });
+      cell.appendChild(rm);
+      box.appendChild(cell);
+    });
+  }
+
+  function refreshCover() {
+    renderPreviews('coverPreview', coverFile ? [coverFile] : [], false, function () {
+      coverFile = null; refreshCover();
+    });
+  }
+  function refreshGallery() {
+    renderPreviews('galPreview', galFiles, true, function (i) {
+      galFiles.splice(i, 1); refreshGallery();
+    });
+  }
+
+  bindDrop('coverDrop', 'coverInput', function (files) {
+    if (files.length) { coverFile = files[0]; refreshCover(); }
+  });
+  bindDrop('galDrop', 'galInput', function (files) {
+    galFiles = galFiles.concat(files).slice(0, MAX_GALLERY);
+    refreshGallery();
+  });
+
+  function toWebpBase64(file) {
+    return createImageBitmap(file).then(function (bmp) {
+      var scale = Math.min(1, MAX_EDGE / Math.max(bmp.width, bmp.height));
+      var w = Math.round(bmp.width * scale);
+      var h = Math.round(bmp.height * scale);
+      var canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(bmp, 0, 0, w, h);
+      bmp.close();
+      return new Promise(function (resolve, reject) {
+        canvas.toBlob(function (blob) {
+          if (!blob || blob.type !== 'image/webp') { reject(new Error('Falha na conversão de ' + file.name)); return; }
+          var reader = new FileReader();
+          reader.onload = function () { resolve(String(reader.result).split(',')[1]); };
+          reader.onerror = function () { reject(new Error('Falha ao ler ' + file.name)); };
+          reader.readAsDataURL(blob);
+        }, 'image/webp', QUALITY);
+      });
+    });
+  }
+
+  var savedPw = sessionStorage.getItem('elow-admin-pw');
+  if (savedPw) document.getElementById('password').value = savedPw;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var password = document.getElementById('password').value;
+    var title = document.getElementById('title').value.trim();
+    var setor = document.getElementById('setor').value.trim();
+    var cat = document.getElementById('cat').value;
+
+    if (!password) return setStatus('Digite a senha.', 'err');
+    if (title.length < 2) return setStatus('Digite o nome do projeto.', 'err');
+    if (setor.length < 2) return setStatus('Digite o setor do cliente.', 'err');
+    if (!coverFile) return setStatus('Adicione a imagem de capa.', 'err');
+    if (!galFiles.length) return setStatus('Adicione pelo menos uma imagem na galeria.', 'err');
+
+    btn.disabled = true;
+    setStatus('Convertendo imagens…', 'ok');
+
+    Promise.all([toWebpBase64(coverFile)].concat(galFiles.map(toWebpBase64)))
+      .then(function (encoded) {
+        setStatus('Enviando projeto…', 'ok');
+        return fetch('/api/publish', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            password: password,
+            title: title,
+            setor: setor,
+            cat: cat,
+            cover: encoded[0],
+            gallery: encoded.slice(1)
+          })
+        });
+      })
+      .then(function (res) {
+        return res.json().then(function (data) {
+          if (!res.ok) throw new Error(data.error || 'Erro ao publicar. Tente novamente.');
+          sessionStorage.setItem('elow-admin-pw', password);
+          form.style.display = 'none';
+          document.getElementById('success').style.display = 'block';
+          window.scrollTo(0, 0);
+        });
+      })
+      .catch(function (err) {
+        setStatus(err.message, 'err');
+      })
+      .then(function () { btn.disabled = false; });
+  });
+
+  document.getElementById('anotherBtn').addEventListener('click', function () {
+    document.getElementById('title').value = '';
+    document.getElementById('setor').value = '';
+    coverFile = null; galFiles = [];
+    refreshCover(); refreshGallery();
+    setStatus('', '');
+    document.getElementById('success').style.display = 'none';
+    form.style.display = 'block';
+    window.scrollTo(0, 0);
+  });
+})();
+</script>
+</body>
+</html>
