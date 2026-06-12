@@ -17,10 +17,11 @@
    Required variables (Cloudflare Pages → Settings → Variables and Secrets):
      ADMIN_PASSWORD — shared password for the /admin page
      GITHUB_TOKEN   — fine-grained PAT, Contents read+write on the repo below
+   Optional:
+     PORTAL_BRANCH  — target branch for commits (defaults to main; used for testing)
 */
 
 const REPO = 'vyager-digital/elow-estudio-design';
-const BRANCH = 'main';
 const DATA_PATH = 'website/assets/data/portfolio-data.js';
 const IMAGES_DIR = 'website/assets/images';
 const API = 'https://api.github.com';
@@ -80,6 +81,7 @@ export async function onRequestPost({ request, env }) {
   if (!env.ADMIN_PASSWORD || !env.GITHUB_TOKEN) {
     return json(500, { error: 'Servidor não configurado (variáveis de ambiente ausentes).' });
   }
+  const BRANCH = env.PORTAL_BRANCH || 'main';
 
   let body;
   try {

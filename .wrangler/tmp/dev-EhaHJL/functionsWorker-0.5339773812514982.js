@@ -5,7 +5,6 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 var __defProp2 = Object.defineProperty;
 var __name2 = /* @__PURE__ */ __name((target, value) => __defProp2(target, "name", { value, configurable: true }), "__name");
 var REPO = "vyager-digital/elow-estudio-design";
-var BRANCH = "main";
 var DATA_PATH = "website/assets/data/portfolio-data.js";
 var IMAGES_DIR = "website/assets/images";
 var API = "https://api.github.com";
@@ -65,6 +64,7 @@ async function onRequestPost({ request, env }) {
   if (!env.ADMIN_PASSWORD || !env.GITHUB_TOKEN) {
     return json(500, { error: "Servidor n\xE3o configurado (vari\xE1veis de ambiente ausentes)." });
   }
+  const BRANCH = env.PORTAL_BRANCH || "main";
   let body;
   try {
     body = await request.json();
