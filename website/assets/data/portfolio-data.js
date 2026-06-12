@@ -138,7 +138,7 @@ const PORTFOLIO_DATA = [
     slug:    'instituto-aluze',
     title:   'Instituto Aluze',
     cat:     'identidade-visual',
-    setor:   '',
+    setor:   'Saúde',
     img:     '../assets/images/portfolio-instituto-aluze.png',
     gallery: ["../assets/images/gallery-instituto-aluze-01.png", "../assets/images/gallery-instituto-aluze-02.png", "../assets/images/gallery-instituto-aluze-03.png", "../assets/images/gallery-instituto-aluze-04.png", "../assets/images/gallery-instituto-aluze-05.png", "../assets/images/gallery-instituto-aluze-06.png"]
   },
@@ -188,7 +188,7 @@ const PORTFOLIO_DATA = [
     slug:    'molib',
     title:   'Molib',
     cat:     'naming',
-    setor:   '',
+    setor:   'Varejo',
     img:     '../assets/images/portfolio-molib.png',
     gallery: ["../assets/images/gallery-molib-01.png", "../assets/images/gallery-molib-02.png", "../assets/images/gallery-molib-03.png", "../assets/images/gallery-molib-04.png", "../assets/images/gallery-molib-05.png", "../assets/images/gallery-molib-06.png"]
   },

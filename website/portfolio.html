@@ -98,7 +98,9 @@ html{margin:0;padding:0;background:#0f181e;overflow-x:hidden}body{margin:0;paddi
 
 /* FILTER BAR */
 #elow-wrapper .port-filters{background:var(--navy2);border-bottom:1px solid rgba(197,112,64,.12);position:sticky;top:0;z-index:100;transition:top .4s}
-#elow-wrapper .filter-inner{max-width:1240px;margin:0 auto;padding:0 64px;display:flex;align-items:center;justify-content:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+#elow-wrapper .filter-inner{max-width:1240px;margin:0 auto;padding:0 64px;display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+#elow-wrapper .filter-btn:first-child{margin-left:auto}
+#elow-wrapper .filter-btn:last-child{margin-right:auto}
 #elow-wrapper .filter-inner::-webkit-scrollbar{display:none}
 #elow-wrapper .filter-btn{font-size:10px;font-weight:700 !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:rgba(248,235,206,.45);background:transparent;border:none;padding:20px 20px;cursor:pointer;white-space:nowrap;transition:color .2s;position:relative;font-family:'League Spartan',sans-serif}
 #elow-wrapper .filter-btn::after{content:'';position:absolute;bottom:0;left:20px;right:20px;height:2px;background:var(--orange);transform:scaleX(0);transition:transform .25s var(--ease)}
@@ -292,9 +294,11 @@ function setLang(lang){
 <div class="port-filters" id="port-filters">
   <div class="filter-inner">
     <button class="filter-btn active" data-filter="all">Todos</button>
-    <button class="filter-btn" data-filter="identidade-visual">Identidade Visual</button>
-    <button class="filter-btn" data-filter="naming">Naming</button>
-    <button class="filter-btn" data-filter="redesign-de-marca">Redesign de Marca</button>
+    <button class="filter-btn" data-filter="alimentacao">Alimentação &amp; Bebidas</button>
+    <button class="filter-btn" data-filter="moda-beleza">Moda &amp; Beleza</button>
+    <button class="filter-btn" data-filter="saude">Saúde</button>
+    <button class="filter-btn" data-filter="servicos">Serviços</button>
+    <button class="filter-btn" data-filter="outros">Outros</button>
   </div>
 </div>
 
@@ -381,11 +385,25 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
   let allCards=[];
 
+  /* Industry buckets — setor names (accent-insensitive) → filter group.
+     Anything unlisted (incl. new setores added via the portal) falls into "outros". */
+  const BUCKETS={
+    'alimentacao':['restaurante','alimentacao','cafe','padaria','confeitaria','supermercado'],
+    'moda-beleza':['moda','beleza','cosmeticos'],
+    'saude':['saude','farmacia'],
+    'servicos':['advocacia','assessoria','engenharia']
+  };
+  function bucketOf(setor){
+    const n=(setor||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+    for(const b in BUCKETS) if(BUCKETS[b].indexOf(n)!==-1) return b;
+    return 'outros';
+  }
+
   function buildCard(p){
     const a=document.createElement('a');
     a.className='port-card reveal';
     a.href='/projeto/'+p.slug+'/';
-    a.dataset.cat=p.cat;
+    a.dataset.bucket=bucketOf(p.setor);
     a.innerHTML=`
       <div class="port-img-wrap">
         ${p.img?`<img src="${p.img}" alt="${p.title}" loading="lazy">`:''}
@@ -404,8 +422,8 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   function updateCounts(cards){
     const counts={'all':cards.length};
     cards.forEach(c=>{
-      const cat=c.dataset.cat;
-      if(cat) counts[cat]=(counts[cat]||0)+1;
+      const b=c.dataset.bucket;
+      if(b) counts[b]=(counts[b]||0)+1;
     });
     Object.entries(counts).forEach(([k,v])=>{
       const el=document.getElementById('count-'+k);
@@ -416,7 +434,7 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   function filter(slug){
     let visible=0;
     allCards.forEach(c=>{
-      const show=(slug==='all'||c.dataset.cat===slug);
+      const show=(slug==='all'||c.dataset.bucket===slug);
       c.classList.toggle('hidden',!show);
       if(show) visible++;
     });
