@@ -60,7 +60,16 @@ function escapeSingle(str) {
 }
 __name(escapeSingle, "escapeSingle");
 __name2(escapeSingle, "escapeSingle");
-async function onRequestPost({ request, env }) {
+async function onRequestPost(ctx) {
+  try {
+    return await handlePublish(ctx);
+  } catch (err) {
+    return json(500, { error: "DEBUG: " + String(err && err.stack || err).slice(0, 800) });
+  }
+}
+__name(onRequestPost, "onRequestPost");
+__name2(onRequestPost, "onRequestPost");
+async function handlePublish({ request, env }) {
   if (!env.ADMIN_PASSWORD || !env.GITHUB_TOKEN) {
     return json(500, { error: "Servidor n\xE3o configurado (vari\xE1veis de ambiente ausentes)." });
   }
@@ -158,8 +167,8 @@ ${entry}
     return json(502, { error: "Falha ao publicar no GitHub. Tente novamente em alguns minutos ou avise o Sean." });
   }
 }
-__name(onRequestPost, "onRequestPost");
-__name2(onRequestPost, "onRequestPost");
+__name(handlePublish, "handlePublish");
+__name2(handlePublish, "handlePublish");
 var routes = [
   {
     routePath: "/api/publish",
