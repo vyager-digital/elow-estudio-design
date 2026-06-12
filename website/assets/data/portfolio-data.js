@@ -245,4 +245,14 @@ const PORTFOLIO_DATA = [
     gallery: ["../assets/images/gallery-agro-chips-01.webp", "../assets/images/gallery-agro-chips-02.webp", "../assets/images/gallery-agro-chips-03.webp", "../assets/images/gallery-agro-chips-04.webp", "../assets/images/gallery-agro-chips-05.webp", "../assets/images/gallery-agro-chips-06.webp"]
   },
 
+  /* ── ADICIONADO VIA SYNC — 2026-06-12 ──────────────────── */
+  {
+    slug:    'oliveira-jacobovitz-advogados',
+    title:   'Oliveira & Jacobovitz Advogados',
+    cat:     'identidade-visual',
+    setor:   'Advocacia',
+    img:     '../assets/images/portfolio-oliveira-jacobovitz-advogados.webp',
+    gallery: ["../assets/images/gallery-oliveira-jacobovitz-advogados-01.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-02.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-03.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-04.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-05.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-06.webp"]
+  },
+
 ];
