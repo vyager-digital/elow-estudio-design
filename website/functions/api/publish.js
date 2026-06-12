@@ -77,7 +77,16 @@ function escapeSingle(str) {
   return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
 }
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(ctx) {
+  try {
+    return await handlePublish(ctx);
+  } catch (err) {
+    // Temporary debug wrapper — surfaces uncaught production errors
+    return json(500, { error: 'DEBUG: ' + String((err && err.stack) || err).slice(0, 800) });
+  }
+}
+
+async function handlePublish({ request, env }) {
   if (!env.ADMIN_PASSWORD || !env.GITHUB_TOKEN) {
     return json(500, { error: 'Servidor não configurado (variáveis de ambiente ausentes).' });
   }
