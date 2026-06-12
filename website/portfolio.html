@@ -393,10 +393,23 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
     'saude':['saude','farmacia'],
     'servicos':['advocacia','assessoria','engenharia']
   };
+  function normSetor(setor){
+    return (setor||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+  }
   function bucketOf(setor){
-    const n=(setor||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+    const n=normSetor(setor);
     for(const b in BUCKETS) if(BUCKETS[b].indexOf(n)!==-1) return b;
     return 'outros';
+  }
+
+  /* Grid order: buckets in filter-bar order, setores grouped alphabetically inside each */
+  const BUCKET_ORDER=['alimentacao','moda-beleza','saude','servicos','outros'];
+  function sortProjects(list){
+    return list.slice().sort((a,b)=>{
+      const d=BUCKET_ORDER.indexOf(bucketOf(a.setor))-BUCKET_ORDER.indexOf(bucketOf(b.setor));
+      if(d) return d;
+      return normSetor(a.setor).localeCompare(normSetor(b.setor));
+    });
   }
 
   function buildCard(p){
@@ -456,7 +469,7 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   /* render from local data */
   loading.style.display='none';
   if(!PORTFOLIO_DATA||!PORTFOLIO_DATA.length){empty.style.display='block';return;}
-  PORTFOLIO_DATA.forEach(p=>{
+  sortProjects(PORTFOLIO_DATA).forEach(p=>{
     const card=buildCard(p);
     grid.appendChild(card);
     allCards.push(card);
