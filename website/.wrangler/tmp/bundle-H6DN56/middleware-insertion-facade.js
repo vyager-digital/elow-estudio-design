@@ -1,8 +1,8 @@
-				import worker, * as OTHER_EXPORTS from "/Users/seanlurie/Documents/Vyager Digital/.wrangler/tmp/pages-ZQOf3q/functionsWorker-0.5339773812514982.mjs";
+				import worker, * as OTHER_EXPORTS from "/Users/seanlurie/Documents/Vyager Digital/.wrangler/tmp/pages-JG9jKh/functionsWorker-0.9682907171313486.mjs";
 				import * as __MIDDLEWARE_0__ from "/Users/seanlurie/.npm/_npx/32026684e21afda6/node_modules/wrangler/templates/middleware/middleware-ensure-req-body-drained.ts";
 import * as __MIDDLEWARE_1__ from "/Users/seanlurie/.npm/_npx/32026684e21afda6/node_modules/wrangler/templates/middleware/middleware-miniflare3-json-error.ts";
 
-				export * from "/Users/seanlurie/Documents/Vyager Digital/.wrangler/tmp/pages-ZQOf3q/functionsWorker-0.5339773812514982.mjs";
+				export * from "/Users/seanlurie/Documents/Vyager Digital/.wrangler/tmp/pages-JG9jKh/functionsWorker-0.9682907171313486.mjs";
 				const MIDDLEWARE_TEST_INJECT = "__INJECT_FOR_TESTING_WRANGLER_MIDDLEWARE__";
 				export const __INTERNAL_WRANGLER_MIDDLEWARE__ = [
 					
