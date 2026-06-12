@@ -110,7 +110,18 @@ async function handlePublish({ request, env }) {
   try {
     if (probe === 2) {
       const r = await gh(env, `/repos/${REPO}`);
-      return json(200, { probe: 2, stage: "github reachable", status: r.status });
+      const t = env.GITHUB_TOKEN || "";
+      const hashBuf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
+      const sha12 = [...new Uint8Array(hashBuf)].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 12);
+      return json(200, {
+        probe: 2,
+        stage: "github reachable",
+        status: r.status,
+        tokenLen: t.length,
+        tokenSha12: sha12,
+        tokenPrefix: t.slice(0, 4),
+        hasWhitespace: /\s/.test(t)
+      });
     }
     const dataFile = await ghJson(env, `/repos/${REPO}/contents/${DATA_PATH}?ref=${BRANCH}`);
     const dataContent = b64ToUtf8(dataFile.content);
