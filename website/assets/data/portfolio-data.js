@@ -235,4 +235,14 @@ const PORTFOLIO_DATA = [
     gallery: ["../assets/images/gallery-bio-stick-01.png", "../assets/images/gallery-bio-stick-02.png", "../assets/images/gallery-bio-stick-03.png", "../assets/images/gallery-bio-stick-04.png", "../assets/images/gallery-bio-stick-05.png", "../assets/images/gallery-bio-stick-06.png"]
   },
 
+  /* ── ADICIONADO VIA PORTAL — 2026-06-12 ─────────────────── */
+  {
+    slug:    'agro-chips',
+    title:   'Agro Chips',
+    cat:     'identidade-visual',
+    setor:   'Alimentação',
+    img:     '../assets/images/portfolio-agro-chips.webp',
+    gallery: ["../assets/images/gallery-agro-chips-01.webp", "../assets/images/gallery-agro-chips-02.webp", "../assets/images/gallery-agro-chips-03.webp", "../assets/images/gallery-agro-chips-04.webp", "../assets/images/gallery-agro-chips-05.webp", "../assets/images/gallery-agro-chips-06.webp"]
+  },
+
 ];
