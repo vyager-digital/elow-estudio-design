@@ -210,6 +210,7 @@ async function handlePublish({ request, env }) {
     return json(200, { ok: true, slug, images: imagePairs.length });
   } catch (err) {
     console.error('publish failed:', err.message);
-    return json(502, { error: 'Falha ao publicar no GitHub. Tente novamente em alguns minutos ou avise o Sean.' });
+    // 422 (not 5xx): Cloudflare replaces 502/5xx bodies with its own error page
+    return json(422, { error: 'Falha ao publicar no GitHub: ' + String(err.message).slice(0, 200) });
   }
 }
