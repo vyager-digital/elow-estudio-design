@@ -77,21 +77,7 @@ function escapeSingle(str) {
   return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
 }
 
-export async function onRequestGet() {
-  // Temporary version marker for deploy verification
-  return json(200, { version: 'probe-1' });
-}
-
-export async function onRequestPost(ctx) {
-  try {
-    return await handlePublish(ctx);
-  } catch (err) {
-    // Temporary debug wrapper — surfaces uncaught production errors
-    return json(500, { error: 'DEBUG: ' + String((err && err.stack) || err).slice(0, 800) });
-  }
-}
-
-async function handlePublish({ request, env }) {
+export async function onRequestPost({ request, env }) {
   if (!env.ADMIN_PASSWORD || !env.GITHUB_TOKEN) {
     return json(500, { error: 'Servidor não configurado (variáveis de ambiente ausentes).' });
   }
@@ -129,26 +115,10 @@ async function handlePublish({ request, env }) {
   const slug = slugify(title);
   if (!slug) return json(400, { error: 'Nome do projeto inválido.' });
 
-  const probe = body.probe | 0; // temporary debug checkpoints
-  if (probe === 1) return json(200, { probe: 1, stage: 'validated' });
-
   try {
-    if (probe === 2) {
-      const r = await gh(env, `/repos/${REPO}`);
-      // Fingerprint the token (never the token itself) to diagnose paste/env issues
-      const t = env.GITHUB_TOKEN || '';
-      const hashBuf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t));
-      const sha12 = [...new Uint8Array(hashBuf)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 12);
-      return json(200, {
-        probe: 2, stage: 'github reachable', status: r.status,
-        tokenLen: t.length, tokenSha12: sha12,
-        tokenPrefix: t.slice(0, 4), hasWhitespace: /\s/.test(t),
-      });
-    }
     // Current data file — duplicate check + append target
     const dataFile = await ghJson(env, `/repos/${REPO}/contents/${DATA_PATH}?ref=${BRANCH}`);
     const dataContent = b64ToUtf8(dataFile.content);
-    if (probe === 3) return json(200, { probe: 3, stage: 'data file fetched', bytes: dataContent.length });
 
     const existingSlugs = new Set([...dataContent.matchAll(/slug:\s*'([^']+)'/g)].map(m => m[1]));
     if (existingSlugs.has(slug)) {
