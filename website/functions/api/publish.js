@@ -77,6 +77,11 @@ function escapeSingle(str) {
   return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
 }
 
+export async function onRequestGet() {
+  // Temporary version marker for deploy verification
+  return json(200, { version: 'probe-1' });
+}
+
 export async function onRequestPost(ctx) {
   try {
     return await handlePublish(ctx);
@@ -124,10 +129,18 @@ async function handlePublish({ request, env }) {
   const slug = slugify(title);
   if (!slug) return json(400, { error: 'Nome do projeto inválido.' });
 
+  const probe = body.probe | 0; // temporary debug checkpoints
+  if (probe === 1) return json(200, { probe: 1, stage: 'validated' });
+
   try {
+    if (probe === 2) {
+      const r = await gh(env, `/repos/${REPO}`);
+      return json(200, { probe: 2, stage: 'github reachable', status: r.status });
+    }
     // Current data file — duplicate check + append target
     const dataFile = await ghJson(env, `/repos/${REPO}/contents/${DATA_PATH}?ref=${BRANCH}`);
     const dataContent = b64ToUtf8(dataFile.content);
+    if (probe === 3) return json(200, { probe: 3, stage: 'data file fetched', bytes: dataContent.length });
 
     const existingSlugs = new Set([...dataContent.matchAll(/slug:\s*'([^']+)'/g)].map(m => m[1]));
     if (existingSlugs.has(slug)) {

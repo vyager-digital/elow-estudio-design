@@ -60,6 +60,11 @@ function escapeSingle(str) {
 }
 __name(escapeSingle, "escapeSingle");
 __name2(escapeSingle, "escapeSingle");
+async function onRequestGet() {
+  return json(200, { version: "probe-1" });
+}
+__name(onRequestGet, "onRequestGet");
+__name2(onRequestGet, "onRequestGet");
 async function onRequestPost(ctx) {
   try {
     return await handlePublish(ctx);
@@ -100,9 +105,16 @@ async function handlePublish({ request, env }) {
   }
   const slug = slugify(title);
   if (!slug) return json(400, { error: "Nome do projeto inv\xE1lido." });
+  const probe = body.probe | 0;
+  if (probe === 1) return json(200, { probe: 1, stage: "validated" });
   try {
+    if (probe === 2) {
+      const r = await gh(env, `/repos/${REPO}`);
+      return json(200, { probe: 2, stage: "github reachable", status: r.status });
+    }
     const dataFile = await ghJson(env, `/repos/${REPO}/contents/${DATA_PATH}?ref=${BRANCH}`);
     const dataContent = b64ToUtf8(dataFile.content);
+    if (probe === 3) return json(200, { probe: 3, stage: "data file fetched", bytes: dataContent.length });
     const existingSlugs = new Set([...dataContent.matchAll(/slug:\s*'([^']+)'/g)].map((m) => m[1]));
     if (existingSlugs.has(slug)) {
       return json(409, { error: `J\xE1 existe um projeto chamado "${title}" no portf\xF3lio.` });
@@ -170,6 +182,13 @@ ${entry}
 __name(handlePublish, "handlePublish");
 __name2(handlePublish, "handlePublish");
 var routes = [
+  {
+    routePath: "/api/publish",
+    mountPath: "/api",
+    method: "GET",
+    middlewares: [],
+    modules: [onRequestGet]
+  },
   {
     routePath: "/api/publish",
     mountPath: "/api",
