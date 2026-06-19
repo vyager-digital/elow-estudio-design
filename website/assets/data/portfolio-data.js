@@ -255,4 +255,14 @@ const PORTFOLIO_DATA = [
     gallery: ["../assets/images/gallery-oliveira-jacobovitz-advogados-01.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-02.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-03.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-04.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-05.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-06.webp"]
   },
 
+  /* ── ADICIONADO VIA PORTAL — 2026-06-19 ─────────────────── */
+  {
+    slug:    'noc',
+    title:   'NOC',
+    cat:     'identidade-visual',
+    setor:   'Saúde',
+    img:     '../assets/images/portfolio-noc.webp',
+    gallery: ["../assets/images/gallery-noc-01.webp", "../assets/images/gallery-noc-02.webp", "../assets/images/gallery-noc-03.webp", "../assets/images/gallery-noc-04.webp", "../assets/images/gallery-noc-05.webp", "../assets/images/gallery-noc-06.webp"]
+  },
+
 ];
