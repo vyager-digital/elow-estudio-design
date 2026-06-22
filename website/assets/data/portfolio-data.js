@@ -138,7 +138,7 @@ const PORTFOLIO_DATA = [
     slug:    'instituto-aluze',
     title:   'Instituto Aluze',
     cat:     'identidade-visual',
-    setor:   '',
+    setor:   'Saúde',
     img:     '../assets/images/portfolio-instituto-aluze.png',
     gallery: ["../assets/images/gallery-instituto-aluze-01.png", "../assets/images/gallery-instituto-aluze-02.png", "../assets/images/gallery-instituto-aluze-03.png", "../assets/images/gallery-instituto-aluze-04.png", "../assets/images/gallery-instituto-aluze-05.png", "../assets/images/gallery-instituto-aluze-06.png"]
   },
@@ -188,7 +188,7 @@ const PORTFOLIO_DATA = [
     slug:    'molib',
     title:   'Molib',
     cat:     'naming',
-    setor:   '',
+    setor:   'Varejo',
     img:     '../assets/images/portfolio-molib.png',
     gallery: ["../assets/images/gallery-molib-01.png", "../assets/images/gallery-molib-02.png", "../assets/images/gallery-molib-03.png", "../assets/images/gallery-molib-04.png", "../assets/images/gallery-molib-05.png", "../assets/images/gallery-molib-06.png"]
   },
@@ -233,6 +233,36 @@ const PORTFOLIO_DATA = [
     setor:   'Cosméticos',
     img:     '../assets/images/portfolio-bio-stick.png',
     gallery: ["../assets/images/gallery-bio-stick-01.png", "../assets/images/gallery-bio-stick-02.png", "../assets/images/gallery-bio-stick-03.png", "../assets/images/gallery-bio-stick-04.png", "../assets/images/gallery-bio-stick-05.png", "../assets/images/gallery-bio-stick-06.png"]
+  },
+
+  /* ── ADICIONADO VIA PORTAL — 2026-06-12 ─────────────────── */
+  {
+    slug:    'agro-chips',
+    title:   'Agro Chips',
+    cat:     'identidade-visual',
+    setor:   'Alimentação',
+    img:     '../assets/images/portfolio-agro-chips.webp',
+    gallery: ["../assets/images/gallery-agro-chips-01.webp", "../assets/images/gallery-agro-chips-02.webp", "../assets/images/gallery-agro-chips-03.webp", "../assets/images/gallery-agro-chips-04.webp", "../assets/images/gallery-agro-chips-05.webp", "../assets/images/gallery-agro-chips-06.webp"]
+  },
+
+  /* ── ADICIONADO VIA SYNC — 2026-06-12 ──────────────────── */
+  {
+    slug:    'oliveira-jacobovitz-advogados',
+    title:   'Oliveira & Jacobovitz Advogados',
+    cat:     'identidade-visual',
+    setor:   'Advocacia',
+    img:     '../assets/images/portfolio-oliveira-jacobovitz-advogados.webp',
+    gallery: ["../assets/images/gallery-oliveira-jacobovitz-advogados-01.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-02.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-03.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-04.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-05.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-06.webp"]
+  },
+
+  /* ── ADICIONADO VIA PORTAL — 2026-06-19 ─────────────────── */
+  {
+    slug:    'noc',
+    title:   'NOC',
+    cat:     'identidade-visual',
+    setor:   'Saúde',
+    img:     '../assets/images/portfolio-noc.webp',
+    gallery: ["../assets/images/gallery-noc-01.webp", "../assets/images/gallery-noc-02.webp", "../assets/images/gallery-noc-03.webp", "../assets/images/gallery-noc-04.webp", "../assets/images/gallery-noc-05.webp", "../assets/images/gallery-noc-06.webp"]
   },
 
 ];
