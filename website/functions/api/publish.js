@@ -24,6 +24,7 @@
 const REPO = 'vyager-digital/elow-estudio-design';
 const DATA_PATH = 'website/assets/data/portfolio-data.js';
 const IMAGES_DIR = 'website/assets/images';
+const HTML_PATHS = ['website/portfolio.html', 'website/projeto.html'];
 const API = 'https://api.github.com';
 
 const CATS = ['identidade-visual', 'naming', 'redesign-de-marca'];
@@ -75,6 +76,11 @@ function b64ToUtf8(b64) {
 
 function escapeSingle(str) {
   return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+}
+
+// Force returning visitors to refetch the data file after content changes.
+function bumpVersion(html, version) {
+  return html.replace(/(assets\/data\/portfolio-data\.js)(?:\?v=[0-9]+)?/g, `$1?v=${version}`);
 }
 
 export async function onRequestPost({ request, env }) {
@@ -164,6 +170,20 @@ export async function onRequestPost({ request, env }) {
         body: JSON.stringify({ content, encoding: 'base64' }),
       });
       treeEntries.push({ path, mode: '100644', type: 'blob', sha: blob.sha });
+    }
+
+    const version = Date.now();
+    for (const htmlPath of HTML_PATHS) {
+      const file = await ghJson(env, `/repos/${REPO}/contents/${htmlPath}?ref=${BRANCH}`);
+      const html = b64ToUtf8(file.content);
+      const bumped = bumpVersion(html, version);
+      if (bumped !== html) {
+        const blob = await ghJson(env, `/repos/${REPO}/git/blobs`, {
+          method: 'POST',
+          body: JSON.stringify({ content: bumped, encoding: 'utf-8' }),
+        });
+        treeEntries.push({ path: htmlPath, mode: '100644', type: 'blob', sha: blob.sha });
+      }
     }
 
     const tree = await ghJson(env, `/repos/${REPO}/git/trees`, {

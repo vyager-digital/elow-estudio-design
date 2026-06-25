@@ -111,8 +111,24 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   padding:14px 18px;margin-bottom:24px;
   font-weight:600;font-size:1rem;
 }
+.manage{margin-top:clamp(36px,6vw,56px)}
+.manage h2{font-size:clamp(1.4rem,4vw,1.9rem);font-weight:700;line-height:1.2;margin-bottom:8px}
+.manage-list{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.proj-row{display:flex;align-items:center;gap:14px;background:var(--navy2);padding:10px 12px}
+.proj-row img{width:56px;height:56px;flex:none;object-fit:cover;background:var(--navy3);display:block}
+.proj-row .meta{flex:1;min-width:0}
+.proj-row .meta strong{display:block;font-size:1rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.proj-row .meta span{font-size:.875rem;opacity:.6}
+.proj-row .del{flex:none;width:auto;min-height:44px;padding:10px 16px;
+  background:var(--navy3);color:#E58A6B;border:1px solid #E58A6B;
+  font-family:inherit;font-weight:600;font-size:.9375rem;letter-spacing:.02em;
+  cursor:pointer;clip-path:none;transition:background .15s,color .15s}
+.proj-row .del:hover{background:#E58A6B;color:var(--navy3)}
+.proj-row .del:disabled{opacity:.5;cursor:wait}
 @media (max-width:480px){
   .previews{grid-template-columns:repeat(3,1fr);gap:8px}
+  .proj-row img{width:48px;height:48px}
+  .proj-row .del{padding:10px 12px}
 }
 </style>
 </head>
@@ -182,6 +198,19 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <p>O site está sendo atualizado e o projeto aparece no portfólio em até 2 minutos.</p>
     <a href="../portfolio.html">Ver portfólio →</a>
     <p style="margin-top:26px;margin-bottom:0"><button type="button" class="btn" id="anotherBtn">Publicar outro projeto</button></p>
+  </div>
+
+  <div class="card manage" id="manage">
+    <p class="eyebrow">Gerenciar</p>
+    <h2>Remover projeto</h2>
+    <p class="intro" style="margin-bottom:24px">Carregue a lista, encontre o projeto e clique em Remover. A imagem fica guardada no histórico, então um Sean consegue recuperar se for engano.</p>
+    <div class="field">
+      <label for="delPassword">Senha</label>
+      <input type="password" id="delPassword" autocomplete="current-password">
+    </div>
+    <button type="button" class="btn" id="loadBtn">Carregar projetos</button>
+    <p class="status" id="delStatus" role="status"></p>
+    <div class="manage-list" id="manageList"></div>
   </div>
 </div>
 
@@ -359,6 +388,78 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     form.style.display = 'block';
     window.scrollTo(0, 0);
   });
+
+  // ── Remover projeto ──────────────────────────────────────
+  var delPw = document.getElementById('delPassword');
+  var loadBtn = document.getElementById('loadBtn');
+  var delStatusEl = document.getElementById('delStatus');
+  var manageList = document.getElementById('manageList');
+  if (savedPw) delPw.value = savedPw;
+
+  function setDelStatus(msg, cls) {
+    delStatusEl.textContent = msg;
+    delStatusEl.className = 'status' + (cls ? ' ' + cls : '');
+  }
+
+  loadBtn.addEventListener('click', function () {
+    setDelStatus('Carregando…', 'ok');
+    manageList.innerHTML = '';
+    fetch('../assets/data/portfolio-data.js?_=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (txt) {
+        var data;
+        try { data = (new Function(txt + '\nreturn PORTFOLIO_DATA;'))(); }
+        catch (e) { throw new Error('Não foi possível ler a lista de projetos.'); }
+        if (!data || !data.length) { setDelStatus('Nenhum projeto encontrado.', ''); return; }
+        setDelStatus(data.length + ' projetos no portfólio.', 'ok');
+        renderManage(data);
+      })
+      .catch(function (e) { setDelStatus(e.message, 'err'); });
+  });
+
+  function renderManage(data) {
+    manageList.innerHTML = '';
+    data.forEach(function (p) {
+      var row = document.createElement('div');
+      row.className = 'proj-row';
+      var img = document.createElement('img');
+      img.src = p.img; img.alt = p.title; img.loading = 'lazy';
+      var meta = document.createElement('div');
+      meta.className = 'meta';
+      var t = document.createElement('strong'); t.textContent = p.title;
+      var s = document.createElement('span'); s.textContent = p.setor || '';
+      meta.appendChild(t); meta.appendChild(s);
+      var del = document.createElement('button');
+      del.type = 'button'; del.className = 'del'; del.textContent = 'Remover';
+      del.addEventListener('click', function () { removeProject(p, row, del); });
+      row.appendChild(img); row.appendChild(meta); row.appendChild(del);
+      manageList.appendChild(row);
+    });
+  }
+
+  function removeProject(p, row, del) {
+    var pw = delPw.value;
+    if (!pw) { setDelStatus('Digite a senha.', 'err'); return; }
+    if (!window.confirm('Remover "' + p.title + '" do portfólio?')) return;
+    del.disabled = true; del.textContent = 'Removendo…';
+    fetch('/api/delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pw, slug: p.slug })
+    })
+      .then(function (res) {
+        return res.json().then(function (data) {
+          if (!res.ok) throw new Error(data.error || 'Erro ao remover. Tente novamente.');
+          sessionStorage.setItem('elow-admin-pw', pw);
+          if (row.parentNode) row.parentNode.removeChild(row);
+          setDelStatus('"' + p.title + '" removido. O site atualiza em até 2 minutos.', 'ok');
+        });
+      })
+      .catch(function (e) {
+        del.disabled = false; del.textContent = 'Remover';
+        setDelStatus(e.message, 'err');
+      });
+  }
 })();
 </script>
 </body>
