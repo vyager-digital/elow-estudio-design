@@ -151,14 +151,6 @@ const PORTFOLIO_DATA = [
     gallery: ["../assets/images/gallery-noon-clinic-01.png", "../assets/images/gallery-noon-clinic-02.png", "../assets/images/gallery-noon-clinic-03.png", "../assets/images/gallery-noon-clinic-04.png", "../assets/images/gallery-noon-clinic-05.png", "../assets/images/gallery-noon-clinic-06.png"]
   },
   {
-    slug:    'noc-clinic',
-    title:   'NOC Clinic',
-    cat:     'identidade-visual',
-    setor:   'Saúde',
-    img:     '../assets/images/portfolio-noc-clinic.png',
-    gallery: ["../assets/images/gallery-noc-clinic-01.png", "../assets/images/gallery-noc-clinic-02.png", "../assets/images/gallery-noc-clinic-03.png", "../assets/images/gallery-noc-clinic-04.png", "../assets/images/gallery-noc-clinic-05.png", "../assets/images/gallery-noc-clinic-06.png"]
-  },
-  {
     slug:    'artfarma',
     title:   'Artfarma',
     cat:     'identidade-visual',
