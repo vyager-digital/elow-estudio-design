@@ -208,7 +208,6 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       <label for="delPassword">Senha</label>
       <input type="password" id="delPassword" autocomplete="current-password">
     </div>
-    <button type="button" class="btn" id="loadBtn">Ver projetos publicados</button>
     <p class="status" id="delStatus" role="status"></p>
     <div class="manage-list" id="manageList"></div>
   </div>
@@ -391,7 +390,6 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 
   // ── Remover projeto ──────────────────────────────────────
   var delPw = document.getElementById('delPassword');
-  var loadBtn = document.getElementById('loadBtn');
   var delStatusEl = document.getElementById('delStatus');
   var manageList = document.getElementById('manageList');
   if (savedPw) delPw.value = savedPw;
@@ -401,8 +399,8 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     delStatusEl.className = 'status' + (cls ? ' ' + cls : '');
   }
 
-  loadBtn.addEventListener('click', function () {
-    setDelStatus('Carregando…', 'ok');
+  function loadProjects() {
+    setDelStatus('Carregando projetos…', 'ok');
     manageList.innerHTML = '';
     fetch('../assets/data/portfolio-data.js?_=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
@@ -414,8 +412,8 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         setDelStatus(data.length + ' projetos no portfólio.', 'ok');
         renderManage(data);
       })
-      .catch(function (e) { setDelStatus(e.message, 'err'); });
-  });
+      .catch(function () { setDelStatus('Não foi possível carregar a lista. Recarregue a página.', 'err'); });
+  }
 
   function renderManage(data) {
     manageList.innerHTML = '';
@@ -460,6 +458,8 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         setDelStatus(e.message, 'err');
       });
   }
+
+  loadProjects(); // show the list automatically on page open
 })();
 </script>
 </body>
