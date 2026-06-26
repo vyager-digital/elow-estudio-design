@@ -208,6 +208,10 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       <label for="delPassword">Senha</label>
       <input type="password" id="delPassword" autocomplete="current-password">
     </div>
+    <div class="field" style="margin-bottom:14px">
+      <label for="delSearch">Buscar projeto</label>
+      <input type="text" id="delSearch" placeholder="Digite o nome ou setor…" autocomplete="off">
+    </div>
     <p class="status" id="delStatus" role="status"></p>
     <div class="manage-list" id="manageList"></div>
   </div>
@@ -390,13 +394,19 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 
   // ── Remover projeto ──────────────────────────────────────
   var delPw = document.getElementById('delPassword');
+  var delSearch = document.getElementById('delSearch');
   var delStatusEl = document.getElementById('delStatus');
   var manageList = document.getElementById('manageList');
+  var allProjects = [];
   if (savedPw) delPw.value = savedPw;
 
   function setDelStatus(msg, cls) {
     delStatusEl.textContent = msg;
     delStatusEl.className = 'status' + (cls ? ' ' + cls : '');
+  }
+
+  function norm(s) {
+    return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   }
 
   function loadProjects() {
@@ -408,11 +418,27 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         var data;
         try { data = (new Function(txt + '\nreturn PORTFOLIO_DATA;'))(); }
         catch (e) { throw new Error('Não foi possível ler a lista de projetos.'); }
-        if (!data || !data.length) { setDelStatus('Nenhum projeto encontrado.', ''); return; }
-        setDelStatus(data.length + ' projetos no portfólio.', 'ok');
-        renderManage(data);
+        allProjects = data || [];
+        refreshManage();
       })
       .catch(function () { setDelStatus('Não foi possível carregar a lista. Recarregue a página.', 'err'); });
+  }
+
+  function refreshManage() {
+    if (!allProjects.length) { manageList.innerHTML = ''; setDelStatus('Nenhum projeto encontrado.', ''); return; }
+    var q = delSearch.value.trim();
+    if (!q) {
+      manageList.innerHTML = '';
+      setDelStatus(allProjects.length + ' projetos no portfólio. Digite para buscar.', 'ok');
+      return;
+    }
+    var nq = norm(q);
+    var list = allProjects.filter(function (p) {
+      return norm(p.title).indexOf(nq) >= 0 || norm(p.setor).indexOf(nq) >= 0;
+    });
+    renderManage(list);
+    if (!list.length) setDelStatus('Nenhum projeto encontrado para “' + q + '”.', '');
+    else setDelStatus(list.length + (list.length === 1 ? ' resultado.' : ' resultados.'), 'ok');
   }
 
   function renderManage(data) {
@@ -449,6 +475,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         return res.json().then(function (data) {
           if (!res.ok) throw new Error(data.error || 'Erro ao remover. Tente novamente.');
           sessionStorage.setItem('elow-admin-pw', pw);
+          allProjects = allProjects.filter(function (x) { return x.slug !== p.slug; });
           if (row.parentNode) row.parentNode.removeChild(row);
           setDelStatus('"' + p.title + '" removido. O site atualiza em até 2 minutos.', 'ok');
         });
@@ -459,7 +486,8 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       });
   }
 
-  loadProjects(); // show the list automatically on page open
+  delSearch.addEventListener('input', refreshManage);
+  loadProjects(); // load the project list automatically on page open
 })();
 </script>
 </body>
