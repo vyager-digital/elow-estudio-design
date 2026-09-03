@@ -247,6 +247,7 @@ body.translated-ltr,body.translated-rtl{margin-top:0!important;top:0!important}
 function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'pt',autoDisplay:false},'gt-hidden-elow')}
 function setLang(lang){
   var d=location.hostname;
+  document.cookie='elow_lang_set=1;path=/;max-age=31536000';
   if(lang==='pt'){document.cookie='googtrans=;expires=Thu,01 Jan 1970 00:00:00 UTC;path=/;';document.cookie='googtrans=;expires=Thu,01 Jan 1970 00:00:00 UTC;path=/;domain='+d;}
   else{document.cookie='googtrans=/pt/'+lang+';path=/';document.cookie='googtrans=/pt/'+lang+';path=/;domain='+d;}
   location.href=location.pathname+location.search;
