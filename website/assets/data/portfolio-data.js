@@ -98,7 +98,7 @@ const PORTFOLIO_DATA = [
     slug:    'matilha-dogs-artesanais',
     title:   'Matilha Dogs Artesanais',
     cat:     'identidade-visual',
-    setor:   'Petshop',
+    setor:   'Gastronomia',
     img:     '../assets/images/portfolio-matilha-dogs-artesanais.png',
     gallery: ["../assets/images/gallery-matilha-dogs-artesanais-01.png", "../assets/images/gallery-matilha-dogs-artesanais-02.png", "../assets/images/gallery-matilha-dogs-artesanais-03.png", "../assets/images/gallery-matilha-dogs-artesanais-04.png", "../assets/images/gallery-matilha-dogs-artesanais-05.png", "../assets/images/gallery-matilha-dogs-artesanais-06.png", "../assets/images/gallery-matilha-dogs-artesanais-07.png", "../assets/images/gallery-matilha-dogs-artesanais-08.png"]
   },
@@ -245,16 +245,6 @@ const PORTFOLIO_DATA = [
     setor:   'Advocacia',
     img:     '../assets/images/portfolio-oliveira-jacobovitz-advogados.webp',
     gallery: ["../assets/images/gallery-oliveira-jacobovitz-advogados-01.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-02.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-03.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-04.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-05.webp", "../assets/images/gallery-oliveira-jacobovitz-advogados-06.webp"]
-  },
-
-  /* ── ADICIONADO VIA PORTAL — 2026-06-19 ─────────────────── */
-  {
-    slug:    'noc',
-    title:   'NOC',
-    cat:     'identidade-visual',
-    setor:   'Saúde',
-    img:     '../assets/images/portfolio-noc.webp',
-    gallery: ["../assets/images/gallery-noc-01.webp", "../assets/images/gallery-noc-02.webp", "../assets/images/gallery-noc-03.webp", "../assets/images/gallery-noc-04.webp", "../assets/images/gallery-noc-05.webp", "../assets/images/gallery-noc-06.webp"]
   },
 
 ];
