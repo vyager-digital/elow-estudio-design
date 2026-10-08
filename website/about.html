@@ -480,14 +480,38 @@ mobileNav.querySelectorAll('.mobile-nav-link').forEach(el=>el.addEventListener('
   </a>
 </div>
 <style>
-.wa-wrap{position:fixed!important;bottom:24px!important;right:24px!important;display:flex!important;align-items:center!important;z-index:99999!important;gap:0!important;margin:0!important;padding:0!important;}
-.wa-btn{width:62px!important;height:62px!important;min-width:62px!important;min-height:62px!important;background:#25D366!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;text-decoration:none!important;box-shadow:2px 3px 14px rgba(0,0,0,.3)!important;flex-shrink:0!important;transition:transform .15s ease!important;cursor:pointer!important;border:none!important;padding:0!important;margin:0!important;}
+.wa-wrap{pointer-events:none!important;position:fixed!important;bottom:24px!important;right:24px!important;display:flex!important;align-items:center!important;z-index:99999!important;gap:0!important;margin:0!important;padding:0!important;}
+.wa-btn{pointer-events:auto!important;width:62px!important;height:62px!important;min-width:62px!important;min-height:62px!important;background:#25D366!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;text-decoration:none!important;box-shadow:2px 3px 14px rgba(0,0,0,.3)!important;flex-shrink:0!important;transition:transform .15s ease!important;cursor:pointer!important;border:none!important;padding:0!important;margin:0!important;}
 .wa-btn:hover{transform:scale(1.06)!important;}
 .wa-btn svg{display:block!important;width:32px!important;height:32px!important;flex-shrink:0!important;}
 .wa-btn svg path{fill:white!important;}
 .wa-label{display:block!important;background:#25D366!important;color:#fff!important;font-family:Arial,Helvetica,sans-serif!important;font-size:14px!important;font-weight:700!important;font-style:normal!important;font-variant:normal!important;line-height:1!important;letter-spacing:0!important;text-transform:none!important;word-spacing:0!important;white-space:nowrap!important;padding:10px 16px!important;border-radius:20px!important;margin:0 8px 0 0!important;opacity:0!important;transform:translateX(12px)!important;transition:opacity .2s ease,transform .25s ease!important;pointer-events:none!important;box-shadow:none!important;text-decoration:none!important;box-sizing:border-box!important;}
 .wa-wrap:hover .wa-label{opacity:1!important;transform:translateX(0)!important;}
 </style>
+<script>
+/* Keep the WhatsApp button and its label clear of the footer credit. */
+(function(){
+  const bubble=document.querySelector('.wa-wrap');
+  const credit=document.querySelector('.foot-credit');
+  if(!bubble||!credit)return;
+  let pending=false;
+  function updatePosition(){
+    pending=false;
+    const rect=credit.getBoundingClientRect();
+    const visible=rect.top<window.innerHeight&&rect.bottom>0;
+    const bottom=visible?Math.max(24,window.innerHeight-rect.top+16):24;
+    bubble.style.setProperty('bottom',bottom+'px','important');
+  }
+  function scheduleUpdate(){
+    if(!pending){pending=true;requestAnimationFrame(updatePosition);}
+  }
+  window.addEventListener('scroll',scheduleUpdate,{passive:true});
+  window.addEventListener('resize',scheduleUpdate);
+  window.addEventListener('load',scheduleUpdate);
+  if('ResizeObserver' in window)new ResizeObserver(scheduleUpdate).observe(credit);
+  updatePosition();
+})();
+</script>
 </div><!-- /elow-wrapper -->
 </body>
 </html>
