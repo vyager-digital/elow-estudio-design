@@ -15,6 +15,17 @@ Two **Cloudflare Pages** projects, both git-connected to the same repo:
 **`index.html` at the repo root is the old single-page prototype. It is not deployed.**
 Don't edit it thinking you're editing the site. The live home page is `website/index.html`.
 
+## Confirmed maintenance decisions — 2026-10-08
+- Working checkout: `C:/Users/ffvgk/Vyager Digital/clients/Old Clients/Élow Estúdio/Site/elow-estudio-design`.
+- Drive source snapshot: `K:/Meu Drive/Vyager Digital/Clients/Old Clients/Élow Estúdio/Site/Current GitHub Project`.
+- GitHub is the source of truth. Drive snapshots exclude Git metadata and local runtime caches.
+- The older `clients/elow-estudio-design` folder in the agency repository is a legacy prototype; do not use it for live edits.
+- Instagram (`https://www.instagram.com/elow.estudiodesign/`) belongs only on `website/index.html`, right-aligned and bottom-aligned beside the policy links. Never add it to the identity landing page.
+- Footer keeps CNPJ and phone, without a physical address. Policy-to-contact spacing is 16px on the home and identity landing page.
+- `/identidadevisual` and `/identidadevisual/` redirect to `/identidade-visual/`. The latter is the canonical landing page URL.
+- Matilha: `Gastronomia`, grouped under `Alimentação & Bebidas`. Bio Stick: `Jardinagem`, grouped under `Outros`.
+- NOC is a duplicate removed from portfolio data; retain Noon Clinic. Do not reintroduce NOC during portfolio imports.
+- WhatsApp floats above the footer credit when it enters the viewport; its invisible label must not block clicks.
 ## Pages (all in `website/`)
 `index.html` (home) · `about.html` · `services.html` · `portfolio.html` ·
 `projeto.html` (project detail, reads its slug from the URL) · `privacy.html` · `terms.html` ·
