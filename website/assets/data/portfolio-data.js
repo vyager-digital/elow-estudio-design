@@ -222,7 +222,7 @@ const PORTFOLIO_DATA = [
     slug:    'bio-stick',
     title:   'Bio Stick',
     cat:     'redesign-de-marca',
-    setor:   'Cosméticos',
+    setor:   'Jardinagem',
     img:     '../assets/images/portfolio-bio-stick.png',
     gallery: ["../assets/images/gallery-bio-stick-01.png", "../assets/images/gallery-bio-stick-02.png", "../assets/images/gallery-bio-stick-03.png", "../assets/images/gallery-bio-stick-04.png", "../assets/images/gallery-bio-stick-05.png", "../assets/images/gallery-bio-stick-06.png"]
   },
